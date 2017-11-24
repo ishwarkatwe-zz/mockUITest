@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="d3.layout.cloud.js"></script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: "Lucida Grande", "Droid Sans", Arial, Helvetica, sans-serif;
+        }
+
+        .legend {
+            border: 1px solid #555555;
+            border-radius: 5px 5px 5px 5px;
+            font-size: 0.8em;
+            margin: 10px;
+            padding: 8px;
+        }
+
+        .bld {
+            font-weight: bold;
+        }
+
+        .table {
+            margin: 0px;
+            margin-bottom: 5px;
+        }
+
+        .table>thead>tr>th {
+            vertical-align: middle;
+        }
+
+        .table>thead>tr>td {
+            vertical-align: middle;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat.up span {
+            color: #141414;
+        }
+
+        .stat.up i {
+            float: right;
+            color: green;
+            padding: 0px 5px;
+        }
+
+        .stat.down span {
+            color: #141414;
+        }
+
+        .stat.down i {
+            float: right;
+            color: red;
+            padding: 0px 5px;
+        }
+
+        .btn-compare {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 20;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div style="text-align:center">
+        <div id="cloud">
+        </div>
+    </div>
+
+
+    <div class="table-responsive">
+        <button class="btn btn-primary btn-xs closeCompare" style="display: none; float:right; margin:5px 0px;" onclick="closeCompare()"
+            style="margin:5px 0px; float:right;">
+            <i class="fa fa-times"></i>
+        </button>
+        <table class="table table-bordered table-condensed table-hover data-table">
+            <thead>
+                <tr>
+                    <th>
+                        <!-- <input type="checkbox" checked /> -->
+                    </th>
+                    <th style="text-align:center">Si No.</th>
+                    <th>Organization/Institution </th>
+                    <th style="text-align:center">2013</th>
+                    <th style="text-align:center">2014</th>
+                    <th style="text-align:center">2015</th>
+                    <th style="text-align:center">2016</th>
+                    <th style="text-align:center">2017</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>1</td>
+                    <td>
+                        <a href="viewInst.html">University of Bari Aldo Moro</a>
+                    </td>
+                    <td class="stat up">
+                        <span>999</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+                    <td class="stat up">
+                        <span>9634</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+                    <td class="stat down">
+                        <span>6325</span>
+                        <i class="fa fa-arrow-down"></i>
+                    </td>
+                    <td class="stat up">
+                        <span>9886</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+                    <td class="stat down">
+                        <span>1212</span>
+                        <i class="fa fa-arrow-down"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>2</td>
+                    <td>
+                        <a href="viewInst.html">Massachusetts Institute of Technology</a>
+                    </td>
+                    <td class="stat up">
+                        <span>225</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+                    <td class="stat down">
+                        <span>135</span>
+                        <i class="fa fa-arrow-down"></i>
+                    </td>
+                    <td class="stat up">
+                        <span>214</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+                    <td class="stat up">
+                        <span>211</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+                    <td class="stat down">
+                        <span>935</span>
+                        <i class="fa fa-arrow-down"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>3</td>
+                    <td>
+                        <a href="viewInst.html">Xi'an Jiaotong University </a>
+                    </td>
+                    <td class="stat down">
+                        <span>1123</span>
+                        <i class="fa fa-arrow-down"></i>
+                    </td>
+                    <td class="stat up">
+                        <span>1223</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+
+                    <td class="stat up">
+                        <span>1423</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+                    <td class="stat down">
+                        <span>25</span>
+                        <i class="fa fa-arrow-down"></i>
+                    </td>
+                    <td class="stat up">
+                        <span>212</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>4</td>
+                    <td>
+                        <a href="viewInst.html">University of Texas at Austin</a>
+                    </td>
+
+                    <td class="stat up">
+                        <span>235</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+
+                    <td class="stat up">
+                        <span>123</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+                    <td class="stat down">
+                        <span>223</span>
+                        <i class="fa fa-arrow-down"></i>
+                    </td>
+                    <td class="stat down">
+                        <span>923</span>
+                        <i class="fa fa-arrow-down"></i>
+                    </td>
+                    <td class="stat up">
+                        <span>234</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>5</td>
+                    <td>
+                        <a href="viewInst.html">Huazhong University of Science and Technology</a>
+                    </td>
+                    <td class="stat up">
+                        <span>1234</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+                    <td class="stat down">
+                        <span>234</span>
+                        <i class="fa fa-arrow-down"></i>
+                    </td>
+                    <td class="stat down">
+                        <span>315</span>
+                        <i class="fa fa-arrow-down"></i>
+                    </td>
+                    <td class="stat up">
+                        <span>2145</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+                    <td class="stat up">
+                        <span>244</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>6</td>
+                    <td>
+                        <a href="viewInst.html">Politecnico di Milano</a>
+                    </td>
+                    <td class="stat up">
+                        <span>123</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+
+                    <td class="stat up">
+                        <span>134</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+                    <td class="stat down">
+                        <span>113</span>
+                        <i class="fa fa-arrow-down"></i>
+                    </td>
+                    <td class="stat down">
+                        <span>134</span>
+                        <i class="fa fa-arrow-down"></i>
+                    </td>
+                    <td class="stat up">
+                        <span>344</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>7</td>
+                    <td>
+                        <a href="viewInst.html">Beihang University</a>
+                    </td>
+                    <td class="stat up">
+                        <span>243</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+
+                    <td class="stat up">
+                        <span>134</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+                    <td class="stat down">
+                        <span>1234</span>
+                        <i class="fa fa-arrow-down"></i>
+                    </td>
+                    <td class="stat down">
+                        <span>634</span>
+                        <i class="fa fa-arrow-down"></i>
+                    </td>
+                    <td class="stat up">
+                        <span>2434</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>8</td>
+                    <td>
+                        <a href="viewInst.html">University of Science and Technology of China</a>
+                    </td>
+                    <td class="stat down">
+                        <span>153</span>
+                        <i class="fa fa-arrow-down"></i>
+                    </td>
+                    <td class="stat up">
+                        <span>1243</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+
+                    <td class="stat up">
+                        <span>1434</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+                    <td class="stat down">
+                        <span>344</span>
+                        <i class="fa fa-arrow-down"></i>
+                    </td>
+                    <td class="stat up">
+                        <span>263</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>9</td>
+                    <td>
+                        <a href="viewInst.html">Northwestern Polytechnical University</a>
+                    </td>
+
+                    <td class="stat down">
+                        <span>215</span>
+                        <i class="fa fa-arrow-down"></i>
+                    </td>
+                    <td class="stat down">
+                        <span>125</span>
+                        <i class="fa fa-arrow-down"></i>
+                    </td>
+                    <td class="stat up">
+                        <span>212</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+                    <td class="stat up">
+                        <span>115</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+
+                    <td class="stat up">
+                        <span>1123</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>10</td>
+                    <td>
+                        <a href="viewInst.html">Jilin University </a>
+                    </td>
+
+                    <td class="stat up">
+                        <span>335</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+
+                    <td class="stat down">
+                        <span>385</span>
+                        <i class="fa fa-arrow-down"></i>
+                    </td>
+                    <td class="stat up">
+                        <span>122</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+                    <td class="stat down">
+                        <span>122</span>
+                        <i class="fa fa-arrow-down"></i>
+                    </td>
+                    <td class="stat up">
+                        <span>423</span>
+                        <i class="fa fa-arrow-up"></i>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+        <nav>
+
+            <ul class="pagination pagination-md pull-right" style="margin:5px 0px;">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">«</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">1</a>
+                </li>
+                <li>
+                    <a href="#">2</a>
+                </li>
+                <li>
+                    <a href="#">3</a>
+                </li>
+                <li>
+                    <a href="#">4</a>
+                </li>
+                <li>
+                    <a href="#">5</a>
+                </li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">»</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+
+    <script>
+        var frequency_list = [{
+                "size": 1,
+                "text": "pacemakers"
+            },
+            {
+                "size": 83,
+                "text": "minerals"
+            },
+            {
+                "size": 4,
+                "text": "outgassing"
+            },
+            {
+                "size": 5,
+                "text": "information technology"
+            },
+            {
+                "size": 36,
+                "text": "phononic crystals"
+            },
+            {
+                "size": 13,
+                "text": "sensitivity analysis"
+            },
+            {
+                "size": 3,
+                "text": "stents"
+            },
+            {
+                "size": 1,
+                "text": "costing"
+            },
+            {
+                "size": 47,
+                "text": "pollution"
+            },
+            {
+                "size": 172,
+                "text": "zinc alloys"
+            },
+            {
+                "size": 25,
+                "text": "superconductive tunnelling"
+            },
+            {
+                "size": 49,
+                "text": "convection"
+            },
+            {
+                "size": 9,
+                "text": "halogens"
+            },
+            {
+                "size": 3,
+                "text": "fluidisation"
+            },
+            {
+                "size": 324,
+                "text": "disperse systems"
+            },
+            {
+                "size": 10,
+                "text": "clamps"
+            },
+            {
+                "size": 387,
+                "text": "palladium"
+            },
+            {
+                "size": 2,
+                "text": "environmental engineering"
+            },
+            {
+                "size": 89,
+                "text": "superfluidity"
+            },
+            {
+                "size": 1,
+                "text": "superconductor-insulator-superconductor devices"
+            },
+            {
+                "size": 1,
+                "text": "stapling"
+            },
+            {
+                "size": 82,
+                "text": "kinetic theory"
+            },
+            {
+                "size": 1,
+                "text": "radioactive ion beams"
+            },
+            {
+                "size": 1,
+                "text": "error correction"
+            },
+            {
+                "size": 641,
+                "text": "gallium compounds"
+            },
+            {
+                "size": 15,
+                "text": "yield point"
+            },
+            {
+                "size": 5,
+                "text": "proximity effect (lithography)"
+            },
+            {
+                "size": 8,
+                "text": "induction heating"
+            },
+            {
+                "size": 1,
+                "text": "counters"
+            },
+            {
+                "size": 1,
+                "text": "melt texturing"
+            },
+            {
+                "size": 4,
+                "text": "point defect scattering"
+            },
+            {
+                "size": 3,
+                "text": "investment"
+            },
+            {
+                "size": 13,
+                "text": "coating techniques"
+            },
+            {
+                "size": 42,
+                "text": "standards"
+            },
+            {
+                "size": 6,
+                "text": "Mach-Zehnder interferometers"
+            },
+            {
+                "size": 3,
+                "text": "pipe flow"
+            },
+            {
+                "size": 6,
+                "text": "turbidimetry"
+            },
+            {
+                "size": 261,
+                "text": "differential thermal analysis"
+            },
+            {
+                "size": 1,
+                "text": "chemistry computing"
+            },
+            {
+                "size": 7,
+                "text": "island structure"
+            },
+            {
+                "size": 7,
+                "text": "butt welding"
+            },
+            {
+                "size": 94,
+                "text": "aerogels"
+            },
+            {
+                "size": 152,
+                "text": "electron density"
+            },
+            {
+                "size": 2,
+                "text": "wind turbines"
+            },
+            {
+                "size": 1,
+                "text": "laser applications in medicine"
+            },
+            {
+                "size": 265,
+                "text": "multi-wall carbon nanotubes"
+            },
+            {
+                "size": 72,
+                "text": "system-on-chip"
+            },
+            {
+                "size": 4,
+                "text": "ultrasonic imaging"
+            },
+            {
+                "size": 190,
+                "text": "crystal field interactions"
+            },
+            {
+                "size": 1,
+                "text": "ununpentium"
+            },
+            {
+                "size": 6,
+                "text": "electroforming"
+            },
+            {
+                "size": 2,
+                "text": "ceramic capacitors"
+            },
+            {
+                "size": 1,
+                "text": "cybernetics"
+            },
+            {
+                "size": 2,
+                "text": "machine tool spindles"
+            },
+            {
+                "size": 292,
+                "text": "corrosion resistance"
+            },
+            {
+                "size": 43,
+                "text": "metallisation"
+            },
+            {
+                "size": 12,
+                "text": "acoustic wave propagation"
+            },
+            {
+                "size": 2,
+                "text": "photon-deuteron interactions"
+            },
+            {
+                "size": 1,
+                "text": "nuclear resonances"
+            },
+            {
+                "size": 962,
+                "text": "gold"
+            },
+            {
+                "size": 1,
+                "text": "Einstein-de Haas effect"
+            },
+            {
+                "size": 540,
+                "text": "Monte Carlo methods"
+            },
+            {
+                "size": 326,
+                "text": "balances"
+            },
+            {
+                "size": 1,
+                "text": "humanities"
+            },
+            {
+                "size": 2,
+                "text": "microwave technology"
+            },
+            {
+                "size": 3,
+                "text": "radial basis function networks"
+            },
+            {
+                "size": 1,
+                "text": "plasma Langmuir waves"
+            },
+            {
+                "size": 2,
+                "text": "crystal growth from gel"
+            },
+            {
+                "size": 1,
+                "text": "mainframes"
+            },
+            {
+                "size": 2,
+                "text": "relativistic electron beams"
+            },
+            {
+                "size": 1,
+                "text": "matrix inversion"
+            },
+            {
+                "size": 97,
+                "text": "helium"
+            },
+            {
+                "size": 5,
+                "text": "pistons"
+            },
+            {
+                "size": 52,
+                "text": "blood"
+            },
+            {
+                "size": 3,
+                "text": "subcarrier multiplexing"
+            },
+            {
+                "size": 586,
+                "text": "viscosity"
+            },
+            {
+                "size": 499,
+                "text": "Fermi level"
+            },
+            {
+                "size": 2,
+                "text": "noise (working environment)"
+            },
+            {
+                "size": 10,
+                "text": "dilute magnetic materials"
+            },
+            {
+                "size": 1,
+                "text": "quark models"
+            },
+            {
+                "size": 656,
+                "text": "plasma"
+            },
+            {
+                "size": 65,
+                "text": "twin boundaries"
+            },
+            {
+                "size": 6,
+                "text": "surgery"
+            },
+            {
+                "size": 191,
+                "text": "electron-hole recombination"
+            },
+            {
+                "size": 1,
+                "text": "analogue circuits"
+            },
+            {
+                "size": 8,
+                "text": "wheels"
+            },
+            {
+                "size": 10,
+                "text": "meteorite craters"
+            },
+            {
+                "size": 2,
+                "text": "splines (mathematics)"
+            },
+            {
+                "size": 11,
+                "text": "temperature sensors"
+            },
+            {
+                "size": 4,
+                "text": "deaeration"
+            },
+            {
+                "size": 24,
+                "text": "thermocouples"
+            },
+            {
+                "size": 7,
+                "text": "carbon nanotube field effect transistors"
+            },
+            {
+                "size": 1805,
+                "text": "doping"
+            },
+            {
+                "size": 4,
+                "text": "high-frequency discharges"
+            },
+            {
+                "size": 1,
+                "text": "ozone generators"
+            },
+            {
+                "size": 28,
+                "text": "pneumodynamics"
+            },
+            {
+                "size": 1,
+                "text": "optical fibre fabrication"
+            },
+            {
+                "size": 6,
+                "text": "flerovium"
+            },
+            {
+                "size": 1,
+                "text": "Hanle effect"
+            },
+            {
+                "size": 6,
+                "text": "Gaussian noise"
+            },
+            {
+                "size": 1,
+                "text": "Earth crust"
+            },
+            {
+                "size": 1,
+                "text": "thin wall structures"
+            },
+            {
+                "size": 2,
+                "text": "automatic gain control"
+            },
+            {
+                "size": 607,
+                "text": "tin"
+            },
+            {
+                "size": 2,
+                "text": "applicators"
+            },
+            {
+                "size": 8,
+                "text": "piezoelectric devices"
+            },
+            {
+                "size": 5,
+                "text": "spectrochemical analysis"
+            },
+            {
+                "size": 1,
+                "text": "load regulation"
+            },
+            {
+                "size": 844,
+                "text": "composite materials"
+            },
+            {
+                "size": 750,
+                "text": "thermal analysis"
+            },
+            {
+                "size": 8,
+                "text": "mercury alloys"
+            },
+            {
+                "size": 1,
+                "text": "cardiovascular system"
+            },
+            {
+                "size": 183,
+                "text": "alloying"
+            },
+            {
+                "size": 343,
+                "text": "solvation"
+            },
+            {
+                "size": 6,
+                "text": "polonium"
+            },
+            {
+                "size": 41,
+                "text": "magnetic circular dichroism"
+            },
+            {
+                "size": 39,
+                "text": "spontaneous magnetisation"
+            },
+            {
+                "size": 3,
+                "text": "elementary particle theory"
+            },
+            {
+                "size": 1,
+                "text": "virtual private networks"
+            },
+            {
+                "size": 845,
+                "text": "atomic force microscopy"
+            },
+            {
+                "size": 4,
+                "text": "resists"
+            },
+            {
+                "size": 11,
+                "text": "dichroism"
+            },
+            {
+                "size": 1,
+                "text": "biological effects of neutrons"
+            },
+            {
+                "size": 31,
+                "text": "bond angles"
+            },
+            {
+                "size": 11,
+                "text": "vapour deposited coatings"
+            },
+            {
+                "size": 44,
+                "text": "sand"
+            },
+            {
+                "size": 2,
+                "text": "surface finishing"
+            },
+            {
+                "size": 1,
+                "text": "electronic engineering"
+            },
+            {
+                "size": 231,
+                "text": "ductility"
+            },
+            {
+                "size": 78,
+                "text": "torsion"
+            },
+            {
+                "size": 1,
+                "text": "superconducting magnet energy storage"
+            },
+            {
+                "size": 4,
+                "text": "civil engineering"
+            },
+            {
+                "size": 53,
+                "text": "erosion"
+            },
+            {
+                "size": 5,
+                "text": "Bayes methods"
+            },
+            {
+                "size": 352,
+                "text": "crystallites"
+            },
+            {
+                "size": 15,
+                "text": "thermal noise"
+            },
+            {
+                "size": 3,
+                "text": "photon-deuteron scattering"
+            },
+            {
+                "size": 2,
+                "text": "voltage control"
+            },
+            {
+                "size": 10,
+                "text": "memristors"
+            },
+            {
+                "size": 32,
+                "text": "ultrasonic velocity"
+            },
+            {
+                "size": 573,
+                "text": "elasticity"
+            },
+            {
+                "size": 16,
+                "text": "radioisotopes"
+            },
+            {
+                "size": 3,
+                "text": "radiofrequency spectra"
+            },
+            {
+                "size": 3,
+                "text": "earthquakes"
+            },
+            {
+                "size": 320,
+                "text": "lead compounds"
+            },
+            {
+                "size": 15,
+                "text": "semiconductor technology"
+            },
+            {
+                "size": 1,
+                "text": "fission reactor design"
+            },
+            {
+                "size": 16,
+                "text": "colorimetry"
+            },
+            {
+                "size": 4,
+                "text": "nuclei with mass number 1 to 5"
+            },
+            {
+                "size": 497,
+                "text": "charge exchange"
+            },
+            {
+                "size": 1,
+                "text": "mathematical morphology"
+            },
+            {
+                "size": 429,
+                "text": "titanium alloys"
+            },
+            {
+                "size": 6,
+                "text": "cloud computing"
+            },
+            {
+                "size": 6,
+                "text": "Widmanstatten structure"
+            },
+            {
+                "size": 356,
+                "text": "boron compounds"
+            },
+            {
+                "size": 1,
+                "text": "swirling flow"
+            },
+            {
+                "size": 6,
+                "text": "peristaltic flow"
+            },
+            {
+                "size": 6,
+                "text": "neptunium compounds"
+            },
+            {
+                "size": 3,
+                "text": "computer aided manufacturing"
+            },
+            {
+                "size": 90,
+                "text": "magnetic impurities"
+            },
+            {
+                "size": 1,
+                "text": "step response"
+            },
+            {
+                "size": 523,
+                "text": "exchange interactions (electron)"
+            },
+            {
+                "size": 1,
+                "text": "hot electron transistors"
+            },
+            {
+                "size": 20,
+                "text": "Dirac equation"
+            },
+            {
+                "size": 2,
+                "text": "decision trees"
+            },
+            {
+                "size": 3,
+                "text": "focal planes"
+            },
+            {
+                "size": 245,
+                "text": "shielding"
+            },
+            {
+                "size": 127,
+                "text": "cancer"
+            },
+            {
+                "size": 1,
+                "text": "optical fibre amplifiers"
+            },
+            {
+                "size": 223,
+                "text": "silver compounds"
+            },
+            {
+                "size": 219,
+                "text": "tantalum"
+            },
+            {
+                "size": 68,
+                "text": "fluorine compounds"
+            },
+            {
+                "size": 17,
+                "text": "antiferrimagnetism"
+            },
+            {
+                "size": 1,
+                "text": "supergravity"
+            },
+            {
+                "size": 8,
+                "text": "electroplated coatings"
+            },
+            {
+                "size": 2,
+                "text": "porcelain"
+            },
+            {
+                "size": 6,
+                "text": "radiative transfer"
+            },
+            {
+                "size": 11,
+                "text": "magneto-optical devices"
+            },
+            {
+                "size": 10,
+                "text": "photocathodes"
+            },
+            {
+                "size": 216,
+                "text": "mixtures"
+            },
+            {
+                "size": 13,
+                "text": "surface phonons"
+            },
+            {
+                "size": 37,
+                "text": "phonon-phonon interactions"
+            },
+            {
+                "size": 14,
+                "text": "optical polymers"
+            },
+            {
+                "size": 7,
+                "text": "design for disassembly"
+            },
+            {
+                "size": 7,
+                "text": "shot peening"
+            },
+            {
+                "size": 139,
+                "text": "cores"
+            },
+            {
+                "size": 2,
+                "text": "high spin states"
+            },
+            {
+                "size": 3,
+                "text": "curium"
+            },
+            {
+                "size": 4,
+                "text": "rotational states"
+            },
+            {
+                "size": 1,
+                "text": "secondary ion emission"
+            },
+            {
+                "size": 33,
+                "text": "granular materials"
+            },
+            {
+                "size": 37,
+                "text": "vitreous state"
+            },
+            {
+                "size": 3,
+                "text": "braking"
+            },
+            {
+                "size": 318,
+                "text": "silicon alloys"
+            },
+            {
+                "size": 129,
+                "text": "amorphous state"
+            },
+            {
+                "size": 9,
+                "text": "flow"
+            },
+            {
+                "size": 1,
+                "text": "globalisation"
+            },
+            {
+                "size": 23,
+                "text": "resonant tunnelling"
+            },
+            {
+                "size": 2,
+                "text": "sum rules"
+            },
+            {
+                "size": 1,
+                "text": "capacitive sensors"
+            }
+        ];
+
+
+        var color = d3.scale.linear()
+            .domain([0, 1, 2, 3, 4, 5, 6, 10, 15, 20, 100])
+            .range(["#ddd", "#ccc", "#bbb", "#aaa", "#999", "#888", "#777", "#666", "#555", "#444", "#333", "#222"]);
+
+        d3.layout.cloud().size([800, 300])
+            .words(frequency_list)
+            .rotate(0)
+            .fontSize(function (d) {
+                return d.size;
+            })
+            .on("end", draw)
+            .start();
+
+        function draw(words) {
+            d3.select("#cloud").append("svg")
+                .attr("width", 900)
+                .attr("height", 450)
+                .attr("class", "wordcloud")
+                .append("g")
+                // without the transform, words words would get cutoff to the left and top, they would
+                // appear outside of the SVG area
+                .attr("transform", "translate(320,200)")
+                .selectAll("text")
+                .data(words)
+                .enter().append("text")
+                .style("font-size", function (d) {
+                    return d.size + "px";
+                })
+                .style("fill", function (d, i) {
+                    return color(i);
+                })
+                .attr("transform", function (d) {
+                    return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                })
+                .text(function (d) {
+                    return d.text;
+                });
+        }
+    </script>
+
+
+</body>

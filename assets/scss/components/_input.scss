@@ -1,0 +1,26 @@
+input, button{
+  border-radius: 0px !important;
+}
+
+.btn{
+  &.btn-default.btn-blue{
+    background: $blue;
+    border-color: $blue;
+    color: $white;
+
+    &:hover, &focus{
+      background: lighten($blue, 5%);
+    }
+  }
+
+
+  &.btn-default.btn-blue{
+    background: $nav-bar-bg;
+    border-color: $nav-bar-bg;
+    color: $white;
+
+    &:hover, &focus{
+      background: lighten($nav-bar-bg, 5%);
+    }
+  }
+}

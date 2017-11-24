@@ -1,0 +1,14 @@
+.search-panel{
+
+  .tree-autosuggest{
+    position: relative;
+    .tree-structure{
+      background: $white;
+      display: none;
+      position: absolute;
+      width: 100%;
+      top:38px;
+      box-shadow: 1px 3px 5px $gray;
+    }
+  }
+}

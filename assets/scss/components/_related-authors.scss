@@ -1,0 +1,65 @@
+.related-authors{
+  &:after{
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  &.full-width{
+    article{
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid $gray;
+
+      &:last-child{
+        border-bottom: none;
+      }
+    }
+  }
+  position: relative;
+  .action-btn{
+    position: absolute;
+    &.left{
+      left:-5px;
+      top:40%;
+    }
+    &.right{
+      right:-5px;
+      top:40%;
+    }
+
+    i{
+      font-size: 16px;
+    }
+  }
+
+  article{
+    float: left;
+    width: calc(50% - 10px);
+    border: 1px solid $gray;
+    padding: 0px;
+    margin: 5px;
+    min-height: 62px;
+    padding: 5px;
+
+    figure{
+      img{
+        width: auto;
+        height: 55px;
+        vertical-align: top;
+      }
+      figcaption{
+        display: inline-block;
+        padding: 0px 2px;
+        h4{
+          font-size: 15px;
+          margin: 5px 0px;
+          a{
+            color: $black;
+          }
+        }
+      }
+
+    }
+  }
+}

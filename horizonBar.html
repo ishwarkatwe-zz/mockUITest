@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+
+<!-- Bootstrap -->
+<link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link href="./bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+<style>
+    body {
+        margin: 15px;
+        background-color: #ffffff;
+    }
+
+    .bar {
+        fill: #2e6b9d;
+    }
+
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: #D4D8DA;
+        stroke-width: 1px;
+        shape-rendering: crispEdges;
+    }
+
+    .x path {
+        display: none;
+    }
+
+    .toolTip {
+        position: absolute;
+        display: none;
+        min-width: 80px;
+        height: auto;
+        background: none repeat scroll 0 0 #ffffff;
+        border: 1px solid #2e6b9d;
+        padding: 14px;
+        text-align: center;
+    }
+</style>
+<div style="text-align: center">
+    <svg width="960" height="350"></svg>
+</div>
+
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>SI No.</th>
+                <th>Organisation</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Dept. Of Appl. Math. Theor. Phys., Univ. Of Cambridge, Cambridge</td>
+                    <td>1611</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Cambridge Univ., Cambridge</td>
+                    <td>1652</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Dept. Of Mater. Sci. Metall., Cambridge Univ., Cambridge</td>
+                    <td>1754</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Univ. Of Cambridge, Cambridge</td>
+                    <td>2688</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Cavendish Lab., Univ. Of Cambridge, Cambridge</td>
+                    <td>2435</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Dept. Of Eng., Univ. Of Cambridge, Cambridge</td>
+                    <td>3026</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Dept. Of Eng., Univ. Of Cambridge, Cambridge</td>
+                    <td>3026</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Dept. Of Eng., Cambridge Univ., Cambridge</td>
+                    <td>4207</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Dept. Of Appl. Math. Theor. Phys., Cambridge Univ., Cambridge</td>
+                    <td>2647</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Cavendish Lab., Cambridge Univ., Cambridge</td>
+                    <td>4405</td>
+                </tr>
+            </tbody>
+        </tbody>
+    </table>
+
+
+    <nav>
+
+        <ul class="pagination pagination-md pull-right" style="margin:5px 0px;">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">«</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">1</a>
+            </li>
+            <li>
+                <a href="#">2</a>
+            </li>
+            <li>
+                <a href="#">3</a>
+            </li>
+            <li>
+                <a href="#">4</a>
+            </li>
+            <li>
+                <a href="#">5</a>
+            </li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">»</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+    var svg = d3.select("svg"),
+        margin = {
+            top: 20,
+            right: 20,
+            bottom: 30,
+            left: 350
+        },
+        width = +svg.attr("width") - margin.left - margin.right,
+        height = +svg.attr("height") - margin.top - margin.bottom;
+
+    var tooltip = d3.select("body").append("div").attr("class", "toolTip");
+
+    var x = d3.scaleLinear().range([0, width]);
+    var y = d3.scaleBand().range([height, 0]);
+
+    var g = svg.append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    d3.json("horizondata.json", function (error, data) {
+        if (error) throw error;
+
+        data.sort(function (a, b) {
+            return a.value - b.value;
+        });
+
+        x.domain([0, d3.max(data, function (d) {
+            return d.value;
+        })]);
+        y.domain(data.map(function (d) {
+            return d.area;
+        })).padding(0.1);
+
+        g.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(x).ticks(10).tickFormat(function (d) {
+                // return parseInt(d / 1000);
+                return d;
+            }).tickSizeInner([-height]));
+
+        g.append("g")
+            .attr("class", "y axis")
+            .call(d3.axisLeft(y));
+
+        g.selectAll(".bar")
+            .data(data)
+            .enter().append("rect")
+            .attr("class", "bar")
+            .attr("x", 0)
+            .attr("height", y.bandwidth())
+            .attr("y", function (d) {
+                return y(d.area);
+            })
+            .attr("width", function (d) {
+                return x(d.value);
+            })
+            .on("mousemove", function (d) {
+                tooltip
+                    .style("left", d3.event.pageX - 50 + "px")
+                    .style("top", d3.event.pageY - 70 + "px")
+                    .style("display", "inline-block")
+                    .html((d.area) + "<br>" + "" + (d.value));
+            })
+            .on("mouseout", function (d) {
+                tooltip.style("display", "none");
+            });
+    });
+</script>

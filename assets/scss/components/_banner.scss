@@ -1,0 +1,96 @@
+.banner {
+  height: 600px;
+  height: 80vh;
+  position: relative;
+  background: linear-gradient(to bottom, $white, rgba(77, 146, 203, 0.21));
+  background: url("../../assets/img/iet-bg.jpg");
+  background-position: center;
+  background-size: cover;
+  &.active {
+    height: 200px;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom right, #002f4b, #dc4225);
+    opacity: .8;
+  }
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 100;
+    >h1 {
+      font-size: 26px;
+      color: $white;
+      margin: 25px 0px;
+    }
+    >p {
+      font-size: 13px;
+      color: $light-gray;
+    }
+    .input-group {
+      input {
+        border: none;
+      }
+    }
+  }
+  .title-overlay {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0px;
+    background: #fff;
+    padding: 10px 15PX;
+    border-radius: 20px;
+    font-size: 18px;
+    color: darken($blue, 30%);
+  }
+}
+
+.features {
+  position: relative;
+  margin: 20px;
+  .item {
+    padding: 10px; //&:hover {
+    //  background: $white;
+    //  .icon {
+    //    i {
+    //      background: $blue;
+    //      color: $white;
+    //    }
+    //  }
+    //  @include box-shadow(1px, 5px, 10px, $gray);
+    //}
+    .icon {
+      text-align: center;
+      background: $white;
+      min-height: 295px;
+      padding: 10px;
+      i {
+        font-size: 30px;
+        margin: 10px 0px;
+        padding: 20px;
+        border-radius: 50%;
+        background: $blue;
+        color: $white;
+      }
+      h2 {
+        font-size: 20px;
+      }
+      >p {
+        padding: 2px 0px;
+      }
+    }
+    .desc {
+      text-align: center;
+    }
+  }
+}

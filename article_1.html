@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        path {
+            stroke: steelblue;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: grey;
+            stroke-width: 1;
+            shape-rendering: crispEdges;
+        }
+    </style>
+
+    <!-- Body tag is where we will append our SVG and SVG objects-->
+</head>
+
+<body>
+
+    <div style="text-align:center">
+        <div id="line-graph">
+
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table id="data-table" class="table table-striped table-bordered dataTable" cellspacing="0" width="100%" role="grid" aria-describedby="data-table_info"
+            style="width: 100%;">
+            <thead>
+
+                <tr role="row">
+                    <th style="width:80px">Si No.</th>
+                    <th class="sorting_asc" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Articles: activate to sort column descending"
+                        style="width: 1399px;">Recent Articles</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr role="row" class="odd">
+                    <td>1</td>
+                    <td class="sorting_1">Light scattering investigation of the hydrolyzed thorium(IV) colloids and polymers</td>
+                </tr>
+                <tr role="row" class="even">
+                    <td>2</td>
+                    <td class="sorting_1">Properties of started earthquakes</td>
+
+
+                </tr>
+                <tr role="row" class="odd">
+                    <td>3</td>
+                    <td class="sorting_1">Scattered leaves</td>
+
+
+                </tr>
+                <tr role="row" class="even">
+                    <td>4</td>
+                    <td class="sorting_1">Mass-Spectrometric Analysis of Water Desorption upon Polyurethane Wear in Vacuum</td>
+
+
+                </tr>
+                <tr role="row" class="odd">
+                    <td>5</td>
+                    <td class="sorting_1">Fabrication of an exfoliated graphitic carbon nitride as a highly active visible light photocatalyst</td>
+
+
+                </tr>
+                <tr role="row" class="even">
+                    <td>6</td>
+                    <td class="sorting_1">Half-Integer Point Defects in the Q-Tensor Theory of Nematic Liquid Crystals</td>
+
+
+                </tr>
+                <tr role="row" class="odd">
+                    <td>7</td>
+                    <td class="sorting_1">Delocalization of two interacting particles in the 2D Harper model</td>
+
+
+                </tr>
+                <tr role="row" class="even">
+                    <td>8</td>
+                    <td class="sorting_1">Controlled fabrication of fluorescent Au@PAA nanocomposites</td>
+
+
+                </tr>
+                <tr role="row" class="odd">
+                    <td>9</td>
+                    <td class="sorting_1">Effect of anion chain length on physicochemical properties of N,N-dimethylethanolammonium based protic
+                        ionic liquids</td>
+
+
+                </tr>
+                <tr role="row" class="even">
+                    <td>10</td>
+                    <td class="sorting_1">Reliability of Arrhenius and several VTF laws to describe the effect of TaF
+                        <sub>5
+                        </sub> addition onto the transport properties of 1-butyl-1-methylpyrrolidinium bis(trifluoromethylsulfonyl)imide</td>
+
+
+                </tr>
+            </tbody>
+        </table>
+
+        <nav>
+
+            <ul class="pagination pagination-md pull-right" style="margin:5px 0px;">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">«</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">1</a>
+                </li>
+                <li>
+                    <a href="#">2</a>
+                </li>
+                <li>
+                    <a href="#">3</a>
+                </li>
+                <li>
+                    <a href="#">4</a>
+                </li>
+                <li>
+                    <a href="#">5</a>
+                </li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">»</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+
+
+    <!-- Load in the d3 library -->
+    <!-- <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> -->
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <script>
+        var margin = {
+            top: 30,
+            right: 20,
+            bottom: 30,
+            left: 50
+        };
+        var width = 800 - margin.left - margin.right;
+        var height = 300 - margin.top - margin.bottom;
+
+        var parseDate = d3.timeParse("%d-%b-%y");
+        var x = d3.scaleTime().range([0, width]);
+        var y = d3.scaleLinear().range([height, 0]);
+
+
+        var xAxis = d3.axisBottom(x);
+        var yAxis = d3.axisLeft(y);
+
+        var valueline = d3.line()
+            .x(function (d) {
+                return x(d.date);
+            })
+            .y(function (d) {
+                return y(d.close);
+            });
+
+        var svg = d3.select("#line-graph")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        // Get the data
+        var data = [{
+                date: "1-Dec-07",
+                close: "4"
+            }, {
+                date: "1-Apr-08",
+                close: "6"
+            },
+            {
+                date: "21-Jan-09",
+                close: "8"
+            },
+            {
+                date: "11-May-10",
+                close: "10"
+            },
+            {
+                date: "18-Jun-11",
+                close: "16"
+            },
+            {
+                date: "28-Feb-12",
+                close: "12"
+            },
+            {
+                date: "1-May-13",
+                close: "10.13"
+            }, {
+                date: "30-Apr-14",
+                close: "53.98"
+            }, {
+                date: "27-Apr-15",
+                close: "60.00"
+            }, {
+                date: "26-Apr-16",
+                close: "75.70"
+            }, {
+                date: "25-Apr-17",
+                close: "99.00"
+            }
+        ];
+
+        data.forEach(function (d) {
+            d.date = parseDate(d.date);
+            d.close = +d.close;
+        });
+
+        // Scale the range of the data
+        x.domain(d3.extent(data, function (d) {
+            return d.date;
+        }));
+        y.domain([0, d3.max(data, function (d) {
+            return d.close;
+        })]);
+
+        svg.append("path") // Add the valueline path.
+            .attr("d", valueline(data));
+
+        svg.append("g") // Add the X Axis
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis);
+
+        svg.append("g") // Add the Y Axis
+            .attr("class", "y axis")
+            .call(yAxis);
+
+
+
+        svg.selectAll(".dot")
+            .data(data)
+            .enter().append("circle") // Uses the enter().append() method
+            //            .attr("class", "dot")
+            // Assign a class for styling
+            .attr("cx", function (d, i) {
+                return x(d.date)
+            })
+            .attr("cy", function (d) {
+                return y(d.close)
+            })
+            .attr("fill", '#bbf7ff')
+            .attr("stroke", '#2e6b9d')
+            .attr("stroke-width", '2px')
+            .attr("r", 4)
+            .on("mouseover", function () {
+                d3.select(this).style("fill", "gray");
+            })
+            .on("mouseout", function () {
+                d3.select(this).style("fill", "#bbf7ff");
+            })
+    </script>
+
+</body>
+
+</html>

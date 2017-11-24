@@ -1,0 +1,94 @@
+section.authors {
+  margin: 10px 0px;
+  article.card {
+    background: $white;
+    margin: 10px 0px;
+
+    &.trending{
+      &:before{
+        content: 'Trending';
+        position: absolute;
+        background: rgba(255, 69, 0, 0.7);
+        padding: 2px 5px;
+        color: $white;
+        font-size: 12px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 800;
+      }
+    }
+
+    &:after{
+      content: '';
+      clear: both;
+      display: block;
+    }
+
+    &:hover{
+      @include box-shadow(1px,5px,10px,$gray);
+    }
+
+    > figure {
+
+      img {
+        height: 120px;
+        width: 120px;
+        float: left;
+        margin-right: 10px;
+      }
+
+      figcaption{
+        padding: 5px 5px;
+
+        >.pie-chart{
+          float: right;
+          margin-top: 2px;
+          margin-right: 8px;
+        }
+
+        >.title {
+          h2 {
+            font-size: 18px;
+            margin: 5px 0px;
+            color: lighten($black, 10%);
+            cursor: pointer;
+          }
+        }
+
+        > p {
+          margin: 2px 0px;
+          font-size: 13px;
+        }
+
+        > ul {
+          padding: 0px;
+          margin: 0px;
+          li {
+            list-style: none;
+            display: inline-block;
+            margin: 1px 2px;
+
+            a{
+              color: $primary-text;
+              font-size: 13px;
+              background: $light-gray;
+              padding: 0px 5px;
+              display: block;
+
+              &:first-child{
+                padding-right: 10px;
+              }
+            }
+
+          }
+          li + li {
+            a {
+              padding: 0px 10px;
+            }
+          }
+        }
+
+      }
+    }
+
+  }
+}

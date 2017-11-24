@@ -1,0 +1,61 @@
+.advFilterTable {
+    background: $white;
+    padding: 30px 30px;
+    position: relative;
+    font-size: 13px;
+    &.arrow-pop {
+        &:before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid $white;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    .table {
+        margin: 0px;
+        margin-bottom: 5px;
+    }
+    .table>thead>tr>th {
+        vertical-align: middle;
+    }
+    .table>thead>tr>td {
+        vertical-align: middle;
+    }
+    .stat {
+        text-align: center;
+        &.up {
+            span {
+                color: $black;
+            }
+            i {
+                float: right;
+                color: $green;
+                padding: 0px 5px;
+            }
+        }
+        &.down {
+            span {
+                color: $black;
+            }
+            i {
+                float: right;
+                color: $red;
+                padding: 0px 5px;
+            }
+        }
+    }
+
+
+    .btn-compare {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 20;
+    }
+}

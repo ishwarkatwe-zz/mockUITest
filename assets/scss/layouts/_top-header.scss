@@ -1,0 +1,126 @@
+.top-header {
+  .navbar-inverse {
+    background: $nav-bar-bg;
+
+    &.margin-bottom-none {
+      margin-bottom: 0px;
+    }
+    border: none;
+    border-radius: 0px;
+    @include box-shadow(0px, 1px, 5px, $gray);
+    .navbar-header {
+      .navbar-brand {
+        color: $white;
+      }
+    }
+
+    .nav-search {
+      position: relative;
+
+      &:hover {
+        >input {
+          background: $white;
+          & + a {
+            display: block;
+          }
+        }
+      }
+
+      > input {
+        width: 350px;
+        border: none;
+        box-shadow: none;
+        background: lighten($blue,40%);
+
+        &:focus {
+          background: $white;
+          & + a {
+            display: block;
+          }
+        }
+      }
+
+      > a {
+        display: none;
+        position: absolute;
+        right:0px;
+        top:0px;
+        height: 34px;
+        width: 40px;
+        background: $blue;
+        text-align: center;
+        padding: 2px 0px;
+        font-size: 20px;
+        color: $white;
+
+      }
+    }
+
+    .navbar-nav {
+      > li {
+        > a {
+          color: $nav-bar-color;
+          font-weight: bold;
+
+          .badge{
+            background: red;
+          }
+        }
+
+        &:hover {
+
+          > a {
+            background: $blue;
+            color: $white;
+          }
+        }
+
+        &.active {
+          a {
+            background: $blue;
+            color: $white;
+          }
+        }
+
+        &.alert-dropdown {
+          > .dropdown-menu {
+            &:before, &:after {
+              content: '';
+              position: absolute;
+              width: 0;
+              height: 0;
+              border-color: transparent;
+              border-width: 15px;
+              border-style: solid;
+            }
+            &:before {
+              right: 5%;
+              top: -30px;
+              border-bottom-color: $white;
+              z-index: 1;
+            }
+
+            &:after {
+              right: 5%;
+              top: -31px;
+              border-bottom-color: rgba(0, 0, 0, .15);
+            }
+
+            padding-left: 25px;
+            margin-top: 10px;
+
+            li {
+              width: 400px;
+              list-style: decimal;
+              padding: 0px;
+              a {
+                white-space: normal;
+                padding: 3px 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

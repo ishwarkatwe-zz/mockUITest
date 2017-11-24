@@ -1,0 +1,17 @@
+{
+  "name": "escalex",
+  "version": "0.0.0",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.7",
+    "fontawesome": "~4.7.0",
+    "jquitelight": "^2.1.0"
+  }
+}

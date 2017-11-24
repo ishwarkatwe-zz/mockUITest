@@ -1,0 +1,24 @@
+.tabs{
+  .nav-tabs{
+    >li{
+      a{
+        padding: 5px 15px;
+        border-radius: 0px;
+        border: none;
+        &:hover{
+          border: none;
+          background: $white;
+        }
+      }
+      &.active{
+        a{
+          border: none;
+          border-top: 2px solid $blue;
+        }
+      }
+    }
+  }
+  .tab-content{
+    background: $white;
+  }
+}

@@ -1,0 +1,26 @@
+.recent-post{
+  background: #fff;
+  padding: 2px 15px;
+  margin: 10px 0px;
+
+  >h3 {
+    @extend .h3-title;
+    margin: 10px 0px;
+  }
+  >h4{
+    //@extend .h3-title;
+    text-align: center;
+    font-weight: bold;
+
+
+  }
+  >ul.list-pub{
+    padding-left: 15px;
+    li{
+      a{
+        font-size: 13px;
+        color: $dark-gray;
+      }
+    }
+  }
+}

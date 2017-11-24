@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+
+<!-- Bootstrap -->
+<link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link href="./bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
+<style>
+    #trend-graph {
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+    }
+
+    .node circle {
+        fill: #fff;
+        stroke: steelblue;
+        stroke-width: 3px;
+    }
+
+    path+.node circle {
+        fill: #ffc3c3 !important;
+        stroke: red;
+        stroke-width: 3px;
+    }
+
+    .node text {
+        font: 12px sans-serif;
+    }
+
+    .link {
+        fill: none;
+        stroke: #ccc;
+        stroke-width: 2px;
+    }
+
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: #b6b6b6;
+        shape-rendering: crispEdges;
+    }
+</style>
+
+<body>
+    <div style="text-align: center">
+        <div id="trend-graph"></div>
+    </div>
+    <br>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>SI No.</th>
+                    <th>Organisation</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Dept. Of Appl. Math. Theor. Phys., Univ. Of Cambridge, Cambridge</td>
+                        <td>1611</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Cambridge Univ., Cambridge</td>
+                        <td>1652</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Dept. Of Mater. Sci. Metall., Cambridge Univ., Cambridge</td>
+                        <td>1754</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Univ. Of Cambridge, Cambridge</td>
+                        <td>2688</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Cavendish Lab., Univ. Of Cambridge, Cambridge</td>
+                        <td>2435</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Dept. Of Eng., Univ. Of Cambridge, Cambridge</td>
+                        <td>3026</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Dept. Of Eng., Univ. Of Cambridge, Cambridge</td>
+                        <td>3026</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Dept. Of Eng., Cambridge Univ., Cambridge</td>
+                        <td>4207</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Dept. Of Appl. Math. Theor. Phys., Cambridge Univ., Cambridge</td>
+                        <td>2647</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Cavendish Lab., Cambridge Univ., Cambridge</td>
+                        <td>4405</td>
+                    </tr>
+                </tbody>
+            </tbody>
+        </table>
+
+
+        <nav>
+
+            <ul class="pagination pagination-md pull-right" style="margin:5px 0px;">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">«</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">1</a>
+                </li>
+                <li>
+                    <a href="#">2</a>
+                </li>
+                <li>
+                    <a href="#">3</a>
+                </li>
+                <li>
+                    <a href="#">4</a>
+                </li>
+                <li>
+                    <a href="#">5</a>
+                </li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">»</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script>
+        var data = {
+            "data": [{
+                    "articles": [
+                        [2008, 88],
+                        [2009, 105],
+                        [2010, 88],
+                        [2011, 154],
+                        [2012, 274],
+                        [2013, 297],
+                        [2014, 224],
+                        [2015, 164],
+                        [2016, 11],
+                        [2017, 50]
+                    ],
+                    "total": 1878,
+                    "name": "Dept. Of Appl. Math. Theor. Phys., Univ. Of Cambridge, Cambridge"
+                },
+                {
+                    "articles": [
+                        [2008, 12],
+                        [2009, 15],
+                        [2010, 28],
+                        [2011, 54],
+                        [2012, 74],
+                        [2013, 97],
+                        [2014, 124],
+                        [2015, 264],
+                        [2016, 15],
+                        [2017, 230]
+                    ],
+                    "total": 1212,
+                    "name": "Cambridge Univ., Cambridge"
+                },
+                {
+                    "articles": [
+                        [2008, 44],
+                        [2009, 25],
+                        [2010, 18],
+                        [2011, 14],
+                        [2012, 14],
+                        [2013, 37],
+                        [2014, 24],
+                        [2015, 64],
+                        [2016, 125],
+                        [2017, 200]
+                    ],
+                    "total": 1400,
+                    "name": "Dept. Of Mater. Sci. Metall., Cambridge Univ., Cambridge"
+                },
+                {
+                    "articles": [
+                        [2008, 22],
+                        [2009, 22],
+                        [2010, 13],
+                        [2011, 14],
+                        [2012, 15],
+                        [2013, 66],
+                        [2014, 64],
+                        [2015, 24],
+                        [2016, 115],
+                        [2017, 10]
+                    ],
+                    "total": 1110,
+                    "name": "Univ. Of Cambridge, Cambridge"
+                },
+                {
+                    "articles": [
+                        [2008, 10],
+                        [2009, 211],
+                        [2010, 123],
+                        [2011, 44],
+                        [2012, 25],
+                        [2013, 36],
+                        [2014, 14],
+                        [2015, 24],
+                        [2016, 125],
+                        [2017, 110]
+                    ],
+                    "total": 2110,
+                    "name": "Cavendish Lab., Univ. Of Cambridge, Cambridge"
+                },
+                {
+                    "articles": [
+                        [2008, 10],
+                        [2009, 21],
+                        [2010, 23],
+                        [2011, 24],
+                        [2012, 35],
+                        [2013, 33],
+                        [2014, 44],
+                        [2015, 124],
+                        [2016, 15],
+                        [2017, 150]
+                    ],
+                    "total": 2122,
+                    "name": "Dept. Of Eng., Univ. Of Cambridge, Cambridge"
+                },
+                {
+                    "articles": [
+                        [2008, 9],
+                        [2009, 11],
+                        [2010, 23],
+                        [2011, 23],
+                        [2012, 32],
+                        [2013, 33],
+                        [2014, 64],
+                        [2015, 69],
+                        [2016, 15],
+                        [2017, 10]
+                    ],
+                    "total": 2122,
+                    "name": "Dept. Of Eng., Cambridge Univ., Cambridge"
+                },
+                {
+                    "articles": [
+                        [2008, 19],
+                        [2009, 121],
+                        [2010, 233],
+                        [2011, 243],
+                        [2012, 392],
+                        [2013, 393],
+                        [2014, 964],
+                        [2015, 619],
+                        [2016, 195],
+                        [2017, 210]
+                    ],
+                    "total": 3200,
+                    "name": "Cavendish Lab., Cambridge Univ., Cambridge"
+                },
+                {
+                    "articles": [
+                        [2008, 190],
+                        [2009, 191],
+                        [2010, 243],
+                        [2011, 283],
+                        [2012, 122],
+                        [2013, 363],
+                        [2014, 994],
+                        [2015, 699],
+                        [2016, 145],
+                        [2017, 220]
+                    ],
+                    "total": 2122,
+                    "name": "Dept. Of Appl. Math. Theor. Phys., Cambridge Univ., Cambridge"
+                },
+                {
+                    "articles": [
+                        [2008, 2],
+                        [2009, 1],
+                        [2010, 23],
+                        [2011, 83],
+                        [2012, 12],
+                        [2013, 63],
+                        [2014, 94],
+                        [2015, 69],
+                        [2016, 45],
+                        [2017, 20]
+                    ],
+                    "total": 1111,
+                    "name": "University of California, Berkeley"
+                }
+            ],
+            "yearRange": {
+                "start_year": 2008,
+                "end_year": 2017
+            }
+        };
+
+
+        function truncate(str, maxLength, suffix) {
+            if (str.length > maxLength) {
+                str = str.substring(0, maxLength + 1);
+                str = str.substring(0, Math.min(str.length, str.lastIndexOf(" ")));
+                str = str + suffix;
+            }
+            return str;
+        }
+
+        var margin = {
+                top: 50,
+                right: 0,
+                bottom: 0,
+                left: 20
+            },
+            width = 700 - margin.right - margin.left,
+            height = 300 - margin.top - margin.bottom;
+
+
+        var c = d3.scale.category10();
+
+        var x = d3.scale.linear()
+            .range([0, width]);
+
+        var xAxis = d3.svg.axis()
+            .scale(x)
+            .orient("top");
+
+        var formatYears = d3.format("0000");
+        xAxis.tickFormat(formatYears);
+        var svg;
+
+
+        svg = d3.select("#trend-graph").append("svg")
+            .attr("width", width + margin.left + margin.right + 300)
+            .attr("height", height + margin.top + margin.bottom)
+            .style("margin-left", margin.left + "px")
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+            .style("width", width + margin.left + margin.right);
+
+        var start_year = data.yearRange['start_year'];
+        var end_year = data.yearRange['end_year'];
+        x.domain([start_year, end_year]);
+        var xScale = d3.scale.linear()
+            .domain([start_year, end_year])
+            .range([0, width]);
+
+        svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + 0 + ")")
+            .call(xAxis);
+
+        for (var j = 0; j < data.data.length; j++) {
+            var g = svg.append("g").attr("class", "journal");
+
+            var circles = g.selectAll("circle")
+                .data(data.data[j]['articles'])
+                .enter()
+                .append("circle");
+
+            var text = g.selectAll("text")
+                .data(data.data[j]['articles'])
+                .enter()
+                .append("text");
+
+            var rScale = d3.scale.linear()
+                .domain([0, d3.max(data.data[j]['articles'], function (d) {
+                    return d[1];
+                })])
+                .range([2, 9]);
+
+            circles
+                .attr("cx", function (d, i) {
+                    return xScale(d[0]);
+                })
+                .attr("cy", j * 30 + 20)
+                .attr("r", function (d) {
+                    return rScale(d[1]);
+                })
+                .style("fill", function (d) {
+                    return c(j);
+                });
+
+            text
+                .attr("y", j * 30 + 25)
+                .attr("x", function (d, i) {
+                    return xScale(d[0]) - 5;
+                })
+                .attr("class", "value")
+                .text(function (d) {
+                    return d[1];
+                })
+                .style("fill", function (d) {
+                    return c(j);
+                })
+                .style("display", "none");
+
+            g.append("text")
+                .attr("y", j * 30 + 25)
+                .attr("x", width + 30)
+                .attr("class", "label")
+                .attr("data-label", data.data[j]['name'])
+                .attr('title', data.data[j]['total'])
+                .text(truncate(data.data[j]['name'], 60, "..."))
+                // .style("fill", function (d) {
+                //     return c(j);
+                // })
+                .style("cursor", "pointer")
+                .on("mouseover", mouseover)
+                .on("mouseout", mouseout);
+        }
+
+
+        function mouseover(p) {
+
+            var g = d3.select(this).node().parentNode;
+            var title = 'Total frequency for ' + d3.select(g).selectAll("text.label").attr('data-label') +
+                ' : ' + d3.select(g).selectAll("text.label").attr('title');
+            d3.select(g).selectAll("circle").style("display", "none");
+            d3.select(g).selectAll("text.label").append('title').text(title);
+            d3.select(g).selectAll("text.value").style("display", "block");
+        }
+
+        function mouseout(p) {
+            var g = d3.select(this).node().parentNode;
+            d3.select(g).selectAll("text.label title").remove();
+            d3.select(g).selectAll("circle").style("display", "block");
+            d3.select(g).selectAll("text.value").style("display", "none");
+        }
+    </script>
