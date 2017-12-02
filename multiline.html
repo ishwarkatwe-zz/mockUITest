@@ -24,24 +24,21 @@
             });
 
             var chart = makeLineChart(data, 'year', {
-                'Physics': {
+                'Articles': {
                     column: 'variableA'
                 },
-                'Electrical Engineering and electronics': {
+                'Subject Areas': {
                     column: 'variableB'
                 },
-                'Computers and Control': {
+                'Collaborating Organizations': {
                     column: 'variableC'
                 },
-                'Information Technology for Buisness': {
+                'Control Terms': {
                     column: 'variableD'
-                },
-                'Mechanical and Production Engineering': {
-                    column: 'variableE'
                 }
             }, {
-                xAxis: 'Years',
-                yAxis: 'Amount'
+                xAxis: 'Organisation',
+                yAxis: 'Count'
             });
             chart.bind("#chart-line1");
             chart.render();

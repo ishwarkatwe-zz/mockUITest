@@ -5,13 +5,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Inspec Plus</title>
+    <title>Inspec Analytics</title>
 
     <!-- Bootstrap -->
     <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="./bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 
     <!-- Custom Style -->
     <link href="./assets/css/style.css" rel="stylesheet">
@@ -22,6 +26,48 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <style>
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+    <script type="text/javascript">
+        $(function () {
+
+            $(function () {
+                $('input[name="daterange"]').daterangepicker({
+                    "showDropdowns": true,
+                    "dateLimit": {
+                        "days": 7
+                    },
+                    "ranges": {
+                        'This Month': [moment().startOf('month'), moment().endOf('month')],
+                        'Six Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(
+                            1, 'month').endOf('month')],
+                        'One Year': [moment().subtract(1, 'month').startOf('month'), moment().subtract(
+                            1, 'month').endOf('month')],
+                        'Five Years': [moment().subtract(1, 'month').startOf('month'), moment()
+                            .subtract(1, 'month').endOf('month')
+                        ]
+                    },
+                    "startDate": "01/01/2013",
+                    "endDate": "05/31/2017",
+                    "minDate": "01/01/1969",
+                    "maxDate": "05/31/2017",
+                    "opens": "left"
+                });
+            });
+
+        });
+    </script>
 </head>
 
 <body>
@@ -38,7 +84,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/">Inspec Plus</a>
+                    <a class="navbar-brand" href="/">Inspec Analytics</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -54,466 +100,346 @@
             <!-- /.container-fluid -->
         </nav>
     </header>
-    <main>
-        <section class="banner">
-            <div class="content">
-                <h1 class="quote">Search for the institution you like for...</h1>
-                <!--<p>Please type the authors initials or the topic of research</p>-->
-                <form method="GET">
-                    <div class="input-group">
-                        <input type="text" id="keyword" autocomplete="off" class="form-control input-lg" placeholder="Please type the institution initials or the topic of research">
-                        <span class="input-group-btn btn-group-lg">
-                            <button type="button" onclick="setPanelSearch()" class="btn btn-default btn-blue">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </span>
-                    </div>
-                </form>
+    <main class="landing-page">
+        <section class="stat-panel">
+            <div class="text-center">
+                <iframe src="./multiColorLine.html" onload="resizeIframe(this)"></iframe>
             </div>
         </section>
-        <section class="advFilterTable arrow-pop" style="display: none">
+        <section class="datagrid-panel">
             <div class="table-responsive">
-                <button class="btn btn-primary btn-xs closeCompare" style="display: none; float:right; margin:5px 0px;" onclick="closeCompare()"
-                    style="margin:5px 0px; float:right;">
-                    <i class="fa fa-times"></i>
-                </button>
                 <table class="table table-bordered table-condensed table-hover data-table">
                     <thead>
                         <tr>
-                            <th>
-                                <!-- <input type="checkbox" checked /> -->
+
+                            <th colspan="2" style="position: relative">
+                                <input type="text" id="keyword" class="form-control input-sm" placeholder="Search" />
+
+                                <i class="fa fa-search" style="position: absolute;
+                                top: 13px;
+                                right: 15px;
+                                font-size: 14px;
+                                color: #9999a6;"></i>
                             </th>
-                            <th style="width:50px; text-align:center">Si No.</th>
-                            <th>Organization/Institution </th>
-                            <th>100 days</th>
-                            <th style="width:160px; text-align:center">Physics</th>
-                            <th style="width:160px; text-align:center">Electrical Engineering and electronics</th>
-                            <th style="width:160px; text-align:center">Computers and Control</th>
-                            <th style="width:160px; text-align:center">Information Technology for Buisness </th>
-                            <th style="width:160px; text-align:center">Mechanical and Production Engineering</th>
+
+                            <th colspan="5">
+                                <button class="btn btn-button btn-sm" style="width: 100px">Visualize
+                                    <span class="badge">0</span>
+                                </button>
+
+                                <div class="pull-right">
+                                    <i style="padding: 2px;" class="pull-left fa fa-calendar glyphicon glyphicon-calendar"></i> Date Range:
+                                    <input type="text" name="daterange" />
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th style="width: 50px">Sl No.</th>
+                            <th>Organization
+                                <!-- <i class="fa fa-arrow-up" aria-hidden="true"></i> -->
+                                <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i>
+                            </th>
+                            <th style="width : 180px">Articles
+                                <i class="fa fa-arrow-down pull-left" style="color: #64636a;" aria-hidden="true"></i>
+                                <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i>
+                            </th>
+                            <th style="width : 180px">Subject Areas
+                                <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i>
+                            </th>
+                            <th style="width : 180px">Collaborating Organizations
+                                <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i>
+                            </th>
+                            <th style="width : 180px">Control Terms
+                                <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i>
+                            </th>
+                            <th style="width : 180px">Authors
+                                <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i>
+                            </th>
                         </tr>
                     </thead>
-
                     <tbody>
                         <tr>
                             <td>
+                                1 .
                                 <input type="checkbox" />
                             </td>
-                            <td>1</td>
                             <td>
-                                <a href="viewInst.html">University of Bari Aldo Moro</a>
+                                <a href="viewInst.html">University of Cambridge</a>
                             </td>
-                            <td class="stat up">
-                                <span>1231</span>
-                                <i class="fa fa-arrow-up"></i>
+                            <td>
+                                <a href="viewInst2.html#tabView">450</a>
                             </td>
-                            <td class="stat up">
-                                <span>999</span>
-                                <i class="fa fa-arrow-up"></i>
+                            <td>
+                                <a href="viewInst.html#tabView">650</a>
                             </td>
-                            <td class="stat up">
-                                <span>634</span>
-                                <i class="fa fa-arrow-up"></i>
+                            <td>
+                                <a href="viewInst3.html#tabView">515</a>
                             </td>
-                            <td class="stat down">
-                                <span>325</span>
-                                <i class="fa fa-arrow-down"></i>
+                            <td>
+                                <a href="viewInst4.html#tabView">895</a>
                             </td>
-                            <td class="stat up">
-                                <span>986</span>
-                                <i class="fa fa-arrow-up"></i>
-                            </td>
-                            <td class="stat down">
-                                <span>112</span>
-                                <i class="fa fa-arrow-down"></i>
+                            <td>
+                                <a href="viewInst5.html#tabView">795</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
+                                2.
                                 <input type="checkbox" />
                             </td>
-                            <td>2</td>
-                            <td>
-                                <a href="viewInst.html">Massachusetts Institute of Technology</a>
-                            </td>
-                            <td class="stat up">
-                                <span>1525</span>
-                                <i class="fa fa-arrow-up"></i>
-                            </td>
-                            <td class="stat up">
-                                <span>225</span>
-                                <i class="fa fa-arrow-up"></i>
-                            </td>
-                            <td class="stat down">
-                                <span>135</span>
-                                <i class="fa fa-arrow-down"></i>
-                            </td>
-                            <td class="stat up">
-                                <span>214</span>
-                                <i class="fa fa-arrow-up"></i>
-                            </td>
-                            <td class="stat up">
-                                <span>211</span>
-                                <i class="fa fa-arrow-up"></i>
-                            </td>
-                            <td class="stat down">
-                                <span>935</span>
-                                <i class="fa fa-arrow-down"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" />
-                            </td>
-                            <td>3</td>
-                            <td>
-                                <a href="viewInst.html">Xi'an Jiaotong University </a>
-                            </td>
-                            <td class="stat down">
-                                <span>1339</span>
-                                <i class="fa fa-arrow-down"></i>
-                            </td>
-                            <td class="stat down">
-                                <span>1123</span>
-                                <i class="fa fa-arrow-down"></i>
-                            </td>
-                            <td class="stat up">
-                                <span>1223</span>
-                                <i class="fa fa-arrow-up"></i>
-                            </td>
-
-                            <td class="stat up">
-                                <span>123</span>
-                                <i class="fa fa-arrow-up"></i>
-                            </td>
-                            <td class="stat down">
-                                <span>25</span>
-                                <i class="fa fa-arrow-down"></i>
-                            </td>
-                            <td class="stat up">
-                                <span>212</span>
-                                <i class="fa fa-arrow-up"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" />
-                            </td>
-                            <td>4</td>
-                            <td>
-                                <a href="viewInst.html">University of Texas at Austin</a>
-                            </td>
-                            <td class="stat up">
-                                <span>1252</span>
-                                <i class="fa fa-arrow-up"></i>
-                            </td>
-
-                            <td class="stat up">
-                                <span>235</span>
-                                <i class="fa fa-arrow-up"></i>
-                            </td>
-
-                            <td class="stat up">
-                                <span>123</span>
-                                <i class="fa fa-arrow-up"></i>
-                            </td>
-                            <td class="stat down">
-                                <span>223</span>
-                                <i class="fa fa-arrow-down"></i>
-                            </td>
-                            <td class="stat down">
-                                <span>923</span>
-                                <i class="fa fa-arrow-down"></i>
-                            </td>
-                            <td class="stat up">
-                                <span>234</span>
-                                <i class="fa fa-arrow-up"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" />
-                            </td>
-                            <td>5</td>
                             <td>
                                 <a href="viewInst.html">Huazhong University of Science and Technology</a>
                             </td>
-                            <td class="stat down">
-                                <span>1021</span>
-                                <i class="fa fa-arrow-down"></i>
+                            <td>
+                                <a href="viewInst.html">401</a>
                             </td>
-                            <td class="stat up">
-                                <span>934</span>
-                                <i class="fa fa-arrow-up"></i>
+                            <td>
+                                <a href="viewInst.html">534</a>
                             </td>
-                            <td class="stat down">
-                                <span>234</span>
-                                <i class="fa fa-arrow-down"></i>
+                            <td>
+                                <a href="viewInst.html">457</a>
                             </td>
-                            <td class="stat down">
-                                <span>315</span>
-                                <i class="fa fa-arrow-down"></i>
+                            <td>
+                                <a href="viewInst.html">523</a>
                             </td>
-                            <td class="stat up">
-                                <span>245</span>
-                                <i class="fa fa-arrow-up"></i>
-                            </td>
-                            <td class="stat up">
-                                <span>244</span>
-                                <i class="fa fa-arrow-up"></i>
+                            <td>
+                                <a href="viewInst4.html">895</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
+                                3 .
                                 <input type="checkbox" />
                             </td>
-                            <td>6</td>
                             <td>
-                                <a href="viewInst.html">Politecnico di Milano</a>
+                                <a href="viewInst.html">University of Texas at Austin</a>
                             </td>
-                            <td class="stat up">
-                                <span>1294</span>
-                                <i class="fa fa-arrow-up"></i>
+                            <td>
+                                <a href="viewInst.html">221</a>
                             </td>
-                            <td class="stat up">
-                                <span>123</span>
-                                <i class="fa fa-arrow-up"></i>
+                            <td>
+                                <a href="viewInst.html">235</a>
                             </td>
-
-                            <td class="stat up">
-                                <span>134</span>
-                                <i class="fa fa-arrow-up"></i>
+                            <td>
+                                <a href="viewInst.html">236</a>
                             </td>
-                            <td class="stat down">
-                                <span>113</span>
-                                <i class="fa fa-arrow-down"></i>
+                            <td>
+                                <a href="viewInst.html">460</a>
                             </td>
-                            <td class="stat down">
-                                <span>134</span>
-                                <i class="fa fa-arrow-down"></i>
-                            </td>
-                            <td class="stat up">
-                                <span>344</span>
-                                <i class="fa fa-arrow-up"></i>
+                            <td>
+                                <a href="viewInst4.html">695</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
+                                4.
                                 <input type="checkbox" />
                             </td>
-                            <td>7</td>
+                            <td>
+                                <a href="viewInst.html">University of California</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">220</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">225</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">245</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">450</a>
+                            </td>
+                            <td>
+                                <a href="viewInst4.html">695</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                5.
+                                <input type="checkbox" />
+                            </td>
+                            <td>
+                                <a href="viewInst.html">Jilin University</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">167</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">335</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">234</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">422</a>
+                            </td>
+                            <td>
+                                <a href="viewInst4.html">395</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                6.
+                                <input type="checkbox" />
+                            </td>
                             <td>
                                 <a href="viewInst.html">Beihang University</a>
                             </td>
-                            <td class="stat up">
-                                <span>1634</span>
-                                <i class="fa fa-arrow-up"></i>
+                            <td>
+                                <a href="viewInst.html">127</a>
                             </td>
-                            <td class="stat up">
-                                <span>243</span>
-                                <i class="fa fa-arrow-up"></i>
+                            <td>
+                                <a href="viewInst.html">243</a>
                             </td>
-
-                            <td class="stat up">
-                                <span>134</span>
-                                <i class="fa fa-arrow-up"></i>
+                            <td>
+                                <a href="viewInst.html">256</a>
                             </td>
-                            <td class="stat down">
-                                <span>1234</span>
-                                <i class="fa fa-arrow-down"></i>
+                            <td>
+                                <a href="viewInst.html">234</a>
                             </td>
-                            <td class="stat down">
-                                <span>634</span>
-                                <i class="fa fa-arrow-down"></i>
-                            </td>
-                            <td class="stat up">
-                                <span>1034</span>
-                                <i class="fa fa-arrow-up"></i>
+                            <td>
+                                <a href="viewInst4.html">195</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
+                                7.
                                 <input type="checkbox" />
                             </td>
-                            <td>8</td>
                             <td>
-                                <a href="viewInst.html">University of Science and Technology of China</a>
+                                <a href="viewInst.html">Xi'an Jiaotong University</a>
                             </td>
-                            <td class="stat up">
-                                <span>998</span>
-                                <i class="fa fa-arrow-up"></i>
+                            <td>
+                                <a href="viewInst.html">110</a>
                             </td>
-                            <td class="stat down">
-                                <span>153</span>
-                                <i class="fa fa-arrow-down"></i>
+                            <td>
+                                <a href="viewInst.html">423</a>
                             </td>
-                            <td class="stat up">
-                                <span>943</span>
-                                <i class="fa fa-arrow-up"></i>
+                            <td>
+                                <a href="viewInst.html">232</a>
                             </td>
-
-                            <td class="stat up">
-                                <span>834</span>
-                                <i class="fa fa-arrow-up"></i>
+                            <td>
+                                <a href="viewInst.html">310</a>
                             </td>
-                            <td class="stat down">
-                                <span>344</span>
-                                <i class="fa fa-arrow-down"></i>
-                            </td>
-                            <td class="stat up">
-                                <span>263</span>
-                                <i class="fa fa-arrow-up"></i>
+                            <td>
+                                <a href="viewInst4.html">495</a>
                             </td>
                         </tr>
+
                         <tr>
                             <td>
+                                8.
                                 <input type="checkbox" />
                             </td>
-                            <td>9</td>
                             <td>
                                 <a href="viewInst.html">Northwestern Polytechnical University</a>
                             </td>
-                            <td class="stat down">
-                                <span>885</span>
-                                <i class="fa fa-arrow-down"></i>
+                            <td>
+                                <a href="viewInst.html">88</a>
                             </td>
+                            <td>
+                                <a href="viewInst.html">215</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">458</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">126</a>
+                            </td>
+                            <td>
+                                <a href="viewInst4.html">295</a>
+                            </td>
+                        </tr>
 
-                            <td class="stat down">
-                                <span>215</span>
-                                <i class="fa fa-arrow-down"></i>
-                            </td>
-                            <td class="stat down">
-                                <span>125</span>
-                                <i class="fa fa-arrow-down"></i>
-                            </td>
-                            <td class="stat up">
-                                <span>212</span>
-                                <i class="fa fa-arrow-up"></i>
-                            </td>
-                            <td class="stat up">
-                                <span>115</span>
-                                <i class="fa fa-arrow-up"></i>
-                            </td>
 
-                            <td class="stat up">
-                                <span>423</span>
-                                <i class="fa fa-arrow-up"></i>
+                        <tr>
+                            <td>
+                                9.
+                                <input type="checkbox" />
+                            </td>
+                            <td>
+                                <a href="viewInst.html">University of Science and Technology of China</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">68</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">153</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">154</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">326</a>
+                            </td>
+                            <td>
+                                <a href="viewInst4.html">195</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
+                                10.
                                 <input type="checkbox" />
                             </td>
-                            <td>10</td>
                             <td>
-                                <a href="viewInst.html">Jilin University </a>
+                                <a href="viewInst.html">Politecnico di Milano</a>
                             </td>
-                            <td class="stat down">
-                                <span>823</span>
-                                <i class="fa fa-arrow-down"></i>
+                            <td>
+                                <a href="viewInst.html">10</a>
                             </td>
-
-                            <td class="stat up">
-                                <span>335</span>
-                                <i class="fa fa-arrow-up"></i>
+                            <td>
+                                <a href="viewInst.html">53</a>
                             </td>
-
-                            <td class="stat down">
-                                <span>385</span>
-                                <i class="fa fa-arrow-down"></i>
+                            <td>
+                                <a href="viewInst.html">27</a>
                             </td>
-                            <td class="stat up">
-                                <span>122</span>
-                                <i class="fa fa-arrow-up"></i>
+                            <td>
+                                <a href="viewInst.html">56</a>
                             </td>
-                            <td class="stat down">
-                                <span>122</span>
-                                <i class="fa fa-arrow-down"></i>
-                            </td>
-                            <td class="stat up">
-                                <span>423</span>
-                                <i class="fa fa-arrow-up"></i>
+                            <td>
+                                <a href="viewInst4.html">45</a>
                             </td>
                         </tr>
+
+
                     </tbody>
                 </table>
                 <nav>
-                    <button onclick="compareRows();" class="btn btn-primary btn-compare">
-                        <i class="fa fa-compress"></i>
-                        Compare Institutions
-                        <span class="badge">2</span>
-                    </button>
 
-                    <ul class="pagination pagination-md pull-right" style="margin:5px 0px;">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">«</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">1</a>
-                        </li>
-                        <li>
-                            <a href="#">2</a>
-                        </li>
-                        <li>
-                            <a href="#">3</a>
-                        </li>
-                        <li>
-                            <a href="#">4</a>
-                        </li>
-                        <li>
-                            <a href="#">5</a>
-                        </li>
-                        <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true">»</span>
-                            </a>
-                        </li>
-                    </ul>
+                    <form class="form-inline">
+
+                        <div class="form-group">
+                            <label>Show rows</label>
+                            <select class="form-control input-sm">
+                                <option>10</option>
+                                <option>20</option>
+                                <option>50</option>
+                                <option>100</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Go to</label>
+                            <input type="text" class="form-control input-sm" id="goto" placeholder="Page No.">
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <b>1 - 10</b> of
+                                <b>1201</b>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-default btn-sm">
+                            <i class="fa fa-angle-left"></i>
+                        </button>
+                        <button type="submit" class="btn btn-default btn-sm">
+                            <i class="fa fa-angle-right"></i>
+                        </button>
+                    </form>
+
+
                 </nav>
             </div>
         </section>
-        <div class="container">
-
-            <section class="features">
-                <h3 class="text-center">Why use Inspec Plus?</h3>
-                <br>
-                <div class="row">
-                    <div class="col-md-4 item">
-                        <div class="icon">
-                            <i class="fa fa-search-plus"></i>
-                            <h2>Platform of subject matter experts</h2>
-                            <p>The Inspec Plus is the authoritative source of information about advances in the causes, diagnosis,
-                                treatment and prevention of cancer.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 item">
-                        <div class="icon">
-                            <i class="fa fa-search"></i>
-                            <h2>Advanced Searches</h2>
-                            <p>The programs and services of the Inspec Plus foster the exchange of knowledge and new ideas among
-                                scientists dedicated to cancer research, provide training opportunities for the next generation
-                                of cancer researchers, and increase public understanding of cancer.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 item">
-                        <div class="icon">
-                            <i class="fa fa-pie-chart"></i>
-                            <h2>Trend Analysis</h2>
-                            <p>In conjunction with the publication of its fifth annual Cancer Progress Report, Inspec Plus commissioned
-                                a national survey on cancer and cancer research funding.</p>
-                        </div>
-                    </div>
-                    <!--<div class="col-md-3 item">-->
-                    <!--<div class="icon">-->
-                    <!--<i class="fa fa-list-alt"></i>-->
-                    <!--<h2>Project Management</h2>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                </div>
-            </section>
-        </div>
     </main>
     <footer class="bottom-footer">
         <div class="container">
@@ -542,7 +468,7 @@
                     <a href="#">About</a>
                 </li>
                 <li>
-                    <a href="#">Faq</a>
+                    <a href="#">FAQ</a>
                 </li>
                 <li>
                     <a href="#">Terms & Services</a>
@@ -601,12 +527,13 @@
     <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
 
-    <script>
-        function setPanelSearch() {
-            $('.advFilterTable').fadeToggle();
-            $('.banner').toggleClass('active');
-        }
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+
+    <script>
         var searchTerms = [
             'University of Cambridge',
             'AGH University of Science and Technology',
@@ -640,7 +567,6 @@
             $('#myModal').modal('show');
         }
 
-
         function compareRows() {
             $('input[type=checkbox]').each(function () {
                 $(this).closest('tr').hide();
@@ -651,6 +577,20 @@
                     $('.pagination').hide();
                     $('.closeCompare').show();
                 }
+            });
+
+            $('.up').each(function () {
+                var val = $(this).find('span').text();
+                var round = '0.' + val;
+                $(this).closest('td').css("background-color", "rgba(0, 128, 0, " + round + ")");
+                $(this).find('i').hide();
+            });
+
+            $('.down').each(function () {
+                var val = $(this).find('span').text();
+                var round = '0.' + val;
+                $(this).closest('td').css("background-color", "rgba(255, 0, 0, " + round + ")");
+                $(this).find('i').hide();
             });
         }
 
@@ -665,6 +605,20 @@
                     $('.closeCompare').hide();
                 }
             });
+
+            $('.up').each(function () {
+                $(this).closest('td').css("background-color", "");
+                $(this).find('i').show();
+            });
+
+            $('.down').each(function () {
+                $(this).closest('td').css("background-color", "");
+                $(this).find('i').show();
+            });
+        }
+
+        function resizeIframe(obj) {
+            obj.style.height = (obj.contentWindow.document.body.scrollHeight + 50) + 'px';
         }
     </script>
 </body>

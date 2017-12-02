@@ -1,1 +1,0 @@
-# Inspec-plus-mock-UI

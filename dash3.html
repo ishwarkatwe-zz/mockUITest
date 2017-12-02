@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<body>
+
+    <div style="text-align:center">
+        <div id="cloud">
+        </div>
+    </div>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: "Lucida Grande", "Droid Sans", Arial, Helvetica, sans-serif;
+        }
+
+        .legend {
+            border: 1px solid #555555;
+            border-radius: 5px 5px 5px 5px;
+            font-size: 0.8em;
+            margin: 10px;
+            padding: 8px;
+        }
+
+        .bld {
+            font-weight: bold;
+        }
+
+        .table {
+            margin: 0px;
+            margin-bottom: 5px;
+        }
+
+        .table>thead>tr>th {
+            vertical-align: middle;
+        }
+
+        .table>thead>tr>td {
+            vertical-align: middle;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat.up span {
+            color: #141414;
+        }
+
+        .stat.up i {
+            float: right;
+            color: green;
+            padding: 0px 5px;
+        }
+
+        .stat.down span {
+            color: #141414;
+        }
+
+        .stat.down i {
+            float: right;
+            color: red;
+            padding: 0px 5px;
+        }
+
+        .btn-compare {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 20;
+        }
+    </style>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="d3.layout.cloud.js"></script>
+    <script>
+        //var color = d3.scale.linear()
+        //     .domain([0,1,2,3,4,5,6,10,15,20,100])
+        //  .range(["#222", "#333", "#444", "#555", "#666", "#777", "#888", "#999", "#aaa", "#bbb", "#ccc", "#ddd"]);
+        //.range(["#ddd", "#ccc", "#bbb", "#aaa", "#999", "#888", "#777", "#666", "#555", "#444", "#333", "#222"]);
+
+        var endColor = d3.hcl("#cccccc")
+            .darker(),
+            startColor = d3.hcl("#2c2c2c")
+            .brighter();
+
+        // Create the scale
+        var color = d3.scale.linear()
+            .interpolate(d3.interpolateHcl)
+            .range([
+                startColor.toString(),
+                endColor.toString()
+            ])
+            .domain([0, 100])
+
+
+
+        var fill = d3.scale.category20();
+        d3.layout.cloud().size([390, 200])
+            .words([{
+                        "size": 80.015,
+                        "name": "organic compounds"
+                    },
+                    {
+                        "size": 65.535,
+                        "name": "X-ray diffraction"
+                    },
+                    {
+                        "size": 59.605,
+                        "name": "scanning electron microscopy"
+                    },
+                    {
+                        "size": 42.964999999999996,
+                        "name": "nanoparticles"
+                    },
+                    {
+                        "size": 35.58,
+                        "name": "iron"
+                    },
+                    {
+                        "size": 34.894999999999996,
+                        "name": "nanofabrication"
+                    },
+                    {
+                        "size": 34.68,
+                        "name": "recycling"
+                    },
+                    {
+                        "size": 34.510000000000005,
+                        "name": "chemical engineering"
+                    },
+                    {
+                        "size": 33.985,
+                        "name": "adsorption"
+                    },
+                    {
+                        "size": 33.28,
+                        "name": "separation"
+                    },
+                    {
+                        "size": 33.26,
+                        "name": "Fourier transform infrared spectra"
+                    },
+                    {
+                        "size": 30.275000000000002,
+                        "name": "pH"
+                    },
+                    {
+                        "size": 29.544999999999998,
+                        "name": "polymers"
+                    },
+                    {
+                        "size": 29.065,
+                        "name": "crystal structure"
+                    },
+                    {
+                        "size": 28.865000000000002,
+                        "name": "catalysts"
+                    },
+                    {
+                        "size": 28.345,
+                        "name": "transmission electron microscopy"
+                    },
+                    {
+                        "size": 28.189999999999998,
+                        "name": "catalysis"
+                    },
+                    {
+                        "size": 27.79,
+                        "name": "copper"
+                    },
+                    {
+                        "size": 24.98,
+                        "name": "oxidation"
+                    },
+                    {
+                        "size": 24.23,
+                        "name": "microorganisms"
+                    },
+                    {
+                        "size": 24.135,
+                        "name": "silicon"
+                    }
+                ]
+
+
+            )
+            /*.padding(1)
+  .rotate(function(d) { return 0; })
+//    .font("Impact")
+  .text(function(d) { return d.word; }) // THE SOLUTION
+  .fontSize(function(d) { return d.size; })
+  .on("end", draw)
+  .start();*/
+            .padding(1)
+            .rotate(function () {
+                return ~~(Math.random() * 0) * 90;
+            })
+            .font("Impact")
+            .text(function (d) {
+                return d.name;
+            })
+            .fontSize(function (d) {
+                return d.size / 2;
+            })
+            .on("end", draw)
+            .start();
+
+
+        function draw(words) {
+            d3.select("#cloud").append("svg")
+                .attr("width", 380)
+                .attr("height", 200)
+                .append("g")
+                .attr("transform", "translate(200,100)")
+                .selectAll("text")
+                .data(words)
+                .enter().append("text")
+                .style("font-size", function (d) {
+                    return d.size + "px";
+                })
+                .style("font-family", "Impact")
+                .style("fill", function (d, i) {
+                    return color(i);
+                })
+                //  .style("opacity", function(d) { return d.size / 10 })
+                .attr("text-anchor", "middle")
+                .attr("transform", function (d) {
+                    return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                })
+                .text(function (d) {
+                    return d.name;
+                });
+        }
+    </script>

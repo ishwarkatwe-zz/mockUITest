@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Inspec Plus</title>
+    <title>Inspec Analytics</title>
 
     <!-- Bootstrap -->
     <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,6 +15,14 @@
 
     <!-- Custom Style -->
     <link href="./assets/css/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -58,9 +66,14 @@
 <body>
 
     <header class="top-header">
-        <nav class="navbar navbar-inverse margin-bottom-none">
+        <nav class="navbar navbar-inverse navbar-fixed-top margin-bottom-none">
+            <!-- <p class="navbar-text navbar-collapse-btn navbar-collapse-btn--left">
+                <i class="fa fa-bars"></i>
+            </p> -->
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
+
+
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
                         aria-expanded="false">
@@ -69,13 +82,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/">Inspec Plus</a>
+                    <a class="navbar-brand" href="/">Inspec Analytics</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
+                        <li class="active">
                             <a href="index.html">Home</a>
                         </li>
                     </ul>
@@ -86,138 +99,306 @@
         </nav>
     </header>
     <main>
-        <div class="container-fluid">
-            <br>
-            <div class="profile-info">
-                <section class="author-view">
+
+        <section class="page-layout">
+            <aside class="nav-aside-left active">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javaScript:chooseOption('tabView', 'classTrendChart.html');">
+                            <i class="fa fa-sitemap"></i>
+                            <span>Subject Areas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javaScript:chooseOption('tabView', 'tagCloud.html');">
+                            <i class="fa fa-star-half-o"></i>
+                            <span>Keyword</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javaScript:chooseOption('tabView', 'article_1.html');">
+                            <i class="fa fa-book"></i>
+                            <span>Article</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javaScript:chooseOption('tabView', 'horizonBar.html');">
+                            <i class="fa fa-handshake-o"></i>
+                            <span>Collaboration</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javaScript:chooseOption('tabView', 'TrendChartAuthor.html');">
+                            <i class="fa fa-user-o"></i>
+                            <span>Author</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </aside>
+            <main class="page-container aside-true">
+                <nav>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="viewInst.html">Institutation</a>
+                        </li>
+                        <li class="active">University of Cambridge</li>
+                    </ol>
+                </nav>
+
+                <!-- <section class="org-view">
+                    <a class="title" href="#">
+                        <h2>University of Cambridge</h2>
+                    </a>
                     <div class="row">
-                        <div class="col-md-1">
-                            <figure class="picture">
-                                <img src="assets/img/Cam.png" class="img-responsive">
-                            </figure>
+                        <div class="col-md-1 text-center">
+                            <img src="assets/img/Cam.png" class="img-responsive">
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-11">
                             <div class="information">
-                                <a class="title" href="view.html">
-                                    <h2>University of Cambridge</h2>
-                                </a>
+                                <p>The University of Cambridge (informally Cambridge University) is a collegiate public research
+                                    university in Cambridge, England. Founded in 1209 and granted a royal charter by King
+                                    Henry III in 1231, Cambridge is the second-oldest university in the English-speaking
+                                    world and the world's fourth-oldest surviving university. The university grew out of
+                                    an association of scholars who left the University of Oxford after a dispute with the
+                                    townspeople. The two medieval universities share many common features and are often referred
+                                    to jointly as "Oxbridge".</p>
 
 
-                                <p>The University of Cambridge (informally Cambridge University)[note 1] is a collegiate public
-                                    research university in Cambridge, England. Founded in 1209 and granted a royal charter
-                                    by King Henry III in 1231, Cambridge is the second-oldest university in the English-speaking
-                                    world and the world's fourth-oldest surviving university.[8] The university grew out
-                                    of an association of scholars who left the University of Oxford after a dispute with
-                                    the townspeople.[9] The two medieval universities share many common features and are
-                                    often referred to jointly as "Oxbridge".</p>
-
-                                <br>
-                                <p>
+                                <p style="margin-top: 10px">
                                     <a href="mail:hymand@mskcc.org">
                                         <i class="fa fa-envelope"></i>
                                         information@cambridge.org</a>
                                 </p>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <iframe src="./multiline.html" onload="resizeIframe(this)"></iframe>
+                    </div>
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h4 style="margin: 5px;
+                            font-size: 15px;
+                            font-weight: bold;">Top Level Subject Areas</h4>
+                            <iframe src="./dash1.html" onload="resizeIframe(this)"></iframe>
+                        </div>
+                        <div class="col-md-4">
+                            <h4 style="margin: 5px;
+                                font-size: 15px;
+                                font-weight: bold;">Articles Per Year</h4>
+                            <iframe src="./barChart.html" onload="resizeIframe(this)"></iframe>
+                        </div>
+                        <div class="col-md-4">
+                            <h4 style="margin: 5px;
+                                font-size: 15px;
+                                font-weight: bold;">Top Keywords</h4>
+                            <iframe src="./dash3.html" onload="resizeIframe(this)"></iframe>
                         </div>
                     </div>
-                </section>
-            </div>
+                </section> -->
 
-            <br>
-            <div class="profile-info">
-                <div>
+                <div class="profile-info">
+                    <section class="author-view">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="information">
 
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active">
-                            <a href="#home" aria-controls="home" role="tab" data-toggle="tab">Article</a>
-                        </li>
-                        <li role="presentation">
-                            <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Classification</a>
-                        </li>
-                        <li role="presentation">
-                            <a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Controlled Term</a>
-                        </li>
-                        <li role="presentation">
-                            <a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Organisation</a>
-                        </li>
-                    </ul>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <img style="padding: 0px;
+                                                float: left;
+                                                width: 50px;
+                                                margin: 0px 10px;" src="assets/img/Cam.png" class="img-responsive">
+
+                                            <a class="title" href="#">
+                                                <h3 style="margin: 15px 5px;">University of Cambridge</h3>
+                                            </a>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <hr style="margin: 10px 0px;" />
 
 
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="home">
-                            <iframe src="./article_1.html" onload="resizeIframe(this)"></iframe>
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="profile">
+                                            <ul class="trend_box">
+                                                <li>
+                                                    <a>
+                                                        <i class="fa fa-book"></i>
+                                                        <span>1212</span>
+                                                        Article
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a>
+                                                        <i class="fa fa-sitemap"></i>
+                                                        <span>21211</span>
+                                                        Subject Area
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a>
+                                                        <i class="fa fa-handshake-o"></i>
+                                                        <span>4211</span>
+                                                        Collaboration
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a>
+                                                        <i class="fa fa-star-half-o"></i>
+                                                        <span>21221</span>
+                                                        Keyword
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a>
+                                                        <i class="fa fa-user-o"></i>
+                                                        <span>4212</span>
+                                                        Author
+                                                    </a>
+                                                </li>
+                                            </ul>
 
-                            <div class="row">
-                                <div class="col-md-3 aside-tree">
-                                    <button style="float: right; margin:5px 0px;" class="btn btn-default btn-sm fullwidth">
-                                        <i class="fa fa-arrows-alt"></i>
-                                    </button>
+                                            <iframe src="./galaxy2.html" onload="resizeIframe(this)"></iframe>
+                                        </div>
 
-                                    <iframe id="tab2_aside" style="min-height:500px" src="./treeStruct.html" onload="resizeIframe(this)"></iframe>
-                                </div>
-                                <div class="col-md-9 fullwidthContainer">
-                                    <iframe id="tab2" src="./treeMap.html" onload="resizeIframe(this)"></iframe>
+                                        <div class="col-md-12">
+
+
+
+                                            <p>The University of Cambridge (informally Cambridge University) is a collegiate
+                                                public research university in Cambridge, England. Founded in 1209 and granted
+                                                a royal charter by King Henry III in 1231, Cambridge is the second-oldest
+                                                university in the English-speaking world and the world's fourth-oldest surviving
+                                                university. The university grew out of an association of scholars who left
+                                                the University of Oxford after a dispute with the townspeople. The two medieval
+                                                universities share many common features and are often referred to jointly
+                                                as "Oxbridge".</p>
+
+                                            <p>
+                                                <a href="mail:hymand@mskcc.org">
+                                                    <i class="fa fa-envelope"></i>
+                                                    information@cambridge.org</a>
+                                            </p>
+
+
+
+                                        </div>
+                                    </div>
+
+
+
+
+
+
                                 </div>
                             </div>
+                            <div class="col-md-4">
+                                <div class="row" style="border-left: 1px solid #eae9e9;">
+                                    <div class="col-md-12">
 
-                            <select onchange="chooseOption('tab2', this.value)">
-                                <option value="./treeMap.html">Tree Map</option>
-                                <option value="./trendChart.html">Trend Chart</option>
-                                <option value="./customTree.html">Tree</option>
-                                <option value="./sun.html">Sun Burst</option>
-                            </select>
+                                        <span class="pull-right">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1" checked> Recent
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="option2"> All
+                                            </label>
+                                        </span>
+
+                                        <h4 style="margin: 5px;
+                                                                    font-size: 15px;
+                                                                    color: #5799c7;
+                                                                    font-weight: bold;">Keywords</h4>
+                                        <iframe src="./dash3.html" onload="resizeIframe(this)" style="height: 210px;"></iframe>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <span class="pull-right">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="inlineRadioOptions2" id="inlineRadio1" value="option1" checked> Recent
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="option2"> All
+                                            </label>
+                                        </span>
+                                        <h4 style="margin: 5px;
+                                                        font-size: 15px;
+                                                        color: #5799c7;
+                                                        font-weight: bold;">Top Level Subject Areas</h4>
+                                        <iframe src="./dash1.html" onload="resizeIframe(this)" style="height: 210px !important;"></iframe>
+
+                                    </div>
+                                    <div class="col-md-12">
+                                        <span class="pull-right">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="inlineRadioOptions3" id="inlineRadio1" value="option1" checked> Recent
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="inlineRadioOptions3" id="inlineRadio2" value="option2"> All
+                                            </label>
+                                        </span>
+                                        <h4 style="margin: 5px;
+                                                            font-size: 15px;
+                                                            color: #5799c7;
+                                                            font-weight: bold;">Articles Per Year</h4>
+                                        <iframe src="./barChart.html" onload="resizeIframe(this)" style="height: 210px;"></iframe>
+
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="messages">
-                            <iframe id="tab3" src="./tagCloud.html" onload="resizeIframe(this)"></iframe>
-
-                            <select onchange="chooseOption('tab3', this.value)">
-                                <option value="./tagCloud.html">Tag Cloud</option>
-                                <option value="./treeMap.html">Tree Map</option>
-                                <option value="./trendChart.html">Trend Chart</option>
-                            </select>
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="settings">
-
-                            <iframe id="tab4" src="./horizonBar.html" onload="resizeIframe(this)"></iframe>
-
-
-                            <select onchange="chooseOption('tab4', this.value)">
-                                <option value="./horizonBar.html">Horizontal Bar Chart</option>
-                                <option value="./instTrendChart.html">Trend Chart</option>
-                            </select>
-                        </div>
-                    </div>
-
+                    </section>
                 </div>
-            </div>
-        </div>
+
+                <br>
+                <div class="profile-info">
+                    <section class="tabView">
+                        <iframe id="tabView" src="./classTrendChart.html" onload="resizeIframe(this)"></iframe>
+                    </section>
+
+                    <select onchange="chooseOption('tabView', this.value)">
+                        <optgroup label="Subject Area">
+                            <option value="./classTrendChart.html">Trend Chart</option>
+                            <option value="./treeMap.html">Tree Map</option>
+                        </optgroup>
+                        <optgroup label="Keyword">
+                            <option value="./tagCloud.html">Tag Cloud</option>
+                            <option value="./ctTree.html">Tree Map</option>
+                            <option value="./trendChart.html">Trend Chart</option>
+                        </optgroup>
+                        <optgroup label="Article">
+                            <option value="article_1.html">Line Chart</option>
+                        </optgroup>
+                        <optgroup label="Collaboration">
+                            <option value="./horizonBar.html">Bar Chart</option>
+                            <option value="./instTrendChart.html">Trend Chart</option>
+                        </optgroup>
+
+                        <optgroup label="Author">
+                            <option value="./TrendChartAuthor.html">Trend Chart</option>
+                            <option value="./authorHorizon.html">Bar Chart</option>
+                            <option value="./authorTagCloud.html">Tag Cloud</option>
+                        </optgroup>
+
+                    </select>
+                </div>
+
+            </main>
+        </section>
+
     </main>
     <footer class="bottom-footer">
-        <div class="container">
-            <ul class="nav-footer-social">
-                <li>
-                    <a href="#">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-google-plus"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                </li>
-            </ul>
+        <div class="container-fluid text-right">
             <ul class="nav-footer">
                 <li>
                     <a href="#">Home</a>
@@ -255,17 +436,56 @@
             obj.style.height = (obj.contentWindow.document.body.scrollHeight + 50) + 'px';
         }
 
+        $('.navbar-collapse-btn').click(function () {
+            $('.nav-aside-left').toggleClass('active');
+            $('.page-container').toggleClass('aside-true');
+        });
+
 
         function chooseOption(ele, src) {
             $('#' + ele).attr('src', src);
 
+            console.log(src);
+
+            $('html, body').animate({
+                scrollTop: $('#' + ele).offset().top - 100
+            }, 'slow');
+
+            // document.getElementById(ele).scrollIntoView();
 
             if (ele == 'tab2' && (src == './sun.html' || src == './customTree.html')) {
                 $('#' + ele + '_aside').hide();
             } else {
                 $('#' + ele + '_aside').show();
             }
+
+
+            // $(function () {
+            //     $('input[name="daterange"]').daterangepicker({
+            //         "showDropdowns": true,
+            //         "dateLimit": {
+            //             "days": 7
+            //         },
+            //         "ranges": {
+            //             'Today': [moment(), moment()],
+            //             'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            //             'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            //             'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            //             'This Month': [moment().startOf('month'), moment().endOf('month')],
+                     
+
+            //         },
+            //         "startDate": "01/01/2013",
+            //         "endDate": "05/31/2017",
+            //         "minDate": "01/01/1969",
+            //         "maxDate": "05/31/2017",
+            //         "opens": "left"
+            //     });
+            // });
+
         }
+
+
 
 
 

@@ -1,6 +1,43 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+    
+<script type="text/javascript">
+    $(function() {
+     
+        $(function() {
+            $('input[name="daterange"]').daterangepicker({
+                "showDropdowns": true,
+                "dateLimit": {
+                    "days": 7
+                },
+                "ranges": {
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Six Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')],
+                    'One Year': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')],
+                    'Five Years': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                "startDate": "01/01/2013",
+                "endDate": "05/31/2017",
+                "minDate": "01/01/1969",
+                "maxDate": "05/31/2017",
+                "opens": "left"
+            });
+        });
+
+    });
+    </script>
 <style>
+    .stat.up i,
+    .stat.down i {
+        display: none;
+    }
+
     #trend-graph {
         font-family: Arial, sans-serif;
         font-size: 13px;
@@ -37,201 +74,3362 @@
 </style>
 
 <body>
+<div class="pull-right">
+    <i class="fa fa-calendar glyphicon glyphicon-calendar"></i>  Date Range: <input type="text" name="daterange"  />
+</div>
+
+<h4 style="padding: 0px 10px;"><i class="fa fa-star-half-o" style="color : #337ab7;"></i> Keywords</h4>
+<br>
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+        <li>
+            <a href="viewInst.html">University of Cambridge</a>
+        </li>
+        <li class="active">Keyword</li>
+    </ol>
+</nav>
+<hr>
     <div style="text-align: center">
-        <div id="trend-graph"></div>
+        <div id="trend-graph" style="height: 400px; overflow: auto;"></div>
     </div>
+<div style="position: relative;">
+    <i class="fa fa-sort" style="
+        font-size: 50px;
+        position: absolute;
+        right: 50px;
+        bottom: 0px;
+        color:#666
+    " aria-hidden="true"></i>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                </span>
+        </div>
+    </div>
+    <div class="col-md-1">
+        <button class="btn btn-default" type="button">Visualize
+            <span class="badge">0</span>
+        </button>
+    </div>
+</div>
+<br>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-condensed table-hover data-table">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Sl No.</th>
+                <th>Control term <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i> </th>
+                <th>Articles <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i></th>
+                <th>Collaborating Organizations <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+
+                <td>1</td>
+                <td>
+                    organic compounds
+                </td>
+                <td>
+                    <a href="viewInst.html">303</a>
+
+                </td>
+                <td>
+                    <a href="viewInst.html">298</a>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+
+                <td>2</td>
+                <td>
+                    X-ray diffraction
+                </td>
+                <td>
+                    <a href="viewInst.html">370</a>
+
+                </td>
+                <td>
+                    <a href="viewInst.html">560</a>
+
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+
+                <td>3</td>
+                <td>
+                    scanning electron microscopy
+                </td>
+                <td>
+                    <a href="viewInst.html">121</a>
+
+                </td>
+                <td>
+                    <a href="viewInst.html">123</a>
+
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+
+                <td>4</td>
+                <td>
+                    nanoparticles
+                </td>
+                <td>
+                    <a href="viewInst.html">293</a>
+
+                </td>
+                <td>
+                    <a href="viewInst.html">323</a>
+
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+
+                <td>5</td>
+                <td>
+                    iron
+                </td>
+
+                <td>
+                    <a href="viewInst.html">116</a>
+
+                </td>
+                <td>
+                    <a href="viewInst.html">234</a>
+
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+
+                <td>6</td>
+                <td>
+                    nanofabrication
+                </td>
+                <td>
+                    <a href="viewInst.html">193</a>
+
+                </td>
+
+                <td>
+                    <a href="viewInst.html">200</a>
+
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+
+                <td>7</td>
+                <td>
+                    recycling
+                </td>
+                <td>
+                    <a href="viewInst.html">136</a>
+
+                </td>
+
+                <td>
+                    <a href="viewInst.html">246</a>
+
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+
+                <td>8</td>
+                <td>
+                    chemical engineering
+                </td>
+                <td>
+                    <a href="viewInst.html">102</a>
+
+                </td>
+                <td>
+                    <a href="viewInst.html">413</a>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+
+                <td>9</td>
+                <td>
+                    adsorption
+                </td>
+                <td>
+                    <a href="viewInst.html">497</a>
+
+                </td>
+                <td>
+                    <a href="viewInst.html">615</a>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox"/>
+                </td>
+                <td>10</td>
+                <td>
+                    separation
+                </td>
+
+                <td>
+                    <a href="viewInst.html">156</a>
+
+                </td>
+                <td>
+                    <a href="viewInst.html">235</a>
+
+                </td>
+
+            </tr>
+            </tbody>
+
+        </table>
+        <nav>
+
+            <ul class="pagination pagination-md pull-right" style="margin:5px 0px;">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">«</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">1</a>
+                </li>
+                <li>
+                    <a href="#">2</a>
+                </li>
+                <li>
+                    <a href="#">3</a>
+                </li>
+                <li>
+                    <a href="#">4</a>
+                </li>
+                <li>
+                    <a href="#">5</a>
+                </li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">»</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: "Lucida Grande", "Droid Sans", Arial, Helvetica, sans-serif;
+        }
+
+        .legend {
+            border: 1px solid #555555;
+            border-radius: 5px 5px 5px 5px;
+            font-size: 0.8em;
+            margin: 10px;
+            padding: 8px;
+        }
+
+        .bld {
+            font-weight: bold;
+        }
+
+        .table {
+            margin: 0px;
+            margin-bottom: 5px;
+        }
+
+        .table>thead>tr>th {
+            vertical-align: middle;
+        }
+
+        .table>thead>tr>td {
+            vertical-align: middle;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat.up span {
+            color: #141414;
+        }
+
+        .stat.up i {
+            float: right;
+            color: green;
+            padding: 0px 5px;
+        }
+
+        .stat.down span {
+            color: #141414;
+        }
+
+        .stat.down i {
+            float: right;
+            color: red;
+            padding: 0px 5px;
+        }
+
+        .btn-compare {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 20;
+        }
+    </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
     <script>
         var data = {
             "data": [{
+                    "total": 18003,
+                    "name": "organic compounds",
                     "articles": [
-                        [1999, 4],
-                        [2000, 17],
-                        [2001, 9],
-                        [2002, 15],
-                        [2003, 17],
-                        [2004, 66],
-                        [2005, 84],
-                        [2006, 105],
-                        [2007, 106],
-                        [2008, 88],
-                        [2009, 105],
-                        [2010, 88],
-                        [2011, 154],
-                        [2012, 274],
-                        [2013, 297],
-                        [2014, 224],
-                        [2015, 164],
-                        [2016, 11]
-                    ],
-                    "total": 1828,
-                    "name": "Not specified"
+                        [2008, 5014],
+                        [2009, 7731],
+                        [2010, 2543],
+                        [2011, 0],
+                        [2012, 6834],
+                        [2013, 3672],
+                        [2014, 2202],
+                        [2015, 2440],
+                        [2016, 3806],
+                        [2017, 7840]
+                    ]
                 }, {
+                    "total": 13707,
+                    "name": "X-ray diffraction",
                     "articles": [
-                        [1997, 1],
-                        [1998, 1],
-                        [2001, 1],
-                        [2002, 2],
-                        [2003, 8],
-                        [2004, 25],
-                        [2005, 29],
-                        [2006, 45],
-                        [2007, 41],
-                        [2008, 29],
-                        [2009, 33],
-                        [2010, 27],
-                        [2011, 36],
-                        [2012, 50],
-                        [2013, 62],
-                        [2014, 56],
-                        [2015, 46],
-                        [2016, 1]
-                    ],
-                    "total": 493,
-                    "name": "Multiple"
+                        [2008, 3889],
+                        [2009, 3041],
+                        [2010, 2511],
+                        [2011, 2260],
+                        [2012, 3810],
+                        [2013, 4220],
+                        [2014, 4922],
+                        [2015, 4965],
+                        [2016, 6222],
+                        [2017, 5305]
+                    ]
                 }, {
+                    "total": 11921,
+                    "name": "scanning electron microscopy",
                     "articles": [
-                        [1997, 1],
-                        [1998, 1],
-                        [1999, 3],
-                        [2000, 9],
-                        [2001, 3],
-                        [2002, 8],
-                        [2003, 25],
-                        [2004, 38],
-                        [2005, 59],
-                        [2006, 59],
-                        [2007, 50],
-                        [2008, 35],
-                        [2009, 25],
-                        [2010, 22],
-                        [2011, 30],
-                        [2012, 34],
-                        [2013, 60],
-                        [2014, 67],
-                        [2015, 79],
-                        [2016, 5]
-                    ],
-                    "total": 613,
-                    "name": "Single"
+                        [2008, 2702],
+                        [2009, 5394],
+                        [2010, 5850],
+                        [2011, 2036],
+                        [2012, 0],
+                        [2013, 5033],
+                        [2014, 2574],
+                        [2015, 2161],
+                        [2016, 5012],
+                        [2017, 5755]
+                    ]
                 }, {
+                    "total": 8593,
+                    "name": "nanoparticles",
                     "articles": [
-                        [1998, 1],
-                        [2003, 1],
-                        [2004, 3],
-                        [2005, 5],
-                        [2006, 7],
-                        [2007, 11],
-                        [2008, 1],
-                        [2009, 7],
-                        [2010, 4],
-                        [2011, 7],
-                        [2012, 6],
-                        [2013, 13],
-                        [2014, 5],
-                        [2015, 3],
-                        [2016, 1]
-                    ],
-                    "total": 75,
-                    "name": "Dual"
+                        [2008, 2671],
+                        [2009, 3822],
+                        [2010, 3174],
+                        [2011, 3198],
+                        [2012, 3839],
+                        [2013, 3887],
+                        [2014, 4038],
+                        [2015, 2048],
+                        [2016, 4131],
+                        [2017, 2626]
+                    ]
                 }, {
+                    "total": 7116,
+                    "name": "iron",
                     "articles": [
-                        [1999, 4],
-                        [2000, 17],
-                        [2001, 9],
-                        [2002, 15],
-                        [2003, 17],
-                        [2004, 66],
-                        [2005, 84],
-                        [2006, 105],
-                        [2007, 106],
-                        [2008, 88],
-                        [2009, 105],
-                        [2010, 88],
-                        [2011, 154],
-                        [2012, 274],
-                        [2013, 297],
-                        [2014, 224],
-                        [2015, 164],
-                        [2016, 11]
-                    ],
-                    "total": 1828,
-                    "name": "specified"
+                        [2008, 2426],
+                        [2009, 3770],
+                        [2010, 2654],
+                        [2011, 2398],
+                        [2012, 3939],
+                        [2013, 3082],
+                        [2014, 3846],
+                        [2015, 2079],
+                        [2016, 3322],
+                        [2017, 3367]
+                    ]
                 }, {
+                    "total": 6979,
+                    "name": "nanofabrication",
                     "articles": [
-                        [1997, 1],
-                        [1998, 1],
-                        [2001, 1],
-                        [2002, 2],
-                        [2003, 8],
-                        [2004, 25],
-                        [2005, 29],
-                        [2006, 45],
-                        [2007, 41],
-                        [2008, 29],
-                        [2009, 33],
-                        [2010, 27],
-                        [2011, 36],
-                        [2012, 50],
-                        [2013, 62],
-                        [2014, 56],
-                        [2015, 46],
-                        [2016, 1]
-                    ],
-                    "total": 493,
-                    "name": "hybrid"
+                        [2008, 3295],
+                        [2009, 4328],
+                        [2010, 3054],
+                        [2011, 2402],
+                        [2012, 3445],
+                        [2013, 3248],
+                        [2014, 2620],
+                        [2015, 2930],
+                        [2016, 3768],
+                        [2017, 3269]
+                    ]
                 }, {
+                    "total": 6936,
+                    "name": "recycling",
                     "articles": [
-                        [1997, 1],
-                        [1998, 1],
-                        [1999, 3],
-                        [2000, 9],
-                        [2001, 3],
-                        [2002, 8],
-                        [2003, 25],
-                        [2004, 38],
-                        [2005, 59],
-                        [2006, 59],
-                        [2007, 50],
-                        [2008, 35],
-                        [2009, 25],
-                        [2010, 22],
-                        [2011, 30],
-                        [2012, 34],
-                        [2013, 60],
-                        [2014, 67],
-                        [2015, 79],
-                        [2016, 5]
-                    ],
-                    "total": 613,
-                    "name": "tripple"
+                        [2008, 2042],
+                        [2009, 2423],
+                        [2010, 2447],
+                        [2011, 2976],
+                        [2012, 3565],
+                        [2013, 3603],
+                        [2014, 3088],
+                        [2015, 3393],
+                        [2016, 3763],
+                        [2017, 3783]
+                    ]
                 }, {
+                    "total": 6902,
+                    "name": "chemical engineering",
                     "articles": [
-                        [1998, 1],
-                        [2003, 1],
-                        [2004, 3],
-                        [2005, 5],
-                        [2006, 7],
-                        [2007, 11],
-                        [2008, 1],
-                        [2009, 7],
-                        [2010, 4],
-                        [2011, 7],
-                        [2012, 6],
-                        [2013, 13],
-                        [2014, 5],
-                        [2015, 3],
-                        [2016, 1]
-                    ],
-                    "total": 75,
-                    "name": "octal"
-                }
+                        [2008, 2060],
+                        [2009, 2378],
+                        [2010, 2327],
+                        [2011, 3370],
+                        [2012, 3533],
+                        [2013, 3114],
+                        [2014, 3655],
+                        [2015, 2389],
+                        [2016, 2551],
+                        [2017, 2269]
+                    ]
+                }, {
+                    "total": 6797,
+                    "name": "adsorption",
+                    "articles": [
+                        [2008, 4102],
+                        [2009, 4237],
+                        [2010, 2720],
+                        [2011, 3163],
+                        [2012, 3054],
+                        [2013, 2241],
+                        [2014, 3178],
+                        [2015, 2753],
+                        [2016, 3861],
+                        [2017, 3603]
+                    ]
+                }, {
+                    "total": 6656,
+                    "name": "separation",
+                    "articles": [
+                        [2008, 2981],
+                        [2009, 4040],
+                        [2010, 2459],
+                        [2011, 3831],
+                        [2012, 3930],
+                        [2013, 2488],
+                        [2014, 2753],
+                        [2015, 3017],
+                        [2016, 2276],
+                        [2017, 3115]
+                    ]
+                }, {
+                    "total": 6652,
+                    "name": "Fourier transform infrared spectra",
+                    "articles": [
+                        [2008, 2430],
+                        [2009, 2617],
+                        [2010, 3345],
+                        [2011, 2712],
+                        [2012, 3373],
+                        [2013, 2783],
+                        [2014, 2140],
+                        [2015, 2801],
+                        [2016, 2357],
+                        [2017, 2577]
+                    ]
+                }, {
+                    "total": 6055,
+                    "name": "pH",
+                    "articles": [
+                        [2008, 2206],
+                        [2009, 3297],
+                        [2010, 2895],
+                        [2011, 2636],
+                        [2012, 3505],
+                        [2013, 3028],
+                        [2014, 0],
+                        [2015, 2962],
+                        [2016, 3784],
+                        [2017, 2437]
+                    ]
+                }, {
+                    "total": 5909,
+                    "name": "polymers",
+                    "articles": [
+                        [2008, 2781],
+                        [2009, 3673],
+                        [2010, 3435],
+                        [2011, 3099],
+                        [2012, 3038],
+                        [2013, 2629],
+                        [2014, 2211],
+                        [2015, 2497],
+                        [2016, 2725],
+                        [2017, 2728]
+                    ]
+                }, {
+                    "total": 5813,
+                    "name": "crystal structure",
+                    "articles": [
+                        [2008, 3034],
+                        [2009, 2693],
+                        [2010, 0],
+                        [2011, 2083],
+                        [2012, 2951],
+                        [2013, 3334],
+                        [2014, 2230],
+                        [2015, 2070],
+                        [2016, 3138],
+                        [2017, 2395]
+                    ]
+                }, {
+                    "total": 5773,
+                    "name": "catalysts",
+                    "articles": [
+                        [2008, 2090],
+                        [2009, 3355],
+                        [2010, 3604],
+                        [2011, 3859],
+                        [2012, 2790],
+                        [2013, 2023],
+                        [2014, 3135],
+                        [2015, 2713],
+                        [2016, 3871],
+                        [2017, 3372]
+                    ]
+                }, {
+                    "total": 5669,
+                    "name": "transmission electron microscopy",
+                    "articles": [
+                        [2008, 2062],
+                        [2009, 3453],
+                        [2010, 3316],
+                        [2011, 2172],
+                        [2012, 3591],
+                        [2013, 2076],
+                        [2014, 2214],
+                        [2015, 3346],
+                        [2016, 3152],
+                        [2017, 3708]
+                    ]
+                }, {
+                    "total": 5638,
+                    "name": "catalysis",
+                    "articles": [
+                        [2008, 3680],
+                        [2009, 3121],
+                        [2010, 3143],
+                        [2011, 3590],
+                        [2012, 3859],
+                        [2013, 2760],
+                        [2014, 2732],
+                        [2015, 2708],
+                        [2016, 3877],
+                        [2017, 3021]
+                    ]
+                }, {
+                    "total": 5558,
+                    "name": "copper",
+                    "articles": [
+                        [2008, 2608],
+                        [2009, 2974],
+                        [2010, 2401],
+                        [2011, 2354],
+                        [2012, 3614],
+                        [2013, 3439],
+                        [2014, 3029],
+                        [2015, 2796],
+                        [2016, 2682],
+                        [2017, 3781]
+                    ]
+                }, {
+                    "total": 4996,
+                    "name": "oxidation",
+                    "articles": [
+                        [2008, 3180],
+                        [2009, 2721],
+                        [2010, 2926],
+                        [2011, 3090],
+                        [2012, 2955],
+                        [2013, 2693],
+                        [2014, 3374],
+                        [2015, 2150],
+                        [2016, 3490],
+                        [2017, 3068]
+                    ]
+                }, {
+                    "total": 4846,
+                    "name": "microorganisms",
+                    "articles": [
+                        [2008, 3097],
+                        [2009, 2079],
+                        [2010, 2678],
+                        [2011, 3387],
+                        [2012, 2079],
+                        [2013, 3232],
+                        [2014, 2256],
+                        [2015, 2852],
+                        [2016, 3437],
+                        [2017, 2380]
+                    ]
+                }, {
+                    "total": 4827,
+                    "name": "silicon",
+                    "articles": [
+                        [2008, 3130],
+                        [2009, 3150],
+                        [2010, 2413],
+                        [2011, 2280],
+                        [2012, 2632],
+                        [2013, 3617],
+                        [2014, 2601],
+                        [2015, 3125],
+                        [2016, 3335],
+                        [2017, 3195]
+                    ]
+                }, {
+                    "total": 4533,
+                    "name": "organisational aspects",
+                    "articles": [
+                        [2008, 3061],
+                        [2009, 2922],
+                        [2010, 2559],
+                        [2011, 2805],
+                        [2012, 2160],
+                        [2013, 2030],
+                        [2014, 3159],
+                        [2015, 2748],
+                        [2016, 3304],
+                        [2017, 3463]
+                    ]
+                }, {
+                    "total": 4511,
+                    "name": "crystal microstructure",
+                    "articles": [
+                        [2008, 2504],
+                        [2009, 2943],
+                        [2010, 2108],
+                        [2011, 2392],
+                        [2012, 2300],
+                        [2013, 2343],
+                        [2014, 3471],
+                        [2015, 2811],
+                        [2016, 2967],
+                        [2017, 2894]
+                    ]
+                }, {
+                    "total": 4344,
+                    "name": "silicon compounds",
+                    "articles": [
+                        [2008, 3014],
+                        [2009, 3387],
+                        [2010, 2558],
+                        [2011, 2959],
+                        [2012, 2658],
+                        [2013, 2136],
+                        [2014, 3147],
+                        [2015, 3137],
+                        [2016, 2283],
+                        [2017, 2865]
+                    ]
+                }, {
+                    "total": 4292,
+                    "name": "industrial waste",
+                    "articles": [
+                        [2008, 3292],
+                        [2009, 3415],
+                        [2010, 2227],
+                        [2011, 2062],
+                        [2012, 2268],
+                        [2013, 2101],
+                        [2014, 3110],
+                        [2015, 2171],
+                        [2016, 2077],
+                        [2017, 2343]
+                    ]
+                }, {
+                    "total": 4270,
+                    "name": "surface morphology",
+                    "articles": [
+                        [2008, 3427],
+                        [2009, 3309],
+                        [2010, 2419],
+                        [2011, 2166],
+                        [2012, 3378],
+                        [2013, 2259],
+                        [2014, 2479],
+                        [2015, 2583],
+                        [2016, 3379],
+                        [2017, 3134]
+                    ]
+                }, {
+                    "total": 4225,
+                    "name": "wastewater treatment",
+                    "articles": [
+                        [2008, 2663],
+                        [2009, 2335],
+                        [2010, 2289],
+                        [2011, 3158],
+                        [2012, 2618],
+                        [2013, 2202],
+                        [2014, 2739],
+                        [2015, 2739],
+                        [2016, 3227],
+                        [2017, 3286]
+                    ]
+                }, {
+                    "total": 4204,
+                    "name": "thin films",
+                    "articles": [
+                        [2008, 2305],
+                        [2009, 3053],
+                        [2010, 2238],
+                        [2011, 3136],
+                        [2012, 2296],
+                        [2013, 2663],
+                        [2014, 3186],
+                        [2015, 2604],
+                        [2016, 2599],
+                        [2017, 2090]
+                    ]
+                }, {
+                    "total": 4193,
+                    "name": "nickel",
+                    "articles": [
+                        [2008, 2195],
+                        [2009, 2926],
+                        [2010, 3266],
+                        [2011, 2233],
+                        [2012, 2453],
+                        [2013, 3250],
+                        [2014, 2132],
+                        [2015, 3088],
+                        [2016, 2505],
+                        [2017, 2666]
+                    ]
+                }, {
+                    "total": 4105,
+                    "name": "ions",
+                    "articles": [
+                        [2008, 2289],
+                        [2009, 2995],
+                        [2010, 2111],
+                        [2011, 3347],
+                        [2012, 2537],
+                        [2013, 3302],
+                        [2014, 2482],
+                        [2015, 2306],
+                        [2016, 2970],
+                        [2017, 2455]
+                    ]
+                }, {
+                    "total": 3972,
+                    "name": "diffusion",
+                    "articles": [
+                        [2008, 2157],
+                        [2009, 2248],
+                        [2010, 2243],
+                        [2011, 2014],
+                        [2012, 2894],
+                        [2013, 2828],
+                        [2014, 2977],
+                        [2015, 3176],
+                        [2016, 3332],
+                        [2017, 3084]
+                    ]
+                }, {
+                    "total": 3866,
+                    "name": "sodium",
+                    "articles": [
+                        [2008, 2254],
+                        [2009, 3234],
+                        [2010, 2965],
+                        [2011, 2788],
+                        [2012, 2715],
+                        [2013, 2945],
+                        [2014, 2102],
+                        [2015, 2881],
+                        [2016, 3082],
+                        [2017, 2700]
+                    ]
+                }, {
+                    "total": 3856,
+                    "name": "design engineering",
+                    "articles": [
+                        [2008, 2436],
+                        [2009, 2807],
+                        [2010, 2724],
+                        [2011, 3266],
+                        [2012, 2646],
+                        [2013, 3182],
+                        [2014, 2058],
+                        [2015, 2836],
+                        [2016, 2362],
+                        [2017, 3042]
+                    ]
+                }, {
+                    "total": 3837,
+                    "name": "ultraviolet spectra",
+                    "articles": [
+                        [2008, 2984],
+                        [2009, 3058],
+                        [2010, 2319],
+                        [2011, 2046],
+                        [2012, 3012],
+                        [2013, 2218],
+                        [2014, 2379],
+                        [2015, 2559],
+                        [2016, 2847],
+                        [2017, 3295]
+                    ]
+                }, {
+                    "total": 3833,
+                    "name": "composite materials",
+                    "articles": [
+                        [2008, 2688],
+                        [2009, 2356],
+                        [2010, 2778],
+                        [2011, 2614],
+                        [2012, 2865],
+                        [2013, 2854],
+                        [2014, 2410],
+                        [2015, 2139],
+                        [2016, 2402],
+                        [2017, 3249]
+                    ]
+                }, {
+                    "total": 3821,
+                    "name": "titanium",
+                    "articles": [
+                        [2008, 2786],
+                        [2009, 2617],
+                        [2010, 2826],
+                        [2011, 2974],
+                        [2012, 3111],
+                        [2013, 2746],
+                        [2014, 3174],
+                        [2015, 2682],
+                        [2016, 3224],
+                        [2017, 2729]
+                    ]
+                }, {
+                    "total": 3806,
+                    "name": "steel",
+                    "articles": [
+                        [2008, 2405],
+                        [2009, 3264],
+                        [2010, 2276],
+                        [2011, 2617],
+                        [2012, 2062],
+                        [2013, 2646],
+                        [2014, 2105],
+                        [2015, 2062],
+                        [2016, 2354],
+                        [2017, 2490]
+                    ]
+                }, {
+                    "total": 3761,
+                    "name": "aluminium alloys",
+                    "articles": [
+                        [2008, 2923],
+                        [2009, 3089],
+                        [2010, 2545],
+                        [2011, 2513],
+                        [2012, 2876],
+                        [2013, 2462],
+                        [2014, 2572],
+                        [2015, 2778],
+                        [2016, 2589],
+                        [2017, 2950]
+                    ]
+                }, {
+                    "total": 3700,
+                    "name": "tensile strength",
+                    "articles": [
+                        [2008, 2151],
+                        [2009, 2264],
+                        [2010, 2896],
+                        [2011, 2753],
+                        [2012, 3128],
+                        [2013, 2462],
+                        [2014, 2596],
+                        [2015, 2115],
+                        [2016, 3100],
+                        [2017, 2620]
+                    ]
+                }, {
+                    "total": 3684,
+                    "name": "nanostructured materials",
+                    "articles": [
+                        [2008, 2194],
+                        [2009, 2232],
+                        [2010, 2993],
+                        [2011, 2594],
+                        [2012, 2978],
+                        [2013, 2622],
+                        [2014, 2250],
+                        [2015, 2554],
+                        [2016, 3210],
+                        [2017, 2045]
+                    ]
+                }, {
+                    "total": 3622,
+                    "name": "visible spectra",
+                    "articles": [
+                        [2008, 3113],
+                        [2009, 2740],
+                        [2010, 2787],
+                        [2011, 2620],
+                        [2012, 3207],
+                        [2013, 2022],
+                        [2014, 3011],
+                        [2015, 2084],
+                        [2016, 3184],
+                        [2017, 2436]
+                    ]
+                }, {
+                    "total": 3619,
+                    "name": "nitrogen",
+                    "articles": [
+                        [2008, 2411],
+                        [2009, 2031],
+                        [2010, 2886],
+                        [2011, 2484],
+                        [2012, 2374],
+                        [2013, 2635],
+                        [2014, 2838],
+                        [2015, 2439],
+                        [2016, 2634],
+                        [2017, 2103]
+                    ]
+                }, {
+                    "total": 3614,
+                    "name": "product quality",
+                    "articles": [
+                        [2008, 2595],
+                        [2009, 2113],
+                        [2010, 2182],
+                        [2011, 2400],
+                        [2012, 2054],
+                        [2013, 2400],
+                        [2014, 2224],
+                        [2015, 2668],
+                        [2016, 3001],
+                        [2017, 2869]
+                    ]
+                }, {
+                    "total": 3556,
+                    "name": "sodium compounds",
+                    "articles": [
+                        [2008, 2583],
+                        [2009, 2353],
+                        [2010, 2723],
+                        [2011, 2951],
+                        [2012, 2345],
+                        [2013, 3159],
+                        [2014, 2033],
+                        [2015, 2338],
+                        [2016, 2231],
+                        [2017, 2559]
+                    ]
+                }, {
+                    "total": 3505,
+                    "name": "carbon compounds",
+                    "articles": [
+                        [2008, 2022],
+                        [2009, 2534],
+                        [2010, 2612],
+                        [2011, 2460],
+                        [2012, 3058],
+                        [2013, 2033],
+                        [2014, 2729],
+                        [2015, 2134],
+                        [2016, 2539],
+                        [2017, 2980]
+                    ]
+                }, {
+                    "total": 3502,
+                    "name": "food products",
+                    "articles": [
+                        [2008, 2183],
+                        [2009, 2292],
+                        [2010, 2097],
+                        [2011, 3005],
+                        [2012, 2930],
+                        [2013, 2679],
+                        [2014, 2192],
+                        [2015, 2816],
+                        [2016, 2800],
+                        [2017, 2930]
+                    ]
+                }, {
+                    "total": 3495,
+                    "name": "nanocomposites",
+                    "articles": [
+                        [2008, 2594],
+                        [2009, 2922],
+                        [2010, 2404],
+                        [2011, 2809],
+                        [2012, 2755],
+                        [2013, 2107],
+                        [2014, 2911],
+                        [2015, 2678],
+                        [2016, 2613],
+                        [2017, 2435]
+                    ]
+                }, {
+                    "total": 3494,
+                    "name": "graphene",
+                    "articles": [
+                        [2008, 2804],
+                        [2009, 2131],
+                        [2010, 2568],
+                        [2011, 2379],
+                        [2012, 2217],
+                        [2013, 2842],
+                        [2014, 2156],
+                        [2015, 2158],
+                        [2016, 2416],
+                        [2017, 2255]
+                    ]
+                }, {
+                    "total": 3494,
+                    "name": "biotechnology",
+                    "articles": [
+                        [2008, 2854],
+                        [2009, 2921],
+                        [2010, 2379],
+                        [2011, 2116],
+                        [2012, 2557],
+                        [2013, 2655],
+                        [2014, 2272],
+                        [2015, 2387],
+                        [2016, 2611],
+                        [2017, 2932]
+                    ]
+                }, {
+                    "total": 3480,
+                    "name": "doping",
+                    "articles": [
+                        [2008, 2721],
+                        [2009, 2180],
+                        [2010, 2099],
+                        [2011, 2578],
+                        [2012, 2373],
+                        [2013, 2684],
+                        [2014, 2864],
+                        [2015, 3041],
+                        [2016, 2761],
+                        [2017, 2097]
+                    ]
+                }, {
+                    "total": 3473,
+                    "name": "aluminium",
+                    "articles": [
+                        [2008, 2515],
+                        [2009, 3165],
+                        [2010, 2049],
+                        [2011, 2151],
+                        [2012, 2513],
+                        [2013, 3077],
+                        [2014, 2156],
+                        [2015, 3038],
+                        [2016, 2213],
+                        [2017, 2847]
+                    ]
+                }, {
+                    "total": 3441,
+                    "name": "renewable energy sources",
+                    "articles": [
+                        [2008, 2575],
+                        [2009, 2651],
+                        [2010, 2767],
+                        [2011, 2241],
+                        [2012, 2550],
+                        [2013, 2547],
+                        [2014, 2032],
+                        [2015, 2243],
+                        [2016, 2185],
+                        [2017, 2373]
+                    ]
+                }, {
+                    "total": 3432,
+                    "name": "energy gap",
+                    "articles": [
+                        [2008, 2161],
+                        [2009, 2385],
+                        [2010, 2220],
+                        [2011, 2176],
+                        [2012, 2627],
+                        [2013, 3144],
+                        [2014, 2994],
+                        [2015, 3043],
+                        [2016, 2253],
+                        [2017, 2894]
+                    ]
+                }, {
+                    "total": 3400,
+                    "name": "photoluminescence",
+                    "articles": [
+                        [2008, 2563],
+                        [2009, 2723],
+                        [2010, 2536],
+                        [2011, 2693],
+                        [2012, 2779],
+                        [2013, 2020],
+                        [2014, 2855],
+                        [2015, 2076],
+                        [2016, 2082],
+                        [2017, 2729]
+                    ]
+                }, {
+                    "total": 3346,
+                    "name": "particle size",
+                    "articles": [
+                        [2008, 2132],
+                        [2009, 2683],
+                        [2010, 2702],
+                        [2011, 2843],
+                        [2012, 2745],
+                        [2013, 2610],
+                        [2014, 2505],
+                        [2015, 2765],
+                        [2016, 2607],
+                        [2017, 2592]
+                    ]
+                }, {
+                    "total": 3337,
+                    "name": "fracture",
+                    "articles": [
+                        [2008, 2647],
+                        [2009, 2492],
+                        [2010, 2238],
+                        [2011, 2606],
+                        [2012, 2223],
+                        [2013, 2833],
+                        [2014, 2551],
+                        [2015, 2696],
+                        [2016, 2695],
+                        [2017, 2781]
+                    ]
+                }, {
+                    "total": 3307,
+                    "name": "hydrogen compounds",
+                    "articles": [
+                        [2008, 2322],
+                        [2009, 2342],
+                        [2010, 2303],
+                        [2011, 2437],
+                        [2012, 2163],
+                        [2013, 2212],
+                        [2014, 2859],
+                        [2015, 2843],
+                        [2016, 2524],
+                        [2017, 2707]
+                    ]
+                }, {
+                    "total": 3294,
+                    "name": "titanium compounds",
+                    "articles": [
+                        [2008, 2714],
+                        [2009, 2617],
+                        [2010, 2730],
+                        [2011, 2162],
+                        [2012, 2998],
+                        [2013, 2591],
+                        [2014, 2282],
+                        [2015, 2971],
+                        [2016, 2214],
+                        [2017, 2289]
+                    ]
+                }, {
+                    "total": 3291,
+                    "name": "infrared spectra",
+                    "articles": [
+                        [2008, 2275],
+                        [2009, 2880],
+                        [2010, 2587],
+                        [2011, 2955],
+                        [2012, 2533],
+                        [2013, 3078],
+                        [2014, 2319],
+                        [2015, 2804],
+                        [2016, 2546],
+                        [2017, 2715]
+                    ]
+                }, {
+                    "total": 3242,
+                    "name": "oxygen",
+                    "articles": [
+                        [2008, 2088],
+                        [2009, 2274],
+                        [2010, 2914],
+                        [2011, 2941],
+                        [2012, 2827],
+                        [2013, 2993],
+                        [2014, 2094],
+                        [2015, 2100],
+                        [2016, 2513],
+                        [2017, 2071]
+                    ]
+                }, {
+                    "total": 3240,
+                    "name": "X-ray chemical analysis",
+                    "articles": [
+                        [2008, 2295],
+                        [2009, 2945],
+                        [2010, 2508],
+                        [2011, 2501],
+                        [2012, 2939],
+                        [2013, 2514],
+                        [2014, 2756],
+                        [2015, 2991],
+                        [2016, 2139],
+                        [2017, 2288]
+                    ]
+                }, {
+                    "total": 3226,
+                    "name": "wide band gap semiconductors",
+                    "articles": [
+                        [2008, 3072],
+                        [2009, 3011],
+                        [2010, 2305],
+                        [2011, 2915],
+                        [2012, 3044],
+                        [2013, 2523],
+                        [2014, 2767],
+                        [2015, 2059],
+                        [2016, 2862],
+                        [2017, 2651]
+                    ]
+                }, {
+                    "total": 3218,
+                    "name": "density functional theory",
+                    "articles": [
+                        [2008, 2032],
+                        [2009, 2241],
+                        [2010, 2523],
+                        [2011, 2184],
+                        [2012, 3063],
+                        [2013, 2862],
+                        [2014, 2688],
+                        [2015, 2921],
+                        [2016, 2644],
+                        [2017, 2861]
+                    ]
+                }, {
+                    "total": 3186,
+                    "name": "zinc",
+                    "articles": [
+                        [2008, 2205],
+                        [2009, 2308],
+                        [2010, 2316],
+                        [2011, 2652],
+                        [2012, 2571],
+                        [2013, 2339],
+                        [2014, 2817],
+                        [2015, 2481],
+                        [2016, 2842],
+                        [2017, 2920]
+                    ]
+                }, {
+                    "total": 3186,
+                    "name": "hydrogen",
+                    "articles": [
+                        [2008, 2640],
+                        [2009, 2776],
+                        [2010, 2689],
+                        [2011, 2544],
+                        [2012, 3018],
+                        [2013, 2445],
+                        [2014, 2189],
+                        [2015, 2143],
+                        [2016, 2776],
+                        [2017, 2643]
+                    ]
+                }, {
+                    "total": 3179,
+                    "name": "calcium",
+                    "articles": [
+                        [2008, 2530],
+                        [2009, 2195],
+                        [2010, 3030],
+                        [2011, 2277],
+                        [2012, 2352],
+                        [2013, 2723],
+                        [2014, 2931],
+                        [2015, 2846],
+                        [2016, 2799],
+                        [2017, 2349]
+                    ]
+                }, {
+                    "total": 3077,
+                    "name": "porosity",
+                    "articles": [
+                        [2008, 2314],
+                        [2009, 2216],
+                        [2010, 2092],
+                        [2011, 2496],
+                        [2012, 2811],
+                        [2013, 2365],
+                        [2014, 2971],
+                        [2015, 2276],
+                        [2016, 2786],
+                        [2017, 2821]
+                    ]
+                }, {
+                    "total": 3048,
+                    "name": "numerical analysis",
+                    "articles": [
+                        [2008, 2455],
+                        [2009, 2860],
+                        [2010, 2578],
+                        [2011, 2222],
+                        [2012, 2078],
+                        [2013, 2924],
+                        [2014, 2468],
+                        [2015, 2618],
+                        [2016, 2363],
+                        [2017, 2154]
+                    ]
+                }, {
+                    "total": 3040,
+                    "name": "iron compounds",
+                    "articles": [
+                        [2008, 2816],
+                        [2009, 2337],
+                        [2010, 2180],
+                        [2011, 2633],
+                        [2012, 2228],
+                        [2013, 2794],
+                        [2014, 2927],
+                        [2015, 2541],
+                        [2016, 2712],
+                        [2017, 2489]
+                    ]
+                }, {
+                    "total": 3040,
+                    "name": "zinc compounds",
+                    "articles": [
+                        [2008, 2550],
+                        [2009, 2469],
+                        [2010, 2257],
+                        [2011, 2726],
+                        [2012, 2549],
+                        [2013, 2183],
+                        [2014, 2458],
+                        [2015, 2068],
+                        [2016, 2959],
+                        [2017, 2546]
+                    ]
+                }, {
+                    "total": 3016,
+                    "name": "X-ray photoelectron spectra",
+                    "articles": [
+                        [2008, 2365],
+                        [2009, 2236],
+                        [2010, 2490],
+                        [2011, 2165],
+                        [2012, 2449],
+                        [2013, 2491],
+                        [2014, 2429],
+                        [2015, 2613],
+                        [2016, 2388],
+                        [2017, 2340]
+                    ]
+                }, {
+                    "total": 3008,
+                    "name": "Raman spectra",
+                    "articles": [
+                        [2008, 2871],
+                        [2009, 2216],
+                        [2010, 2117],
+                        [2011, 2777],
+                        [2012, 2415],
+                        [2013, 2291],
+                        [2014, 2755],
+                        [2015, 2758],
+                        [2016, 2016],
+                        [2017, 2273]
+                    ]
+                }, {
+                    "total": 2969,
+                    "name": "substrates",
+                    "articles": [
+                        [2008, 2700],
+                        [2009, 2757],
+                        [2010, 2874],
+                        [2011, 2064],
+                        [2012, 2029],
+                        [2013, 2336],
+                        [2014, 2454],
+                        [2015, 2637],
+                        [2016, 2377],
+                        [2017, 2158]
+                    ]
+                }, {
+                    "total": 2954,
+                    "name": "Strategic planning",
+                    "articles": [
+                        [2008, 2168],
+                        [2009, 2184],
+                        [2010, 2224],
+                        [2011, 2256],
+                        [2012, 2122],
+                        [2013, 2339],
+                        [2014, 2091],
+                        [2015, 2884],
+                        [2016, 2848],
+                        [2017, 2515]
+                    ]
+                }, {
+                    "total": 2949,
+                    "name": "molecules",
+                    "articles": [
+                        [2008, 2120],
+                        [2009, 2015],
+                        [2010, 2684],
+                        [2011, 2450],
+                        [2012, 2236],
+                        [2013, 2201],
+                        [2014, 2675],
+                        [2015, 2986],
+                        [2016, 2510],
+                        [2017, 2779]
+                    ]
+                }, {
+                    "total": 2946,
+                    "name": "reaction kinetics",
+                    "articles": [
+                        [2008, 2243],
+                        [2009, 2246],
+                        [2010, 2708],
+                        [2011, 2639],
+                        [2012, 2946],
+                        [2013, 2613],
+                        [2014, 2709],
+                        [2015, 2505],
+                        [2016, 2779],
+                        [2017, 2345]
+                    ]
+                }, {
+                    "total": 2939,
+                    "name": "membranes",
+                    "articles": [
+                        [2008, 2340],
+                        [2009, 2801],
+                        [2010, 2845],
+                        [2011, 2449],
+                        [2012, 2147],
+                        [2013, 2666],
+                        [2014, 2115],
+                        [2015, 2813],
+                        [2016, 2167],
+                        [2017, 2720]
+                    ]
+                }, {
+                    "total": 2935,
+                    "name": "powders",
+                    "articles": [
+                        [2008, 2487],
+                        [2009, 2626],
+                        [2010, 2642],
+                        [2011, 2090],
+                        [2012, 2209],
+                        [2013, 2729],
+                        [2014, 2349],
+                        [2015, 2261],
+                        [2016, 2692],
+                        [2017, 2041]
+                    ]
+                }, {
+                    "total": 2898,
+                    "name": "glass",
+                    "articles": [
+                        [2008, 2308],
+                        [2009, 2621],
+                        [2010, 2389],
+                        [2011, 2457],
+                        [2012, 2669],
+                        [2013, 2385],
+                        [2014, 2910],
+                        [2015, 2132],
+                        [2016, 2750],
+                        [2017, 2712]
+                    ]
+                }, {
+                    "total": 2881,
+                    "name": "films",
+                    "articles": [
+                        [2008, 2760],
+                        [2009, 2214],
+                        [2010, 2525],
+                        [2011, 2170],
+                        [2012, 2650],
+                        [2013, 2695],
+                        [2014, 2763],
+                        [2015, 2514],
+                        [2016, 2740],
+                        [2017, 2342]
+                    ]
+                }, {
+                    "total": 2861,
+                    "name": "thermal analysis",
+                    "articles": [
+                        [2008, 2154],
+                        [2009, 2164],
+                        [2010, 2570],
+                        [2011, 2646],
+                        [2012, 2323],
+                        [2013, 2135],
+                        [2014, 2621],
+                        [2015, 2430],
+                        [2016, 2501],
+                        [2017, 2243]
+                    ]
+                }, {
+                    "total": 2852,
+                    "name": "electrochemical electrodes",
+                    "articles": [
+                        [2008, 2540],
+                        [2009, 2944],
+                        [2010, 2914],
+                        [2011, 2015],
+                        [2012, 2184],
+                        [2013, 2474],
+                        [2014, 2191],
+                        [2015, 2722],
+                        [2016, 2571],
+                        [2017, 2966]
+                    ]
+                }, {
+                    "total": 2809,
+                    "name": "chemical reactors",
+                    "articles": [
+                        [2008, 2250],
+                        [2009, 2383],
+                        [2010, 2751],
+                        [2011, 2773],
+                        [2012, 2688],
+                        [2013, 2383],
+                        [2014, 2282],
+                        [2015, 2383],
+                        [2016, 2432],
+                        [2017, 2742]
+                    ]
+                }, {
+                    "total": 2792,
+                    "name": "filled polymers",
+                    "articles": [
+                        [2008, 2424],
+                        [2009, 2506],
+                        [2010, 2148],
+                        [2011, 2922],
+                        [2012, 2762],
+                        [2013, 2560],
+                        [2014, 2599],
+                        [2015, 2058],
+                        [2016, 2903],
+                        [2017, 2018]
+                    ]
+                }, {
+                    "total": 2791,
+                    "name": "crystals",
+                    "articles": [
+                        [2008, 2152],
+                        [2009, 2833],
+                        [2010, 2023],
+                        [2011, 2172],
+                        [2012, 2367],
+                        [2013, 2213],
+                        [2014, 2360],
+                        [2015, 2589],
+                        [2016, 2655],
+                        [2017, 2217]
+                    ]
+                }, {
+                    "total": 2789,
+                    "name": "chemical analysis",
+                    "articles": [
+                        [2008, 2085],
+                        [2009, 2237],
+                        [2010, 2482],
+                        [2011, 2179],
+                        [2012, 2831],
+                        [2013, 2438],
+                        [2014, 2743],
+                        [2015, 2288],
+                        [2016, 2116],
+                        [2017, 2320]
+                    ]
+                }, {
+                    "total": 2773,
+                    "name": "mechanical properties",
+                    "articles": [
+                        [2008, 2813],
+                        [2009, 2415],
+                        [2010, 2747],
+                        [2011, 2382],
+                        [2012, 2095],
+                        [2013, 2322],
+                        [2014, 2045],
+                        [2015, 2883],
+                        [2016, 2741],
+                        [2017, 2443]
+                    ]
+                }, {
+                    "total": 2738,
+                    "name": "deformation",
+                    "articles": [
+                        [2008, 2257],
+                        [2009, 2706],
+                        [2010, 2106],
+                        [2011, 2756],
+                        [2012, 2456],
+                        [2013, 2067],
+                        [2014, 2093],
+                        [2015, 2265],
+                        [2016, 2496],
+                        [2017, 2082]
+                    ]
+                }, {
+                    "total": 2731,
+                    "name": "crops",
+                    "articles": [
+                        [2008, 2074],
+                        [2009, 2684],
+                        [2010, 2295],
+                        [2011, 2545],
+                        [2012, 2874],
+                        [2013, 2726],
+                        [2014, 2564],
+                        [2015, 2663],
+                        [2016, 2744],
+                        [2017, 2690]
+                    ]
+                }, {
+                    "total": 2730,
+                    "name": "annealing",
+                    "articles": [
+                        [2008, 2740],
+                        [2009, 2121],
+                        [2010, 2134],
+                        [2011, 2616],
+                        [2012, 2039],
+                        [2013, 2577],
+                        [2014, 2466],
+                        [2015, 2419],
+                        [2016, 2178],
+                        [2017, 2234]
+                    ]
+                }, {
+                    "total": 2722,
+                    "name": "dynamics",
+                    "articles": [
+                        [2008, 2014],
+                        [2009, 2162],
+                        [2010, 2852],
+                        [2011, 2228],
+                        [2012, 2422],
+                        [2013, 2043],
+                        [2014, 2546],
+                        [2015, 2541],
+                        [2016, 2516],
+                        [2017, 2874]
+                    ]
+                }, {
+                    "total": 2705,
+                    "name": "compressive strength",
+                    "articles": [
+                        [2008, 2266],
+                        [2009, 2337],
+                        [2010, 2312],
+                        [2011, 2528],
+                        [2012, 2714],
+                        [2013, 2846],
+                        [2014, 2456],
+                        [2015, 2273],
+                        [2016, 2145],
+                        [2017, 2487]
+                    ]
+                }, {
+                    "total": 2689,
+                    "name": "sustainable development",
+                    "articles": [
+                        [2008, 2422],
+                        [2009, 2607],
+                        [2010, 2228],
+                        [2011, 2646],
+                        [2012, 2016],
+                        [2013, 2330],
+                        [2014, 2652],
+                        [2015, 2824],
+                        [2016, 2285],
+                        [2017, 2141]
+                    ]
+                }, {
+                    "total": 2680,
+                    "name": "concrete",
+                    "articles": [
+                        [2008, 2349],
+                        [2009, 2858],
+                        [2010, 2436],
+                        [2011, 2372],
+                        [2012, 2211],
+                        [2013, 2349],
+                        [2014, 2583],
+                        [2015, 2127],
+                        [2016, 2705],
+                        [2017, 2517]
+                    ]
+                }, {
+                    "total": 2672,
+                    "name": "heating",
+                    "articles": [
+                        [2008, 2154],
+                        [2009, 2056],
+                        [2010, 2360],
+                        [2011, 2052],
+                        [2012, 2351],
+                        [2013, 2337],
+                        [2014, 2257],
+                        [2015, 2745],
+                        [2016, 2776],
+                        [2017, 2336]
+                    ]
+                }, {
+                    "total": 2670,
+                    "name": "coatings",
+                    "articles": [
+                        [2008, 2766],
+                        [2009, 2833],
+                        [2010, 2308],
+                        [2011, 2028],
+                        [2012, 2895],
+                        [2013, 2373],
+                        [2014, 2563],
+                        [2015, 2678],
+                        [2016, 2623],
+                        [2017, 2782]
+                    ]
+                }, {
+                    "total": 2659,
+                    "name": "calcium compounds",
+                    "articles": [
+                        [2008, 2372],
+                        [2009, 2047],
+                        [2010, 2668],
+                        [2011, 2435],
+                        [2012, 2174],
+                        [2013, 2172],
+                        [2014, 2270],
+                        [2015, 2142],
+                        [2016, 2510],
+                        [2017, 2776]
+                    ]
+                }, {
+                    "total": 2654,
+                    "name": "ab initio calculations",
+                    "articles": [
+                        [2008, 2289],
+                        [2009, 2274],
+                        [2010, 2652],
+                        [2011, 2061],
+                        [2012, 2822],
+                        [2013, 2784],
+                        [2014, 2750],
+                        [2015, 2469],
+                        [2016, 2722],
+                        [2017, 2414]
+                    ]
+                }, {
+                    "total": 2628,
+                    "name": "melting",
+                    "articles": [
+                        [2008, 2882],
+                        [2009, 2445],
+                        [2010, 2214],
+                        [2011, 2242],
+                        [2012, 2055],
+                        [2013, 2179],
+                        [2014, 2362],
+                        [2015, 2596],
+                        [2016, 2498],
+                        [2017, 2707]
+                    ]
+                }, {
+                    "total": 2600,
+                    "name": "food processing industry",
+                    "articles": [
+                        [2008, 2447],
+                        [2009, 2016],
+                        [2010, 2459],
+                        [2011, 2026],
+                        [2012, 2444],
+                        [2013, 2807],
+                        [2014, 2080],
+                        [2015, 2858],
+                        [2016, 2741],
+                        [2017, 2869]
+                    ]
+                }, {
+                    "total": 2597,
+                    "name": "spin",
+                    "articles": [
+                        [2008, 2710],
+                        [2009, 2378],
+                        [2010, 2226],
+                        [2011, 2730],
+                        [2012, 2202],
+                        [2013, 2748],
+                        [2014, 2593],
+                        [2015, 2748],
+                        [2016, 2739],
+                        [2017, 2065]
+                    ]
+                }, {
+                    "total": 2590,
+                    "name": "spectroscopy",
+                    "articles": [
+                        [2008, 2836],
+                        [2009, 2320],
+                        [2010, 2757],
+                        [2011, 2246],
+                        [2012, 2330],
+                        [2013, 2710],
+                        [2014, 2658],
+                        [2015, 2796],
+                        [2016, 2455],
+                        [2017, 2825]
+                    ]
+                }, {
+                    "total": 2586,
+                    "name": "differential scanning calorimetry",
+                    "articles": [
+                        [2008, 2177],
+                        [2009, 2167],
+                        [2010, 2467],
+                        [2011, 2129],
+                        [2012, 2272],
+                        [2013, 2525],
+                        [2014, 2046],
+                        [2015, 2580],
+                        [2016, 2651],
+                        [2017, 2263]
+                    ]
+                }, {
+                    "total": 2576,
+                    "name": "precipitation",
+                    "articles": [
+                        [2008, 2718],
+                        [2009, 2124],
+                        [2010, 2596],
+                        [2011, 2394],
+                        [2012, 2457],
+                        [2013, 2094],
+                        [2014, 2057],
+                        [2015, 2019],
+                        [2016, 2555],
+                        [2017, 2649]
+                    ]
+                }, {
+                    "total": 2575,
+                    "name": "finite element analysis",
+                    "articles": [
+                        [2008, 2830],
+                        [2009, 2163],
+                        [2010, 2702],
+                        [2011, 2208],
+                        [2012, 2779],
+                        [2013, 2429],
+                        [2014, 2109],
+                        [2015, 2684],
+                        [2016, 2436],
+                        [2017, 2796]
+                    ]
+                }, {
+                    "total": 2553,
+                    "name": "polymerisation",
+                    "articles": [
+                        [2008, 2574],
+                        [2009, 2675],
+                        [2010, 2569],
+                        [2011, 2403],
+                        [2012, 2168],
+                        [2013, 2103],
+                        [2014, 2521],
+                        [2015, 2738],
+                        [2016, 2532],
+                        [2017, 2206]
+                    ]
+                }, {
+                    "total": 2549,
+                    "name": "minerals",
+                    "articles": [
+                        [2008, 2639],
+                        [2009, 2038],
+                        [2010, 2778],
+                        [2011, 2857],
+                        [2012, 2742],
+                        [2013, 2706],
+                        [2014, 2403],
+                        [2015, 2849],
+                        [2016, 2200],
+                        [2017, 2626]
+                    ]
+                }, {
+                    "total": 2510,
+                    "name": "viscosity",
+                    "articles": [
+                        [2008, 2494],
+                        [2009, 2021],
+                        [2010, 2315],
+                        [2011, 2376],
+                        [2012, 2353],
+                        [2013, 2681],
+                        [2014, 2339],
+                        [2015, 2599],
+                        [2016, 2847],
+                        [2017, 2788]
+                    ]
+                }, {
+                    "total": 2507,
+                    "name": "silver",
+                    "articles": [
+                        [2008, 2819],
+                        [2009, 2020],
+                        [2010, 2044],
+                        [2011, 2256],
+                        [2012, 2662],
+                        [2013, 2518],
+                        [2014, 2451],
+                        [2015, 2465],
+                        [2016, 2254],
+                        [2017, 2673]
+                    ]
+                }, {
+                    "total": 2500,
+                    "name": "atoms",
+                    "articles": [
+                        [2008, 2488],
+                        [2009, 2376],
+                        [2010, 2350],
+                        [2011, 2040],
+                        [2012, 2155],
+                        [2013, 2316],
+                        [2014, 2435],
+                        [2015, 2739],
+                        [2016, 2287],
+                        [2017, 2617]
+                    ]
+                }, {
+                    "total": 2483,
+                    "name": "cracks",
+                    "articles": [
+                        [2008, 2102],
+                        [2009, 2743],
+                        [2010, 2390],
+                        [2011, 2278],
+                        [2012, 2458],
+                        [2013, 2570],
+                        [2014, 2345],
+                        [2015, 2592],
+                        [2016, 2051],
+                        [2017, 2799]
+                    ]
+                }, {
+                    "total": 2469,
+                    "name": "renewable materials",
+                    "articles": [
+                        [2008, 2489],
+                        [2009, 2164],
+                        [2010, 2770],
+                        [2011, 2463],
+                        [2012, 2453],
+                        [2013, 2834],
+                        [2014, 2365],
+                        [2015, 2392],
+                        [2016, 2178],
+                        [2017, 2469]
+                    ]
+                }, {
+                    "total": 2423,
+                    "name": "chromatography",
+                    "articles": [
+                        [2008, 2646],
+                        [2009, 2076],
+                        [2010, 2757],
+                        [2011, 2193],
+                        [2012, 2478],
+                        [2013, 2347],
+                        [2014, 2200],
+                        [2015, 2365],
+                        [2016, 2522],
+                        [2017, 2499]
+                    ]
+                }, {
+                    "total": 2410,
+                    "name": "mixing",
+                    "articles": [
+                        [2008, 2773],
+                        [2009, 2751],
+                        [2010, 2131],
+                        [2011, 2085],
+                        [2012, 2572],
+                        [2013, 2794],
+                        [2014, 2691],
+                        [2015, 2205],
+                        [2016, 2415],
+                        [2017, 2386]
+                    ]
+                }, {
+                    "total": 2392,
+                    "name": "cements (building materials)",
+                    "articles": [
+                        [2008, 2531],
+                        [2009, 2459],
+                        [2010, 2535],
+                        [2011, 2142],
+                        [2012, 2355],
+                        [2013, 2584],
+                        [2014, 2674],
+                        [2015, 2675],
+                        [2016, 2764],
+                        [2017, 2601]
+                    ]
+                }, {
+                    "total": 2385,
+                    "name": "manganese",
+                    "articles": [
+                        [2008, 2267],
+                        [2009, 2554],
+                        [2010, 2120],
+                        [2011, 2130],
+                        [2012, 2019],
+                        [2013, 2021],
+                        [2014, 2450],
+                        [2015, 2492],
+                        [2016, 2533],
+                        [2017, 2072]
+                    ]
+                }, {
+                    "total": 2376,
+                    "name": "photochemistry",
+                    "articles": [
+                        [2008, 2483],
+                        [2009, 2535],
+                        [2010, 2369],
+                        [2011, 2699],
+                        [2012, 2073],
+                        [2013, 2041],
+                        [2014, 2282],
+                        [2015, 2751],
+                        [2016, 2067],
+                        [2017, 2389]
+                    ]
+                }, {
+                    "total": 2344,
+                    "name": "waste recovery",
+                    "articles": [
+                        [2008, 2152],
+                        [2009, 2180],
+                        [2010, 2605],
+                        [2011, 2126],
+                        [2012, 2139],
+                        [2013, 2665],
+                        [2014, 2628],
+                        [2015, 2070],
+                        [2016, 2314],
+                        [2017, 2069]
+                    ]
+                }, {
+                    "total": 2342,
+                    "name": "nickel alloys",
+                    "articles": [
+                        [2008, 2111],
+                        [2009, 2397],
+                        [2010, 2398],
+                        [2011, 2780],
+                        [2012, 2380],
+                        [2013, 2129],
+                        [2014, 2311],
+                        [2015, 2392],
+                        [2016, 2026],
+                        [2017, 2127]
+                    ]
+                }, {
+                    "total": 2340,
+                    "name": "alloys",
+                    "articles": [
+                        [2008, 2487],
+                        [2009, 2360],
+                        [2010, 2109],
+                        [2011, 2702],
+                        [2012, 2534],
+                        [2013, 2513],
+                        [2014, 2770],
+                        [2015, 2489],
+                        [2016, 2385],
+                        [2017, 2371]
+                    ]
+                }, {
+                    "total": 2340,
+                    "name": "thermal stability",
+                    "articles": [
+                        [2008, 2011],
+                        [2009, 2664],
+                        [2010, 2167],
+                        [2011, 2735],
+                        [2012, 2166],
+                        [2013, 2524],
+                        [2014, 2048],
+                        [2015, 2770],
+                        [2016, 2719],
+                        [2017, 2060]
+                    ]
+                }, {
+                    "total": 2330,
+                    "name": "air pollution control",
+                    "articles": [
+                        [2008, 2342],
+                        [2009, 2249],
+                        [2010, 2365],
+                        [2011, 2735],
+                        [2012, 2150],
+                        [2013, 2571],
+                        [2014, 2239],
+                        [2015, 2609],
+                        [2016, 2206],
+                        [2017, 2726]
+                    ]
+                }, {
+                    "total": 2330,
+                    "name": "alumina",
+                    "articles": [
+                        [2008, 2579],
+                        [2009, 2011],
+                        [2010, 2159],
+                        [2011, 2083],
+                        [2012, 2029],
+                        [2013, 2172],
+                        [2014, 2293],
+                        [2015, 2443],
+                        [2016, 2163],
+                        [2017, 2222]
+                    ]
+                }, {
+                    "total": 2319,
+                    "name": "innovation management",
+                    "articles": [
+                        [2008, 2210],
+                        [2009, 2641],
+                        [2010, 2552],
+                        [2011, 2308],
+                        [2012, 2014],
+                        [2013, 2506],
+                        [2014, 2159],
+                        [2015, 2657],
+                        [2016, 2226],
+                        [2017, 2370]
+                    ]
+                }, {
+                    "total": 2309,
+                    "name": "correlation methods",
+                    "articles": [
+                        [2008, 2097],
+                        [2009, 2416],
+                        [2010, 2028],
+                        [2011, 2756],
+                        [2012, 2117],
+                        [2013, 2497],
+                        [2014, 2327],
+                        [2015, 2366],
+                        [2016, 2221],
+                        [2017, 2216]
+                    ]
+                }, {
+                    "total": 2279,
+                    "name": "hazardous materials",
+                    "articles": [
+                        [2008, 2739],
+                        [2009, 2236],
+                        [2010, 2085],
+                        [2011, 2115],
+                        [2012, 2048],
+                        [2013, 2556],
+                        [2014, 2616],
+                        [2015, 2261],
+                        [2016, 2593],
+                        [2017, 2122]
+                    ]
+                }, {
+                    "total": 2278,
+                    "name": "heat treatment",
+                    "articles": [
+                        [2008, 2167],
+                        [2009, 2289],
+                        [2010, 2731],
+                        [2011, 2582],
+                        [2012, 2244],
+                        [2013, 2161],
+                        [2014, 2669],
+                        [2015, 2122],
+                        [2016, 2285],
+                        [2017, 2150]
+                    ]
+                }, {
+                    "total": 2261,
+                    "name": "nitrogen compounds",
+                    "articles": [
+                        [2008, 2040],
+                        [2009, 2012],
+                        [2010, 2271],
+                        [2011, 2512],
+                        [2012, 2464],
+                        [2013, 2530],
+                        [2014, 2413],
+                        [2015, 2646],
+                        [2016, 2077],
+                        [2017, 2561]
+                    ]
+                }, {
+                    "total": 2238,
+                    "name": "construction industry",
+                    "articles": [
+                        [2008, 2040],
+                        [2009, 2544],
+                        [2010, 2186],
+                        [2011, 2207],
+                        [2012, 2691],
+                        [2013, 2268],
+                        [2014, 2750],
+                        [2015, 2293],
+                        [2016, 2755],
+                        [2017, 2519]
+                    ]
+                }, {
+                    "total": 2222,
+                    "name": "hardness",
+                    "articles": [
+                        [2008, 2063],
+                        [2009, 2705],
+                        [2010, 2622],
+                        [2011, 2110],
+                        [2012, 2112],
+                        [2013, 2556],
+                        [2014, 2524],
+                        [2015, 2213],
+                        [2016, 2558],
+                        [2017, 2466]
+                    ]
+                }, {
+                    "total": 2217,
+                    "name": "grain size",
+                    "articles": [
+                        [2008, 2468],
+                        [2009, 2245],
+                        [2010, 2462],
+                        [2011, 2747],
+                        [2012, 2036],
+                        [2013, 2587],
+                        [2014, 2302],
+                        [2015, 2193],
+                        [2016, 2111],
+                        [2017, 2402]
+                    ]
+                }, {
+                    "total": 2188,
+                    "name": "biofuel",
+                    "articles": [
+                        [2008, 2488],
+                        [2009, 2670],
+                        [2010, 2151],
+                        [2011, 2453],
+                        [2012, 2656],
+                        [2013, 2604],
+                        [2014, 2554],
+                        [2015, 2542],
+                        [2016, 2089],
+                        [2017, 2359]
+                    ]
+                }, {
+                    "total": 2180,
+                    "name": "sintering",
+                    "articles": [
+                        [2008, 2558],
+                        [2009, 2506],
+                        [2010, 2389],
+                        [2011, 2187],
+                        [2012, 2260],
+                        [2013, 2546],
+                        [2014, 2112],
+                        [2015, 2451],
+                        [2016, 2087],
+                        [2017, 2634]
+                    ]
+                }, {
+                    "total": 2178,
+                    "name": "statistical analysis",
+                    "articles": [
+                        [2008, 2733],
+                        [2009, 2307],
+                        [2010, 2447],
+                        [2011, 2202],
+                        [2012, 2221],
+                        [2013, 2412],
+                        [2014, 2602],
+                        [2015, 2266],
+                        [2016, 2432],
+                        [2017, 2309]
+                    ]
+                }, {
+                    "total": 2174,
+                    "name": "elasticity",
+                    "articles": [
+                        [2008, 2292],
+                        [2009, 2076],
+                        [2010, 2471],
+                        [2011, 2508],
+                        [2012, 2444],
+                        [2013, 2669],
+                        [2014, 2410],
+                        [2015, 2395],
+                        [2016, 2523],
+                        [2017, 2322]
+                    ]
+                }, {
+                    "total": 2167,
+                    "name": "solubility",
+                    "articles": [
+                        [2008, 2253],
+                        [2009, 2500],
+                        [2010, 2381],
+                        [2011, 2268],
+                        [2012, 2030],
+                        [2013, 2085],
+                        [2014, 2442],
+                        [2015, 2126],
+                        [2016, 2517],
+                        [2017, 2458]
+                    ]
+                }, {
+                    "total": 2165,
+                    "name": "pyrolysis",
+                    "articles": [
+                        [2008, 2423],
+                        [2009, 2254],
+                        [2010, 2372],
+                        [2011, 2482],
+                        [2012, 2465],
+                        [2013, 2445],
+                        [2014, 2251],
+                        [2015, 2210],
+                        [2016, 2133],
+                        [2017, 2629]
+                    ]
+                }, {
+                    "total": 2152,
+                    "name": "cooling",
+                    "articles": [
+                        [2008, 2374],
+                        [2009, 2554],
+                        [2010, 2166],
+                        [2011, 2304],
+                        [2012, 2540],
+                        [2013, 2016],
+                        [2014, 2405],
+                        [2015, 2586],
+                        [2016, 2073],
+                        [2017, 2266]
+                    ]
+                }, {
+                    "total": 2142,
+                    "name": "wastewater",
+                    "articles": [
+                        [2008, 2140],
+                        [2009, 2611],
+                        [2010, 2311],
+                        [2011, 2105],
+                        [2012, 2476],
+                        [2013, 2451],
+                        [2014, 2389],
+                        [2015, 2408],
+                        [2016, 2171],
+                        [2017, 2577]
+                    ]
+                }, {
+                    "total": 2136,
+                    "name": "II-VI semiconductors",
+                    "articles": [
+                        [2008, 2135],
+                        [2009, 2713],
+                        [2010, 2066],
+                        [2011, 2569],
+                        [2012, 2388],
+                        [2013, 2174],
+                        [2014, 2625],
+                        [2015, 2634],
+                        [2016, 2559],
+                        [2017, 2123]
+                    ]
+                }, {
+                    "total": 2124,
+                    "name": "chromium",
+                    "articles": [
+                        [2008, 2381],
+                        [2009, 2225],
+                        [2010, 2586],
+                        [2011, 2276],
+                        [2012, 2248],
+                        [2013, 2232],
+                        [2014, 2128],
+                        [2015, 2611],
+                        [2016, 2513],
+                        [2017, 2509]
+                    ]
+                }, {
+                    "total": 2118,
+                    "name": "fuel processing industries",
+                    "articles": [
+                        [2008, 2017],
+                        [2009, 2185],
+                        [2010, 2516],
+                        [2011, 2394],
+                        [2012, 2436],
+                        [2013, 2505],
+                        [2014, 2443],
+                        [2015, 2712],
+                        [2016, 2161],
+                        [2017, 2682]
+                    ]
+                }, {
+                    "total": 2109,
+                    "name": "ceramics",
+                    "articles": [
+                        [2008, 2622],
+                        [2009, 2521],
+                        [2010, 2370],
+                        [2011, 2137],
+                        [2012, 2298],
+                        [2013, 2305],
+                        [2014, 2147],
+                        [2015, 2230],
+                        [2016, 2487],
+                        [2017, 2167]
+                    ]
+                }, {
+                    "total": 2094,
+                    "name": "grain boundaries",
+                    "articles": [
+                        [2008, 2272],
+                        [2009, 2658],
+                        [2010, 2523],
+                        [2011, 2534],
+                        [2012, 2674],
+                        [2013, 2527],
+                        [2014, 2094],
+                        [2015, 2025],
+                        [2016, 2128],
+                        [2017, 2334]
+                    ]
+                }, {
+                    "total": 2092,
+                    "name": "polarisation",
+                    "articles": [
+                        [2008, 2153],
+                        [2009, 2577],
+                        [2010, 2137],
+                        [2011, 2057],
+                        [2012, 2013],
+                        [2013, 2527],
+                        [2014, 2097],
+                        [2015, 2166],
+                        [2016, 2418],
+                        [2017, 2562]
+                    ]
+                }, {
+                    "total": 2086,
+                    "name": "semiconductor materials",
+                    "articles": [
+                        [2008, 2020],
+                        [2009, 2425],
+                        [2010, 2378],
+                        [2011, 2541],
+                        [2012, 2188],
+                        [2013, 2087],
+                        [2014, 2346],
+                        [2015, 2470],
+                        [2016, 2347],
+                        [2017, 2269]
+                    ]
+                }, {
+                    "total": 2054,
+                    "name": "crystallisation",
+                    "articles": [
+                        [2008, 2248],
+                        [2009, 2643],
+                        [2010, 2404],
+                        [2011, 2107],
+                        [2012, 2254],
+                        [2013, 2210],
+                        [2014, 2471],
+                        [2015, 2203],
+                        [2016, 2029],
+                        [2017, 2584]
+                    ]
+                }, {
+                    "total": 2031,
+                    "name": "electric potential",
+                    "articles": [
+                        [2008, 2256],
+                        [2009, 2436],
+                        [2010, 2592],
+                        [2011, 2182],
+                        [2012, 2215],
+                        [2013, 2228],
+                        [2014, 2546],
+                        [2015, 2530],
+                        [2016, 2158],
+                        [2017, 2267]
+                    ]
+                }, {
+                    "total": 2030,
+                    "name": "maintenance engineering",
+                    "articles": [
+                        [2008, 2555],
+                        [2009, 2371],
+                        [2010, 2348],
+                        [2011, 2219],
+                        [2012, 2017],
+                        [2013, 2535],
+                        [2014, 2375],
+                        [2015, 2670],
+                        [2016, 2662],
+                        [2017, 2405]
+                    ]
+                }, {
+                    "total": 2026,
+                    "name": "permeability",
+                    "articles": [
+                        [2008, 2666],
+                        [2009, 2286],
+                        [2010, 2589],
+                        [2011, 2064],
+                        [2012, 2500],
+                        [2013, 2613],
+                        [2014, 2525],
+                        [2015, 2175],
+                        [2016, 2241],
+                        [2017, 2439]
+                    ]
+                }, {
+                    "total": 2022,
+                    "name": "cutting",
+                    "articles": [
+                        [2008, 2481],
+                        [2009, 2151],
+                        [2010, 2070],
+                        [2011, 2559],
+                        [2012, 2416],
+                        [2013, 2369],
+                        [2014, 2290],
+                        [2015, 2197],
+                        [2016, 2197],
+                        [2017, 2177]
+                    ]
+                }, {
+                    "total": 2021,
+                    "name": "optimisation",
+                    "articles": [
+                        [2008, 2088],
+                        [2009, 2230],
+                        [2010, 2563],
+                        [2011, 2160],
+                        [2012, 2553],
+                        [2013, 2158],
+                        [2014, 2210],
+                        [2015, 2285],
+                        [2016, 2642],
+                        [2017, 2169]
+                    ]
+                }, {
+                    "total": 2018,
+                    "name": "permittivity",
+                    "articles": [
+                        [2008, 2174],
+                        [2009, 2465],
+                        [2010, 2303],
+                        [2011, 2364],
+                        [2012, 2134],
+                        [2013, 2483],
+                        [2014, 2218],
+                        [2015, 2188],
+                        [2016, 2215],
+                        [2017, 2560]
+                    ]
+                }, {
+                    "total": 2013,
+                    "name": "storage",
+                    "articles": [
+                        [2008, 2115],
+                        [2009, 2078],
+                        [2010, 2617],
+                        [2011, 2406],
+                        [2012, 2341],
+                        [2013, 2133],
+                        [2014, 2388],
+                        [2015, 2242],
+                        [2016, 2217],
+                        [2017, 2539]
+                    ]
+                }, {
+                    "total": 2010,
+                    "name": "fuel processing",
+                    "articles": [
+                        [2008, 2574],
+                        [2009, 2112],
+                        [2010, 2541],
+                        [2011, 2659],
+                        [2012, 2612],
+                        [2013, 2592],
+                        [2014, 2151],
+                        [2015, 2080],
+                        [2016, 2454],
+                        [2017, 2344]
+                    ]
+                }, {
+                    "total": 1995,
+                    "name": "wetting",
+                    "articles": [
+                        [2008, 2530],
+                        [2009, 2304],
+                        [2010, 2051],
+                        [2011, 2278],
+                        [2012, 2243],
+                        [2013, 2530],
+                        [2014, 2507],
+                        [2015, 2147],
+                        [2016, 2261],
+                        [2017, 2591]
+                    ]
+                }, {
+                    "total": 1989,
+                    "name": "polymer blends",
+                    "articles": [
+                        [2008, 2098],
+                        [2009, 2631],
+                        [2010, 2080],
+                        [2011, 2014],
+                        [2012, 2063],
+                        [2013, 2372],
+                        [2014, 2375],
+                        [2015, 2246],
+                        [2016, 2558],
+                        [2017, 2106]
+                    ]
+                }, {
+                    "total": 1987,
+                    "name": "dissolving",
+                    "articles": [
+                        [2008, 2653],
+                        [2009, 2670],
+                        [2010, 2582],
+                        [2011, 2573],
+                        [2012, 2554],
+                        [2013, 2516],
+                        [2014, 2135],
+                        [2015, 2490],
+                        [2016, 2580],
+                        [2017, 2122]
+                    ]
+                }, {
+                    "total": 1986,
+                    "name": "magnetisation",
+                    "articles": [
+                        [2008, 2490],
+                        [2009, 2344],
+                        [2010, 2143],
+                        [2011, 2187],
+                        [2012, 2054],
+                        [2013, 2243],
+                        [2014, 2015],
+                        [2015, 2223],
+                        [2016, 2584],
+                        [2017, 2596]
+                    ]
+                }, {
+                    "total": 1974,
+                    "name": "regression analysis",
+                    "articles": [
+                        [2008, 2180],
+                        [2009, 2081],
+                        [2010, 2203],
+                        [2011, 2308],
+                        [2012, 2191],
+                        [2013, 2117],
+                        [2014, 2270],
+                        [2015, 2327],
+                        [2016, 2272],
+                        [2017, 2249]
+                    ]
+                }, {
+                    "total": 1961,
+                    "name": "electrical conductivity",
+                    "articles": [
+                        [2008, 2061],
+                        [2009, 2495],
+                        [2010, 2349],
+                        [2011, 2381],
+                        [2012, 2092],
+                        [2013, 2421],
+                        [2014, 2406],
+                        [2015, 2057],
+                        [2016, 2256],
+                        [2017, 2117]
+                    ]
+                }, {
+                    "total": 1950,
+                    "name": "laboratory techniques",
+                    "articles": [
+                        [2008, 2203],
+                        [2009, 2194],
+                        [2010, 2311],
+                        [2011, 2220],
+                        [2012, 2590],
+                        [2013, 2279],
+                        [2014, 2600],
+                        [2015, 2333],
+                        [2016, 2374],
+                        [2017, 2120]
+                    ]
+                }, {
+                    "total": 1945,
+                    "name": "gold",
+                    "articles": [
+                        [2008, 2135],
+                        [2009, 2549],
+                        [2010, 2556],
+                        [2011, 2170],
+                        [2012, 2462],
+                        [2013, 2319],
+                        [2014, 2051],
+                        [2015, 2028],
+                        [2016, 2169],
+                        [2017, 2519]
+                    ]
+                }, {
+                    "total": 1943,
+                    "name": "surface roughness",
+                    "articles": [
+                        [2008, 2293],
+                        [2009, 2625],
+                        [2010, 2191],
+                        [2011, 2341],
+                        [2012, 2396],
+                        [2013, 2583],
+                        [2014, 2650],
+                        [2015, 2383],
+                        [2016, 2221],
+                        [2017, 2556]
+                    ]
+                }, {
+                    "total": 1934,
+                    "name": "reduction (chemical)",
+                    "articles": [
+                        [2008, 2163],
+                        [2009, 2627],
+                        [2010, 2194],
+                        [2011, 2232],
+                        [2012, 2129],
+                        [2013, 2071],
+                        [2014, 2298],
+                        [2015, 2160],
+                        [2016, 2284],
+                        [2017, 2596]
+                    ]
+                }, {
+                    "total": 1927,
+                    "name": "shear strength",
+                    "articles": [
+                        [2008, 2256],
+                        [2009, 2104],
+                        [2010, 2498],
+                        [2011, 2327],
+                        [2012, 2358],
+                        [2013, 2042],
+                        [2014, 2342],
+                        [2015, 2109],
+                        [2016, 2325],
+                        [2017, 2357]
+                    ]
+                }, {
+                    "total": 1907,
+                    "name": "nuclear magnetic resonance",
+                    "articles": [
+                        [2008, 2196],
+                        [2009, 2481],
+                        [2010, 2524],
+                        [2011, 2100],
+                        [2012, 2441],
+                        [2013, 2152],
+                        [2014, 2450],
+                        [2015, 2310],
+                        [2016, 2455],
+                        [2017, 2111]
+                    ]
+                }, {
+                    "total": 1903,
+                    "name": "chemical technology",
+                    "articles": [
+                        [2008, 2476],
+                        [2009, 2180],
+                        [2010, 2500],
+                        [2011, 2391],
+                        [2012, 2121],
+                        [2013, 2612],
+                        [2014, 2478],
+                        [2015, 2561],
+                        [2016, 2153],
+                        [2017, 2544]
+                    ]
+                }, {
+                    "total": 1892,
+                    "name": "compressive testing",
+                    "articles": [
+                        [2008, 2622],
+                        [2009, 2315],
+                        [2010, 2338],
+                        [2011, 2531],
+                        [2012, 2429],
+                        [2013, 2511],
+                        [2014, 2014],
+                        [2015, 2340],
+                        [2016, 2228],
+                        [2017, 2143]
+                    ]
+                }, {
+                    "total": 1890,
+                    "name": "sensitivity",
+                    "articles": [
+                        [2008, 2393],
+                        [2009, 2228],
+                        [2010, 2077],
+                        [2011, 2334],
+                        [2012, 2380],
+                        [2013, 2177],
+                        [2014, 2490],
+                        [2015, 2306],
+                        [2016, 2644],
+                        [2017, 2574]
+                    ]
+                }, {
+                    "total": 1887,
+                    "name": "solvents (industrial)",
+                    "articles": [
+                        [2008, 2008],
+                        [2009, 2228],
+                        [2010, 2284],
+                        [2011, 2447],
+                        [2012, 2264],
+                        [2013, 2123],
+                        [2014, 2346],
+                        [2015, 2190],
+                        [2016, 2552],
+                        [2017, 2473]
+                    ]
+                }, {
+                    "total": 1883,
+                    "name": "environmental factors",
+                    "articles": [
+                        [2008, 2344],
+                        [2009, 2138],
+                        [2010, 2182],
+                        [2011, 2560],
+                        [2012, 2442],
+                        [2013, 2333],
+                        [2014, 2111],
+                        [2015, 2177],
+                        [2016, 2340],
+                        [2017, 2427]
+                    ]
+                }, {
+                    "total": 1882,
+                    "name": "decomposition",
+                    "articles": [
+                        [2008, 2343],
+                        [2009, 2481],
+                        [2010, 2491],
+                        [2011, 2398],
+                        [2012, 2495],
+                        [2013, 2561],
+                        [2014, 2450],
+                        [2015, 2592],
+                        [2016, 2621],
+                        [2017, 2072]
+                    ]
+                }, {
+                    "total": 1872,
+                    "name": "atomic force microscopy",
+                    "articles": [
+                        [2008, 2150],
+                        [2009, 2219],
+                        [2010, 2242],
+                        [2011, 2076],
+                        [2012, 2122],
+                        [2013, 2417],
+                        [2014, 2244],
+                        [2015, 2515],
+                        [2016, 2178],
+                        [2017, 2062]
+                    ]
+                }, {
+                    "total": 1871,
+                    "name": "iron alloys",
+                    "articles": [
+                        [2008, 2377],
+                        [2009, 2590],
+                        [2010, 2336],
+                        [2011, 2419],
+                        [2012, 2472],
+                        [2013, 2608],
+                        [2014, 2251],
+                        [2015, 2213],
+                        [2016, 2077],
+                        [2017, 2110]
+                    ]
+                }, {
+                    "total": 1865,
+                    "name": "aluminium compounds",
+                    "articles": [
+                        [2008, 2428],
+                        [2009, 2173],
+                        [2010, 2187],
+                        [2011, 2478],
+                        [2012, 2311],
+                        [2013, 2423],
+                        [2014, 2220],
+                        [2015, 2247],
+                        [2016, 2122],
+                        [2017, 2295]
+                    ]
+                }, {
+                    "total": 1841,
+                    "name": "electrons",
+                    "articles": [
+                        [2008, 2339],
+                        [2009, 2271],
+                        [2010, 2021],
+                        [2011, 2022],
+                        [2012, 2402],
+                        [2013, 2505],
+                        [2014, 2158],
+                        [2015, 2039],
+                        [2016, 2336],
+                        [2017, 2477]
+                    ]
+                }, {
+                    "total": 1833,
+                    "name": "fluorescence",
+                    "articles": [
+                        [2008, 2436],
+                        [2009, 2408],
+                        [2010, 2187],
+                        [2011, 2493],
+                        [2012, 2325],
+                        [2013, 2118],
+                        [2014, 2494],
+                        [2015, 2415],
+                        [2016, 2587],
+                        [2017, 2392]
+                    ]
+                }, {
+                    "total": 1816,
+                    "name": "porous materials",
+                    "articles": [
+                        [2008, 2435],
+                        [2009, 2493],
+                        [2010, 2388],
+                        [2011, 2115],
+                        [2012, 2202],
+                        [2013, 2081],
+                        [2014, 2447],
+                        [2015, 2293],
+                        [2016, 2024],
+                        [2017, 2545]
+                    ]
+                }, {
+                    "total": 1815,
+                    "name": "decision making",
+                    "articles": [
+                        [2008, 2222],
+                        [2009, 2383],
+                        [2010, 2603],
+                        [2011, 2610],
+                        [2012, 2081],
+                        [2013, 2432],
+                        [2014, 2611],
+                        [2015, 2558],
+                        [2016, 2072],
+                        [2017, 2390]
+                    ]
+                }, {
+                    "total": 1800,
+                    "name": "copper compounds",
+                    "articles": [
+                        [2008, 2082],
+                        [2009, 2041],
+                        [2010, 2386],
+                        [2011, 2399],
+                        [2012, 2359],
+                        [2013, 2322],
+                        [2014, 2318],
+                        [2015, 2501],
+                        [2016, 2309],
+                        [2017, 2609]
+                    ]
+                }, {
+                    "total": 1798,
+                    "name": "Fourier transform infrared spectroscopy",
+                    "articles": [
+                        [2008, 2103],
+                        [2009, 2270],
+                        [2010, 2106],
+                        [2011, 2539],
+                        [2012, 2527],
+                        [2013, 2024],
+                        [2014, 2111],
+                        [2015, 2173],
+                        [2016, 2281],
+                        [2017, 2418]
+                    ]
+                }, {
+                    "total": 1783,
+                    "name": "plasma",
+                    "articles": [
+                        [2008, 2167],
+                        [2009, 2264],
+                        [2010, 2407],
+                        [2011, 2511],
+                        [2012, 2586],
+                        [2013, 2305],
+                        [2014, 2458],
+                        [2015, 2022],
+                        [2016, 2414],
+                        [2017, 2198]
+                    ]
+                }, {
+                    "total": 1775,
+                    "name": "hydrophobicity",
+                    "articles": [
+                        [2008, 2530],
+                        [2009, 2469],
+                        [2010, 2318],
+                        [2011, 2077],
+                        [2012, 2416],
+                        [2013, 2295],
+                        [2014, 2519],
+                        [2015, 2178],
+                        [2016, 2562],
+                        [2017, 2117]
+                    ]
+                }, {
+                    "total": 1769,
+                    "name": "drying",
+                    "articles": [
+                        [2008, 2237],
+                        [2009, 2156],
+                        [2010, 2149],
+                        [2011, 2094],
+                        [2012, 2035],
+                        [2013, 2018],
+                        [2014, 2088],
+                        [2015, 2571],
+                        [2016, 2284],
+                        [2017, 2357]
+                    ]
+                }, {
+                    "total": 1765,
+                    "name": "materials testing",
+                    "articles": [
+                        [2008, 2008],
+                        [2009, 2020],
+                        [2010, 2241],
+                        [2011, 2178],
+                        [2012, 2425],
+                        [2013, 2451],
+                        [2014, 2206],
+                        [2015, 2376],
+                        [2016, 2481],
+                        [2017, 2107]
+                    ]
+                }, {
+                    "total": 1761,
+                    "name": "ageing",
+                    "articles": [
+                        [2008, 2395],
+                        [2009, 2447],
+                        [2010, 2035],
+                        [2011, 2252],
+                        [2012, 2042],
+                        [2013, 2532],
+                        [2014, 2476],
+                        [2015, 2364],
+                        [2016, 2335],
+                        [2017, 2208]
+                    ]
+                }, {
+                    "total": 1758,
+                    "name": "titanium alloys",
+                    "articles": [
+                        [2008, 2190],
+                        [2009, 2245],
+                        [2010, 2114],
+                        [2011, 2568],
+                        [2012, 2467],
+                        [2013, 2355],
+                        [2014, 2132],
+                        [2015, 2416],
+                        [2016, 2144],
+                        [2017, 2091]
+                    ]
+                }, {
+                    "total": 1756,
+                    "name": "friction",
+                    "articles": [
+                        [2008, 2108],
+                        [2009, 2443],
+                        [2010, 2262],
+                        [2011, 2260],
+                        [2012, 2082],
+                        [2013, 2173],
+                        [2014, 2021],
+                        [2015, 2057],
+                        [2016, 2103],
+                        [2017, 2109]
+                    ]
+                }, {
+                    "total": 1753,
+                    "name": "colour",
+                    "articles": [
+                        [2008, 2537],
+                        [2009, 2331],
+                        [2010, 2339],
+                        [2011, 2472],
+                        [2012, 2549],
+                        [2013, 2346],
+                        [2014, 2088],
+                        [2015, 2461],
+                        [2016, 2049],
+                        [2017, 2094]
+                    ]
+                }, {
+                    "total": 1726,
+                    "name": "fibres",
+                    "articles": [
+                        [2008, 2053],
+                        [2009, 2074],
+                        [2010, 2296],
+                        [2011, 2276],
+                        [2012, 2428],
+                        [2013, 2201],
+                        [2014, 2308],
+                        [2015, 2044],
+                        [2016, 2398],
+                        [2017, 2331]
+                    ]
+                }, {
+                    "total": 1717,
+                    "name": "ferromagnetic materials",
+                    "articles": [
+                        [2008, 2382],
+                        [2009, 2107],
+                        [2010, 2075],
+                        [2011, 2575],
+                        [2012, 2420],
+                        [2013, 2018],
+                        [2014, 2370],
+                        [2015, 2183],
+                        [2016, 2146],
+                        [2017, 2369]
+                    ]
+                }, {
+                    "total": 1707,
+                    "name": "proteins",
+                    "articles": [
+                        [2008, 2040],
+                        [2009, 2192],
+                        [2010, 2360],
+                        [2011, 2521],
+                        [2012, 2388],
+                        [2013, 2389],
+                        [2014, 2308],
+                        [2015, 2397],
+                        [2016, 2467],
+                        [2017, 2236]
+                    ]
+                }, {
+                    "total": 1703,
+                    "name": "moisture",
+                    "articles": [
+                        [2008, 2061],
+                        [2009, 2225],
+                        [2010, 2498],
+                        [2011, 2388],
+                        [2012, 2259],
+                        [2013, 2314],
+                        [2014, 2129],
+                        [2015, 2069],
+                        [2016, 2123],
+                        [2017, 2146]
+                    ]
+                }, {
+                    "total": 1700,
+                    "name": "transmission",
+                    "articles": [
+                        [2008, 2306],
+                        [2009, 2451],
+                        [2010, 2511],
+                        [2011, 2227],
+                        [2012, 2031],
+                        [2013, 2150],
+                        [2014, 2368],
+                        [2015, 2284],
+                        [2016, 2220],
+                        [2017, 2490]
+                    ]
+                }, {
+                    "total": 1699,
+                    "name": "productivity",
+                    "articles": [
+                        [2008, 2067],
+                        [2009, 2289],
+                        [2010, 2210],
+                        [2011, 2036],
+                        [2012, 2476],
+                        [2013, 2498],
+                        [2014, 2517],
+                        [2015, 2163],
+                        [2016, 2457],
+                        [2017, 2500]
+                    ]
+                }, {
+                    "total": 1691,
+                    "name": "combustion",
+                    "articles": [
+                        [2008, 2428],
+                        [2009, 2380],
+                        [2010, 2519],
+                        [2011, 2170],
+                        [2012, 2227],
+                        [2013, 2409],
+                        [2014, 2436],
+                        [2015, 2420],
+                        [2016, 2472],
+                        [2017, 2496]
+                    ]
+                }, {
+                    "total": 1686,
+                    "name": "surfactants",
+                    "articles": [
+                        [2008, 2398],
+                        [2009, 2255],
+                        [2010, 2493],
+                        [2011, 2181],
+                        [2012, 2300],
+                        [2013, 2551],
+                        [2014, 2041],
+                        [2015, 2057],
+                        [2016, 2277],
+                        [2017, 2148]
+                    ]
+                }, {
+                    "total": 1680,
+                    "name": "enzymes",
+                    "articles": [
+                        [2008, 2138],
+                        [2009, 2208],
+                        [2010, 2204],
+                        [2011, 2056],
+                        [2012, 2158],
+                        [2013, 2226],
+                        [2014, 2452],
+                        [2015, 2354],
+                        [2016, 2487],
+                        [2017, 2107]
+                    ]
+                }, {
+                    "total": 1665,
+                    "name": "marketing",
+                    "articles": [
+                        [2008, 2196],
+                        [2009, 2226],
+                        [2010, 2373],
+                        [2011, 2466],
+                        [2012, 2229],
+                        [2013, 2278],
+                        [2014, 2289],
+                        [2015, 2359],
+                        [2016, 2264],
+                        [2017, 2193]
+                    ]
+                }]
 
-
-            ],
+                ,
             "yearRange": {
-                "start_year": 1988,
-                "end_year": 2016
+                "start_year": 2008,
+                "end_year": 2017
             }
         };
 
@@ -250,8 +3448,8 @@
                 bottom: 0,
                 left: 20
             },
-            width = 700 - margin.right - margin.left,
-            height = 300 - margin.top - margin.bottom;
+            width = 900 - margin.right - margin.left,
+            height = 2500
 
 
         var c = d3.scale.category10();
@@ -305,7 +3503,7 @@
                 .domain([0, d3.max(data.data[j]['articles'], function (d) {
                     return d[1];
                 })])
-                .range([2, 9]);
+                    .range([2, 13]);
 
             circles
                 .attr("cx", function (d, i) {
@@ -337,12 +3535,12 @@
                 .attr("y", j * 30 + 25)
                 .attr("x", width + 20)
                 .attr("class", "label")
-                .attr("data-label", data.data[j]['name'])
+                .attr("data-label", data.data[j]['name'] + " (" + data.data[j]['total'] + ")")
                 .attr('title', data.data[j]['total'])
-                .text(truncate(data.data[j]['name'], 60, "..."))
-                .style("fill", function (d) {
-                    return c(j);
-                })
+                .text(truncate(data.data[j]['name'] + " (" + data.data[j]['total'] + ")", 100, "..."))
+                //                .style("fill", function (d) {
+                //                    return c(j);
+                //                })
                 .on("mouseover", mouseover)
                 .on("mouseout", mouseout);
         }

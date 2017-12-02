@@ -50,7 +50,7 @@
 .chart-wrapper .line {
     fill: none;
     stroke: steelblue;
-    stroke-width: 5px;
+    stroke-width: 2px;
 }
 
 .chart-wrapper .legend {

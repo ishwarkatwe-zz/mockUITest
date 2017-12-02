@@ -1,0 +1,73 @@
+.landing-page {
+    margin: 15px;
+    background: #fff;
+    padding: 10px;
+    .stat-panel {}
+    .datagrid-panel {
+        .data-table {
+            font-size: 12px;
+            .typeahead {
+                width: 454px !important;
+            }
+            thead {
+                border: 1px solid #e5e5e5;
+                tr {
+                    background-color: #e9e9e9;
+                    th {
+                        cursor: pointer;
+                        i {
+                            float: right;
+                        }
+                    }
+                }
+            }
+            tbody {
+                input[type=checkbox] {
+                    margin: 0px;
+                }
+            }
+        }
+        .form-inline {
+            float: right;
+            .form-group {
+                padding: 0px 5px;
+                >label {
+                    font-weight: normal;
+                    padding: 0px 2px;
+                }
+            }
+            >button {
+                width: 35px;
+                font-size: 18px;
+                text-align: center;
+                padding: 0px;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.data-table {
+    font-size: 12px;
+    .typeahead {
+        width: 454px !important;
+    }
+    thead {
+        border: 1px solid #e5e5e5;
+        tr {
+            background-color: #e9e9e9;
+            th {
+                cursor: pointer;
+                i {
+                    float: right;
+                }
+            }
+        }
+    }
+    tbody {
+        input[type=checkbox] {
+            margin: 0px;
+            float: right;
+        }
+    }
+}

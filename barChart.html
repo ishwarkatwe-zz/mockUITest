@@ -14,7 +14,8 @@
         }
 
         .bar {
-            fill: steelblue;
+            fill: #565656;
+            
         }
 
         .bar:hover {
@@ -41,8 +42,8 @@
                 bottom: 30,
                 left: 40
             },
-            width = 960 - margin.left - margin.right,
-            height = 400 - margin.top - margin.bottom;
+            width = 390 - margin.left - margin.right,
+            height = 180 - margin.top - margin.bottom;
 
         var x = d3.scaleBand()
             .range([0, width], .1);
@@ -53,7 +54,7 @@
         var xAxis = d3.axisBottom(x);
 
         var yAxis = d3.axisLeft(y)
-            .ticks(10, "%");
+            .ticks(10);
 
         var svg = d3.select("#barChart").append("svg")
             .attr("width", width + margin.left + margin.right)
@@ -87,7 +88,7 @@
                 .attr("y", 6)
                 .attr("dy", ".71em")
                 .style("text-anchor", "end")
-                .text("Frequency");
+                .text("");
 
             svg.selectAll(".bar")
                 .data(data)

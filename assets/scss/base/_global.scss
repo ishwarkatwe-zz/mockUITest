@@ -63,3 +63,33 @@ body {
     font-weight: bold;
   }
 }
+
+.trend_box {
+  text-align: center;
+  margin: 15px 0px;
+  padding: 0px;
+  li+li::before {
+    content: " | ";
+    padding: 5px 15px;
+    color: $primary-text;
+  }
+  li {
+    list-style: none;
+    display: inline-block;
+    text-align: center;
+    a {
+      >i {
+        font-size: 22px;
+        color: #555555;
+      }
+      >span {
+        color: #555555;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      color: $primary-text;
+      cursor: pointer;
+    }
+  }
+}
+

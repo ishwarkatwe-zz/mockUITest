@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title> Galaxy Chart D3 example</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="d3.js"></script>
+    <script src="galaxy.js"></script>
+    <style>
+        .chart rect {
+            fill: steelblue;
+        }
+
+        .chart text {
+            fill: white;
+            font: 10px sans-serif;
+            text-anchor: end;
+            font-weight: bold;
+        }
+
+        circle {
+            fill: #fff;
+            fill-opacity: .75;
+            stroke: rgb(0, 90, 164);
+            stroke-width: 2px;
+        }
+
+        .leaf circle {
+            fill: #fff;
+            fill-opacity: 1;
+        }
+
+        text {
+            font: 10px sans-serif;
+        }
+
+        .link {
+            stroke: #999;
+            stroke-opacity: .6;
+        }
+
+        .tooltip {
+            position: absolute;			
+            text-align: center;				
+            padding: 4px 6px;				
+            font: 12px sans-serif;		
+            background: rgba(0, 0, 0, 0.8);	
+            border: 0px;		
+            border-radius: 4px;			
+            pointer-events: none;		
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <svg class="chart"></svg>
+    <script src="galaxy-main2-d3.js"></script>
+    <script type="text/javascript">
+        main("galaxy2.csv");
+    </script>
+</body>
+
+</html>

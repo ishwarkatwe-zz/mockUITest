@@ -1,41 +1,41 @@
 [{
-        "area": "Dept. Of Appl. Math. Theor. Phys., Univ. Of Cambridge, Cambridge",
+        "area": "Stockholm University",
         "value": 1611
     },
     {
-        "area": "Cambridge Univ., Cambridge",
+        "area": "Las Cumbres Observatory Global Telescope Network",
         "value": 1652
     },
     {
-        "area": "Dept. Of Mater. Sci. Metall., Cambridge Univ., Cambridge",
+        "area": "Queen's University Belfast",
         "value": 1754
     },
     {
-        "area": "Univ. Of Cambridge, Cambridge",
+        "area": "Weizmann Institute of Science",
         "value": 2688
     },
     {
-        "area": "Cavendish Lab., Univ. Of Cambridge, Cambridge",
+        "area": "INAF-Osservatorio Astrofisico di Catania",
         "value": 2435
     },
     {
-        "area": "Dept. Of Eng., Univ. Of Cambridge, Cambridge",
+        "area": "INAF-Osservatorio Astronomico di Padova",
         "value": 3026
     },
     {
-        "area": "Dept. Of Eng., Cambridge Univ., Cambridge",
+        "area": "University of California, Berkeley",
         "value": 4207
     },
     {
-        "area": "Dept. Of Appl. Math. Theor. Phys., Cambridge Univ., Cambridge",
+        "area": "Pennsylvania State University",
         "value": 2647
     },
     {
-        "area": "Cavendish Lab., Cambridge Univ., Cambridge",
+        "area": "Liverpool John Moores University",
         "value": 4405
     },
     {
-        "area": "Inst. Of Astron., Cambridge Univ., Cambridge",
+        "area": "Harvard-Smithsonian Center for Astrophysics",
         "value": 1612
     }
 ]

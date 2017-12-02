@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+<script type="text/javascript">
+    $(function () {
+
+        $(function () {
+            $('input[name="daterange"]').daterangepicker({
+                "showDropdowns": true,
+                "dateLimit": {
+                    "days": 7
+                },
+                "ranges": {
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                 
+                    'Six Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(
+                        1, 'month').endOf('month')],
+                    'One Year': [moment().subtract(1, 'month').startOf('month'), moment().subtract(
+                        1, 'month').endOf('month')],
+                    'Five Years': [moment().subtract(1, 'month').startOf('month'), moment().subtract(
+                        1, 'month').endOf('month')]
+                },
+                "startDate": "01/01/2013",
+                "endDate": "05/31/2017",
+                "minDate": "01/01/1969",
+                "maxDate": "05/31/2017",
+                "opens": "left"
+            });
+        });
+
+    });
+</script>
+<!-- Bootstrap -->
+<link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link href="./bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
+<style>
+    #trend-graph {
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+    }
+
+    .node circle {
+        fill: #fff;
+        stroke: steelblue;
+        stroke-width: 3px;
+    }
+
+    path+.node circle {
+        fill: #ffc3c3 !important;
+        stroke: red;
+        stroke-width: 3px;
+    }
+
+    .node text {
+        font: 12px sans-serif;
+    }
+
+    .link {
+        fill: none;
+        stroke: #ccc;
+        stroke-width: 2px;
+    }
+
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: #b6b6b6;
+        shape-rendering: crispEdges;
+    }
+</style>
+
+<body>
+
+
+    <div class="pull-right">
+
+        <i class="fa fa-calendar glyphicon glyphicon-calendar"></i> Date Range:
+        <input type="text" name="daterange" />
+
+    </div>
+
+    <h4 style="padding: 0px 10px;">
+        <i class="fa fa-sitemap" style="color : #337ab7;"></i> Subject Areas</h4>
+
+    <br>
+    <nav>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="viewInst.html">University of Cambridge</a>
+            </li>
+            <li class="active">Subject Area</li>
+        </ol>
+    </nav>
+    <hr>
+    <div style="text-align: center">
+        <div id="trend-graph"></div>
+    </div>
+    <div style="position: relative;">
+        <i class="fa fa-sort" style="
+        font-size: 50px;
+        position: absolute;
+        right: 50px;
+        bottom: 0px;
+        color:#666
+    " aria-hidden="true"></i>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <button class="btn btn-default" type="button">Visualize
+                <span class="badge">0</span>
+            </button>
+        </div>
+    </div>
+    <br>
+    <div class="table-responsive">
+        <table class="table table-bordered table-condensed table-hover data-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Sl No.</th>
+                    <th>Classification Codes
+                        <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i>
+                    </th>
+                    <th>Articles
+                        <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i>
+                    </th>
+                    <th>Control terms
+                        <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i>
+                    </th>
+                    <th>Collaborating Organizations
+                        <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i>
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>1</td>
+                    <td>Physics</td>
+                    <td>
+                        <a href="viewInst.html">345</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">278</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">45</a>
+                    </td>
+
+
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>2</td>
+                    <td>Electrical Engineering and electronics</td>
+                    <td>
+                        <a href="viewInst.html">217</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">145</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">22</a>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>3</td>
+                    <td>Computing and Control</td>
+                    <td>
+                        <a href="viewInst.html">121</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">278</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">21</a>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>4</td>
+                    <td>Information Technology for Buisness</td>
+                    <td>
+                        <a href="viewInst.html">123</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">156</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">15</a>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                    </td>
+                    <td>5</td>
+                    <td>Mechanical and Production Engineering</td>
+                    <td>
+                        <a href="viewInst.html">239</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">143</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">33</a>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+
+
+        <nav>
+
+            <ul class="pagination pagination-md pull-right hidden" style="margin:5px 0px;">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">«</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">1</a>
+                </li>
+                <li>
+                    <a href="#">2</a>
+                </li>
+                <li>
+                    <a href="#">3</a>
+                </li>
+                <li>
+                    <a href="#">4</a>
+                </li>
+                <li>
+                    <a href="#">5</a>
+                </li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">»</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script>
+        var data = {
+            "data": [{
+                "total": 345,
+                "name": "Physics",
+                "articles": [
+                    [2008, 103],
+                    [2009, 20],
+                    [2010, 28],
+                    [2011, 26],
+                    [2012, 14],
+                    [2013, 89],
+                    [2014, 65],
+                    [2015, 18],
+                    [2016, 43],
+                    [2017, 95]
+                ]
+            }, {
+                "total": 217,
+                "name": "Electrical Engineering and electronics",
+                "articles": [
+                    [2008, 33],
+                    [2009, 23],
+                    [2010, 28],
+                    [2011, 29],
+                    [2012, 46],
+                    [2013, 29],
+                    [2014],
+                    [2015, 30],
+                    [2016, 29],
+                    [2017, 31]
+                ]
+            }, {
+                "total": 121,
+                "name": "Computing and Control",
+                "articles": [
+                    [2008, 6],
+                    [2009, 20],
+                    [2010, 5],
+                    [2011, 26],
+                    [2012, 24],
+                    [2013, 6],
+                    [2014, 25],
+                    [2015, 20],
+                    [2016, 6],
+                    [2017, 4]
+                ]
+            }, {
+                "total": 123,
+                "name": "Information Technology for Buisness",
+                "articles": [
+                    [2008, 6],
+                    [2009 ],
+                    [2010, 12],
+                    [2011, 15],
+                    [2012, 4],
+                    [2013, 3],
+                    [2014, 24],
+                    [2015, 1],
+                    [2016, 5],
+                    [2017, 6]
+                ]
+            }, {
+                "total": 239,
+                "name": "Mechanical and Production Engineering",
+                "articles": [
+                    [2008, 7],
+                    [2009, 63],
+                    [2010, 28],
+                    [2011, 11],
+                    [2012, 9],
+                    [2013, 59],
+                    [2014, 35],
+                    [2015, 2],
+                    [2016, 3],
+                    [2017, 9]
+                ]
+            }],
+            "yearRange": {
+                "start_year": 2008,
+                "end_year": 2017
+            }
+        };
+
+
+        function truncate(str, maxLength, suffix) {
+            if (str.length > maxLength) {
+                str = str.substring(0, maxLength + 1);
+                str = str.substring(0, Math.min(str.length, str.lastIndexOf(" ")));
+                str = str + suffix;
+            }
+            return str;
+        }
+
+        var margin = {
+                top: 50,
+                right: 0,
+                bottom: 0,
+                left: 20
+            },
+            width = 900 - margin.right - margin.left,
+            height = 300 - margin.top - margin.bottom;
+
+
+        var c = d3.scale.category10();
+
+        var x = d3.scale.linear()
+            .range([0, width]);
+
+        var xAxis = d3.svg.axis()
+            .scale(x)
+            .orient("top");
+
+        var formatYears = d3.format("0000");
+        xAxis.tickFormat(formatYears);
+        var svg;
+
+
+        svg = d3.select("#trend-graph").append("svg")
+            .attr("width", width + margin.left + margin.right + 220)
+            .attr("height", height + margin.top + margin.bottom)
+            .style("margin-left", margin.left + "px")
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+            .style("width", width + margin.left + margin.right);
+
+        var start_year = data.yearRange['start_year'];
+        var end_year = data.yearRange['end_year'];
+        x.domain([start_year, end_year]);
+        var xScale = d3.scale.linear()
+            .domain([start_year, end_year])
+            .range([0, width]);
+
+        svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + 0 + ")")
+            .call(xAxis);
+
+        for (var j = 0; j < data.data.length; j++) {
+            var g = svg.append("g").attr("class", "journal");
+
+            var circles = g.selectAll("circle")
+                .data(data.data[j]['articles'])
+                .enter()
+                .append("circle");
+
+            var text = g.selectAll("text")
+                .data(data.data[j]['articles'])
+                .enter()
+                .append("text");
+
+            var rScale = d3.scale.linear()
+                .domain([0, d3.max(data.data[j]['articles'], function (d) {
+                    return d[1];
+                })])
+                .range([2, 13]);
+
+            circles
+                .attr("cx", function (d, i) {
+                    return xScale(d[0]);
+                })
+                .attr("cy", j * 30 + 20)
+                .attr("r", function (d) {
+                    return rScale(d[1]);
+                })
+                .style("fill", function (d) {
+                    return c(j);
+                });
+
+            text
+                .attr("y", j * 30 + 25)
+                .attr("x", function (d, i) {
+                    return xScale(d[0]) - 5;
+                })
+                .attr("class", "value")
+                .text(function (d) {
+                    return d[1];
+                })
+                .style("fill", function (d) {
+                    return c(j);
+                })
+                .style("display", "none");
+
+            g.append("text")
+                .attr("y", j * 30 + 25)
+                .attr("x", width + 30)
+                .attr("class", "label")
+                .attr("data-label", data.data[j]['name'])
+                .attr('title', data.data[j]['total'])
+                .text(truncate(data.data[j]['name'], 60, "..."))
+                // .style("fill", function (d) {
+                //     return c(j);
+                // })
+                .style("cursor", "pointer")
+                .on("mouseover", mouseover)
+                .on("mouseout", mouseout)
+                .on("click", function () {
+                    window.location = 'temp_firstLevelCode.html'
+                });
+        }
+
+
+        function mouseover(p) {
+
+            var g = d3.select(this).node().parentNode;
+            var title = 'Total frequency for ' + d3.select(g).selectAll("text.label").attr('data-label') +
+                ' : ' + d3.select(g).selectAll("text.label").attr('title');
+            d3.select(g).selectAll("circle").style("display", "none");
+            d3.select(g).selectAll("text.label").append('title').text(title);
+            d3.select(g).selectAll("text.value").style("display", "block");
+        }
+
+        function mouseout(p) {
+            var g = d3.select(this).node().parentNode;
+            d3.select(g).selectAll("text.label title").remove();
+            d3.select(g).selectAll("circle").style("display", "block");
+            d3.select(g).selectAll("text.value").style("display", "none");
+        }
+    </script>

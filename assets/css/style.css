@@ -6,7 +6,7 @@
 body {
   font-family: 'Roboto', sans-serif;
   color: #555e6f;
-  background: #eceaea;
+  background: #eee;
   padding: 0;
   margin: 0; }
 
@@ -49,6 +49,29 @@ body {
     margin-top: 0px; }
   .card-block > h4 {
     font-weight: bold; }
+
+.trend_box {
+  text-align: center;
+  margin: 15px 0px;
+  padding: 0px; }
+  .trend_box li + li::before {
+    content: " | ";
+    padding: 5px 15px;
+    color: #212121; }
+  .trend_box li {
+    list-style: none;
+    display: inline-block;
+    text-align: center; }
+    .trend_box li a {
+      color: #212121;
+      cursor: pointer; }
+      .trend_box li a > i {
+        font-size: 22px;
+        color: #555555; }
+      .trend_box li a > span {
+        color: #555555;
+        font-size: 16px;
+        font-weight: bold; }
 
 /*
     Shadow Effect Mixin Function
@@ -581,40 +604,227 @@ section.authors {
     z-index: 20; }
 
 .lineTree {
+  margin: 100px 10px;
   padding: 0px;
-  margin: 0px;
-  margin: 100px;
   position: relative; }
   .lineTree:before {
     content: '';
-    position: absolute;
-    top: 50%;
-    left: 0px;
-    width: 100%;
     height: 2px;
-    background: #CCC; }
-  .lineTree li {
-    list-style: none;
-    display: inline-block; }
-    .lineTree li:nth-child(even) a {
-      color: red; }
-    .lineTree li:nth-child(odd) a {
-      color: blue; }
-  .lineTree li:first-child,
-  .lineTree li + li {
-    padding: 5px 20px; }
-  .lineTree li:before {
-    content: ''; }
-
-.search-panel .tree-autosuggest {
-  position: relative; }
-  .search-panel .tree-autosuggest .tree-structure {
-    background: #FFFFFF;
-    display: none;
-    position: absolute;
     width: 100%;
-    top: 38px;
-    box-shadow: 1px 3px 5px #DDDDDD; }
+    position: absolute;
+    top: 0%;
+    left: 0px;
+    background: #ccc; }
+  .lineTree > li {
+    list-style: none;
+    display: inline-block;
+    width: 100px;
+    position: relative; }
+    .lineTree > li:after {
+      content: '';
+      height: 10px;
+      width: 10px;
+      position: absolute;
+      top: -4px;
+      left: 46%;
+      background: #24b9ff;
+      border-radius: 50%;
+      border: 2px solid #fff; }
+    .lineTree > li > div {
+      position: absolute; }
+    .lineTree > li:nth-child(odd) > div {
+      top: -50px;
+      position: relative; }
+      .lineTree > li:nth-child(odd) > div:before {
+        content: '';
+        height: 50px;
+        width: 2px;
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        background: #ccc; }
+      .lineTree > li:nth-child(odd) > div > label {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -40px; }
+    .lineTree > li:nth-child(even) > div {
+      top: 50px;
+      position: relative; }
+      .lineTree > li:nth-child(even) > div:before {
+        content: '';
+        height: 50px;
+        width: 2px;
+        position: absolute;
+        top: -50px;
+        left: 50%;
+        background: #ccc; }
+      .lineTree > li:nth-child(even) > div > label {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 20px; }
+    .lineTree > li div ~ ul {
+      position: absolute;
+      top: 100px;
+      left: 33px;
+      width: 300px; }
+      .lineTree > li div ~ ul > li {
+        position: relative;
+        list-style: none;
+        padding: 4px 0px; }
+        .lineTree > li div ~ ul > li:before {
+          content: '';
+          height: 100%;
+          width: 2px;
+          position: absolute;
+          top: 0px;
+          left: -9%;
+          background: #ccc; }
+        .lineTree > li div ~ ul > li:last-child:before {
+          height: 50%; }
+        .lineTree > li div ~ ul > li:after {
+          content: '';
+          height: 2px;
+          width: 15px;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: -9%;
+          background: #ccc; }
+        .lineTree > li div ~ ul > li > div {
+          margin-top: 5px; }
+
+.navbar-collapse-btn {
+  background: #4d92cb;
+  margin: 0px;
+  width: 50px;
+  margin-right: 20px;
+  text-align: center; }
+  .navbar-collapse-btn i {
+    font-size: 25px;
+    line-height: 50px;
+    color: #ffffff; }
+
+.page-layout .nav-aside-left {
+  background: #FFFFFF;
+  width: 0px;
+  height: 100vh;
+  position: fixed;
+  z-index: 111;
+  float: left;
+  border-right: 1px solid rgba(0, 0, 0, 0.08); }
+  .page-layout .nav-aside-left.active {
+    width: 50px;
+    box-shadow: 0px 0px 5px 0px #b0b0b0; }
+  .page-layout .nav-aside-left ul {
+    margin: 0px;
+    padding: 0px; }
+    .page-layout .nav-aside-left ul li {
+      list-style: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08); }
+      .page-layout .nav-aside-left ul li a {
+        display: block;
+        padding: 0px;
+        line-height: 50px;
+        color: #666;
+        position: relative; }
+        .page-layout .nav-aside-left ul li a i {
+          width: 50px;
+          text-align: center;
+          font-size: 18px; }
+        .page-layout .nav-aside-left ul li a span {
+          position: absolute;
+          top: 14px;
+          left: 120%;
+          padding: 0px 15px;
+          background: rgba(0, 0, 0, 0.701961);
+          color: #fff;
+          line-height: 24px;
+          border-radius: 14px;
+          display: none;
+          white-space: nowrap;
+          z-index: 100; }
+      .page-layout .nav-aside-left ul li:hover {
+        background: rgba(0, 0, 0, 0.08); }
+        .page-layout .nav-aside-left ul li:hover a {
+          color: #2e6b9d; }
+          .page-layout .nav-aside-left ul li:hover a span {
+            display: block; }
+
+.page-layout .page-container {
+  margin-left: 0px;
+  min-height: 80vh;
+  margin-top: 50px;
+  padding: 15px 10px; }
+  .page-layout .page-container.aside-true {
+    margin-left: 50px; }
+  .page-layout .page-container .breadcrumb {
+    margin: 0px;
+    margin-bottom: 10px; }
+  .page-layout .page-container .org-view {
+    display: inline-block;
+    width: 99%; }
+    .page-layout .page-container .org-view > .title > h2 {
+      margin: 10px 0px;
+      font-size: 24px; }
+    .page-layout .page-container .org-view .information {
+      line-height: 22px; }
+    .page-layout .page-container .org-view .title-panel {
+      margin: 10px 0px; }
+
+.page-layout:after {
+  content: '';
+  display: block;
+  clear: both; }
+
+.landing-page {
+  margin: 15px;
+  background: #fff;
+  padding: 10px; }
+  .landing-page .datagrid-panel .data-table {
+    font-size: 12px; }
+    .landing-page .datagrid-panel .data-table .typeahead {
+      width: 454px !important; }
+    .landing-page .datagrid-panel .data-table thead {
+      border: 1px solid #e5e5e5; }
+      .landing-page .datagrid-panel .data-table thead tr {
+        background-color: #e9e9e9; }
+        .landing-page .datagrid-panel .data-table thead tr th {
+          cursor: pointer; }
+          .landing-page .datagrid-panel .data-table thead tr th i {
+            float: right; }
+    .landing-page .datagrid-panel .data-table tbody input[type=checkbox] {
+      margin: 0px; }
+  .landing-page .datagrid-panel .form-inline {
+    float: right; }
+    .landing-page .datagrid-panel .form-inline .form-group {
+      padding: 0px 5px; }
+      .landing-page .datagrid-panel .form-inline .form-group > label {
+        font-weight: normal;
+        padding: 0px 2px; }
+    .landing-page .datagrid-panel .form-inline > button {
+      width: 35px;
+      font-size: 18px;
+      text-align: center;
+      padding: 0px;
+      font-weight: bold; }
+
+.data-table {
+  font-size: 12px; }
+  .data-table .typeahead {
+    width: 454px !important; }
+  .data-table thead {
+    border: 1px solid #e5e5e5; }
+    .data-table thead tr {
+      background-color: #e9e9e9; }
+      .data-table thead tr th {
+        cursor: pointer; }
+        .data-table thead tr th i {
+          float: right; }
+  .data-table tbody input[type=checkbox] {
+    margin: 0px;
+    float: right; }
 
 .top-header .navbar-inverse {
   background: #313131;

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inspec Analytics</title>
+
+    <!-- Bootstrap -->
+    <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="./bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom Style -->
+    <link href="./assets/css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <header class="top-header">
+        <nav class="navbar navbar-inverse margin-bottom-none">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                        aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">Inspec Analytics</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+    </header>
+    <main>
+        <section class="banner">
+            <div class="content">
+                <h1 class="quote">Search for the institution you like for...</h1>
+                <!--<p>Please type the authors initials or the topic of research</p>-->
+                <form method="GET">
+                    <div class="input-group">
+                        <input type="text" id="keyword" autocomplete="off" class="form-control input-lg" placeholder="Please type the institution initials or the topic of research">
+                        <span class="input-group-btn btn-group-lg">
+                            <button type="button" onclick="setPanelSearch()" class="btn btn-default btn-blue">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section class="advFilterTable arrow-pop" style="display: none">
+            <div class="table-responsive">
+                <button class="btn btn-primary btn-xs closeCompare" style="display: none; float:right; margin:5px 0px;" onclick="closeCompare()"
+                    style="margin:5px 0px; float:right;">
+                    <i class="fa fa-times"></i>
+                </button>
+                <table class="table table-bordered table-condensed table-hover data-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Si No.</th>
+                            <th>Organization/Institution</th>
+                            <th>Articles</th>
+                            <th>Subject Areas</th>
+                            <th>Collaborating Organizations</th>
+                            <th>Control Terms</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>1</td>
+                            <td>
+                                <a href="viewInst.html">University of Cambridge</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">450</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">650</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">515</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">895</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>2</td>
+                            <td>
+                                <a href="viewInst.html">University of California</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">220</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">225</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">245</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">450</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>3</td>
+                            <td>
+                                <a href="viewInst.html">Xi'an Jiaotong University</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">110</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">423</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">232</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">310</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>4</td>
+                            <td>
+                                <a href="viewInst.html">University of Texas at Austin</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">221</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">235</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">236</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">460</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>5</td>
+                            <td>
+                                <a href="viewInst.html">Huazhong University of Science and Technology</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">401</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">534</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">457</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">523</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>6</td>
+                            <td>
+                                <a href="viewInst.html">Politecnico di Milano</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">10</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">53</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">27</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">56</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>7</td>
+                            <td>
+                                <a href="viewInst.html">Beihang University</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">127</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">243</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">256</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">234</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>8</td>
+                            <td>
+                                <a href="viewInst.html">University of Science and Technology of China</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">68</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">153</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">154</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">326</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>9</td>
+                            <td>
+                                <a href="viewInst.html">Northwestern Polytechnical University</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">88</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">215</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">458</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">126</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>10</td>
+                            <td>
+                                <a href="viewInst.html">Jilin University</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">167</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">335</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">234</a>
+                            </td>
+                            <td>
+                                <a href="viewInst.html">422</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <nav>
+                    <button onclick="compareRows();" class="btn btn-primary btn-compare">
+                        <i class="fa fa-compress"></i>
+                        Compare Institutions
+                        <span class="badge">2</span>
+                    </button>
+
+                    <ul class="pagination pagination-md pull-right" style="margin:5px 0px;">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">«</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">1</a>
+                        </li>
+                        <li>
+                            <a href="#">2</a>
+                        </li>
+                        <li>
+                            <a href="#">3</a>
+                        </li>
+                        <li>
+                            <a href="#">4</a>
+                        </li>
+                        <li>
+                            <a href="#">5</a>
+                        </li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">»</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+        <div class="container">
+
+            <section class="features">
+                <h3 class="text-center">Why use Inspec Plus?</h3>
+                <br>
+                <div class="row">
+                    <div class="col-md-4 item">
+                        <div class="icon">
+                            <i class="fa fa-search-plus"></i>
+                            <h2>Platform of subject matter experts</h2>
+                            <p>The Inspec Plus is the authoritative source of information about advances in the causes, diagnosis,
+                                treatment and prevention of cancer.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 item">
+                        <div class="icon">
+                            <i class="fa fa-search"></i>
+                            <h2>Advanced Searches</h2>
+                            <p>The programs and services of the Inspec Plus foster the exchange of knowledge and new ideas among
+                                scientists dedicated to cancer research, provide training opportunities for the next generation
+                                of cancer researchers, and increase public understanding of cancer.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 item">
+                        <div class="icon">
+                            <i class="fa fa-pie-chart"></i>
+                            <h2>Trend Analysis</h2>
+                            <p>In conjunction with the publication of its fifth annual Cancer Progress Report, Inspec Plus commissioned
+                                a national survey on cancer and cancer research funding.</p>
+                        </div>
+                    </div>
+                    <!--<div class="col-md-3 item">-->
+                    <!--<div class="icon">-->
+                    <!--<i class="fa fa-list-alt"></i>-->
+                    <!--<h2>Project Management</h2>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="bottom-footer">
+        <div class="container">
+            <ul class="nav-footer-social">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-google-plus"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav-footer">
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Faq</a>
+                </li>
+                <li>
+                    <a href="#">Terms & Services</a>
+                </li>
+                <li>
+                    <a href="#">Contact Us</a>
+                </li>
+            </ul>
+
+
+            <div>
+                <!-- <a href="http://www.molecularconnections.com" target="_blank">Powered By : &copy; Molecular Connections 2017</a> -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Login</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+
+    <script>
+        function setPanelSearch() {
+            $('.advFilterTable').fadeToggle();
+            $('.banner').toggleClass('active');
+        }
+
+
+     
+
+        setPanelSearch();
+
+        var searchTerms = [
+            'University of Cambridge',
+            'AGH University of Science and Technology',
+            'Peking University',
+            'Czech Technical University in Prague',
+            'Kyoto University',
+            'South China University of Technology',
+            'Imperial College London',
+            'Northeastern University',
+            'Institute of Physics',
+            'Universiti Sains Malaysia',
+            'University of Southampton',
+            'University of Johannesburg',
+            'Wuhan University',
+            'University of Electronic Science and Technology of China',
+            'Purdue University',
+            'University of California, Berkeley'
+        ];
+
+
+
+
+        $('#keyword').typeahead({
+            source: searchTerms,
+            afterSelect: function (item) {
+                window.location = 'viewInst.html';
+            }
+        });
+
+        function login() {
+            $('#myModal').modal('show');
+        }
+
+        function compareRows() {
+            $('input[type=checkbox]').each(function () {
+                $(this).closest('tr').hide();
+                if (this.checked) {
+                    $(this).closest('thead tr').show();
+                    $(this).closest('tr').show();
+                    $('.btn-compare').hide();
+                    $('.pagination').hide();
+                    $('.closeCompare').show();
+                }
+            });
+
+            $('.up').each(function () {
+                var val = $(this).find('span').text();
+                var round = '0.' + val;
+                $(this).closest('td').css("background-color", "rgba(0, 128, 0, " + round + ")");
+                $(this).find('i').hide();
+            });
+
+            $('.down').each(function () {
+                var val = $(this).find('span').text();
+                var round = '0.' + val;
+                $(this).closest('td').css("background-color", "rgba(255, 0, 0, " + round + ")");
+                $(this).find('i').hide();
+            });
+        }
+
+        function closeCompare() {
+            $('input[type=checkbox]').each(function () {
+                $(this).closest('tr').show();
+                if (this.checked) {
+                    this.checked = false;
+
+                    $('.btn-compare').show();
+                    $('.pagination').show();
+                    $('.closeCompare').hide();
+                }
+            });
+
+            $('.up').each(function () {
+                $(this).closest('td').css("background-color", "");
+                $(this).find('i').show();
+            });
+
+            $('.down').each(function () {
+                $(this).closest('td').css("background-color", "");
+                $(this).find('i').show();
+            });
+        }
+    </script>
+</body>
+
+</html>

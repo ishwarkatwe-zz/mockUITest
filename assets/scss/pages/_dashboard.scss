@@ -1,14 +1,105 @@
-.search-panel{
+$border-color: rgba(0, 0, 0, 0.08);
+.navbar-collapse-btn {
+  background: #4d92cb;
+  margin: 0px;
+  width: 50px;
+  margin-right: 20px;
+  text-align: center;
+  i {
+    font-size: 25px;
+    line-height: 50px;
+    color: #ffffff;
+  }
+}
 
-  .tree-autosuggest{
-    position: relative;
-    .tree-structure{
-      background: $white;
-      display: none;
-      position: absolute;
-      width: 100%;
-      top:38px;
-      box-shadow: 1px 3px 5px $gray;
+.page-layout {
+  .nav-aside-left {
+    background: $white;
+    width: 0px;
+    height: 100vh;
+    position: fixed;
+    z-index: 111;
+    &.active {
+      width: 50px;
+      box-shadow: 0px 0px 5px 0px #b0b0b0;
     }
+    float: left;
+    border-right: 1px solid $border-color;
+    ul {
+      margin: 0px;
+      padding: 0px;
+      li {
+        list-style: none;
+        border-bottom: 1px solid $border-color;
+        a {
+          display: block;
+          padding: 0px;
+          line-height: 50px;
+          color: #666;
+          i {
+            width: 50px;
+            text-align: center;
+            font-size: 18px;
+          }
+          position: relative;
+          span {
+            position: absolute;
+            top: 14px;
+            left: 120%;
+            padding: 0px 15px;
+            background: rgba(0, 0, 0, 0.7019607843137254);
+            color: #fff;
+            line-height: 24px;
+            border-radius: 14px;
+            display: none;
+            white-space: nowrap;
+            z-index: 100;
+          }
+        }
+        &:hover {
+          background: $border-color;
+          a {
+            color: #2e6b9d;
+            span {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+  .page-container {
+    margin-left: 0px;
+    min-height: 80vh;
+    margin-top: 50px;
+    &.aside-true {
+      margin-left: 50px;
+    }
+    padding: 15px 10px;
+    .breadcrumb {
+      margin: 0px;
+      margin-bottom: 10px;
+    }
+    .org-view {
+      display: inline-block;
+      width: 99%;
+      >.title {
+        >h2 {
+          margin: 10px 0px;
+          font-size: 24px;
+        }
+      }
+      .information {
+        line-height: 22px;
+      }
+      .title-panel {
+        margin: 10px 0px;
+      }
+    }
+  }
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
   }
 }

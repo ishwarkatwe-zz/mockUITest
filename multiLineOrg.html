@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script data-require="d3@3.5.3" data-semver="3.5.3" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <svg id="visualisation" width="1355" height="333"></svg>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script>
+        function InitChart() {
+            var data = [{
+                "name": "A",
+                "value": 134
+            }, {
+                "name": "B",
+                "value": 138.26315789473685
+            }];
+
+            var vis = d3.select("#visualisation");
+
+            var MARGINS = {
+                    top: 10,
+                    right: 20,
+                    bottom: 10,
+                    left: 50
+                },
+
+                WIDTH = 1355 - MARGINS.left - MARGINS.right,
+                HEIGHT = 333 - MARGINS.top - MARGINS.bottom;
+
+            var x = d3.scale.ordinal().rangeRoundBands([0, WIDTH], .1);
+
+            var y = d3.scale.linear().rangeRound([HEIGHT, 0]);
+
+            x.domain(data.map(function (d) {
+                return d.name;
+            }));
+            y.domain(d3.extent(data, function (d) {
+                return d.value;
+            }))
+
+            var xAxis = d3.svg.axis()
+                .scale(x)
+                .orient("bottom");
+
+            var yAxis = d3.svg.axis()
+                .scale(y)
+                .orient("left");
+
+            var lineGen = d3.svg.line()
+                .interpolate("basis")
+                .x(function (d) {
+                    return x(d.name);
+                })
+                .y(function (d) {
+                    return y(d.value);
+                });
+
+            vis.append("svg:g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + HEIGHT + ")")
+                .call(xAxis);
+
+            vis.append("svg:g")
+                .attr("class", "y axis")
+                .attr("transform", "translate(" + (MARGINS.left) + ",0)")
+                .call(yAxis)
+                .append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("y", 6)
+                .attr("dy", ".71em")
+                .style("text-anchor", "end")
+                .text("Count");
+
+
+            vis.append('svg:path')
+                .attr('d', lineGen(data))
+                .attr('stroke', 'green')
+                .attr('stroke-width', 1)
+                .attr('fill', 'none');
+
+        }
+        InitChart();
+    </script>
+</body>
+
+</html>

@@ -32,11 +32,24 @@
 npm-debug.log
 testem.log
 /typings
+<<<<<<< HEAD
+yarn-error.log
+=======
+>>>>>>> 6a6c7065ef311fdb8b46e31406b17371c42ef2df
 
 # e2e
 /e2e/*.js
 /e2e/*.map
 
 # System Files
+<<<<<<< HEAD
+
 .DS_Store
 Thumbs.db
+
+#Deploy
+/deployments
+=======
+.DS_Store
+Thumbs.db
+>>>>>>> 6a6c7065ef311fdb8b46e31406b17371c42ef2df
