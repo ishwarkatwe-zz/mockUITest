@@ -70,7 +70,7 @@
             <!-- <p class="navbar-text navbar-collapse-btn navbar-collapse-btn--left">
                 <i class="fa fa-bars"></i>
             </p> -->
-            <div class="container">
+            <div class="container-fluid" style="padding: 0px 52px;">
                 <!-- Brand and toggle get grouped for better mobile display -->
 
 
@@ -103,13 +103,8 @@
         <section class="page-layout">
             <aside class="nav-aside-left active">
                 <ul>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-home"></i>
-                            <span>Home</span>
-                        </a>
-                    </li>
-                    <li>
+
+                    <li style="margin-top: 50px">
                         <a href="javaScript:chooseOption('tabView', 'classTrendChart.html');">
                             <i class="fa fa-sitemap"></i>
                             <span>Subject Areas</span>
@@ -142,10 +137,17 @@
                         </a>
                     </li>
 
+                    <li style="margin-top: 250px;">
+                        <a href="#">
+                            <i class="fa fa-arrow-up" style="color:#4d92cb"></i>
+                            <span>Go to Top</span>
+                        </a>
+                    </li>
+
                 </ul>
             </aside>
             <main class="page-container aside-true">
-                <nav>
+                <!-- <nav>
                     <ol class="breadcrumb">
                         <li>
                             <a href="index.html">Home</a>
@@ -155,60 +157,66 @@
                         </li>
                         <li class="active">University of Cambridge</li>
                     </ol>
-                </nav>
-
-                <!-- <section class="org-view">
-                    <a class="title" href="#">
-                        <h2>University of Cambridge</h2>
-                    </a>
-                    <div class="row">
-                        <div class="col-md-1 text-center">
-                            <img src="assets/img/Cam.png" class="img-responsive">
-                        </div>
-                        <div class="col-md-11">
-                            <div class="information">
-                                <p>The University of Cambridge (informally Cambridge University) is a collegiate public research
-                                    university in Cambridge, England. Founded in 1209 and granted a royal charter by King
-                                    Henry III in 1231, Cambridge is the second-oldest university in the English-speaking
-                                    world and the world's fourth-oldest surviving university. The university grew out of
-                                    an association of scholars who left the University of Oxford after a dispute with the
-                                    townspeople. The two medieval universities share many common features and are often referred
-                                    to jointly as "Oxbridge".</p>
+                </nav> -->
 
 
-                                <p style="margin-top: 10px">
-                                    <a href="mail:hymand@mskcc.org">
-                                        <i class="fa fa-envelope"></i>
-                                        information@cambridge.org</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h4 style="margin: 5px;
-                            font-size: 15px;
-                            font-weight: bold;">Top Level Subject Areas</h4>
-                            <iframe src="./dash1.html" onload="resizeIframe(this)"></iframe>
-                        </div>
-                        <div class="col-md-4">
-                            <h4 style="margin: 5px;
-                                font-size: 15px;
-                                font-weight: bold;">Articles Per Year</h4>
-                            <iframe src="./barChart.html" onload="resizeIframe(this)"></iframe>
-                        </div>
-                        <div class="col-md-4">
-                            <h4 style="margin: 5px;
-                                font-size: 15px;
-                                font-weight: bold;">Top Keywords</h4>
-                            <iframe src="./dash3.html" onload="resizeIframe(this)"></iframe>
-                        </div>
-                    </div>
-                </section> -->
 
                 <div class="profile-info">
+                    <div class="row nav-sticky">
+                        <div class="col-md-5">
+                            <img style="padding: 0px;
+                                        float: left;
+                                        width: 40px;
+                                        margin: 0px 10px;" src="assets/img/Cam.png" class="img-responsive">
+
+                            <a class="title" href="#">
+                                <h3 style="margin: 10px 5px;">University of Cambridge</h3>
+                            </a>
+                        </div>
+                        <div class="col-md-7">
+                            <ul class="trend_box">
+                                <li>
+                                    <a>
+                                        <i class="fa fa-book"></i>
+                                        <span>1212</span>
+                                        Article
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <i class="fa fa-sitemap"></i>
+                                        <span>21211</span>
+                                        Subject Area
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <i class="fa fa-handshake-o"></i>
+                                        <span>4211</span>
+                                        Collaboration
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <i class="fa fa-star-half-o"></i>
+                                        <span>21221</span>
+                                        Keyword
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <i class="fa fa-user-o"></i>
+                                        <span>4212</span>
+                                        Author
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                    <hr style="margin: 10px 0px;" />
+
                     <section class="author-view">
                         <div class="row">
                             <div class="col-md-8">
@@ -216,65 +224,10 @@
 
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <img style="padding: 0px;
-                                                float: left;
-                                                width: 50px;
-                                                margin: 0px 10px;" src="assets/img/Cam.png" class="img-responsive">
-
-                                            <a class="title" href="#">
-                                                <h3 style="margin: 15px 5px;">University of Cambridge</h3>
-                                            </a>
-                                        </div>
-
-                                        <div class="col-md-12">
-                                            <hr style="margin: 10px 0px;" />
-
-
-                                            <ul class="trend_box">
-                                                <li>
-                                                    <a>
-                                                        <i class="fa fa-book"></i>
-                                                        <span>1212</span>
-                                                        Article
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a>
-                                                        <i class="fa fa-sitemap"></i>
-                                                        <span>21211</span>
-                                                        Subject Area
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a>
-                                                        <i class="fa fa-handshake-o"></i>
-                                                        <span>4211</span>
-                                                        Collaboration
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                        <span>21221</span>
-                                                        Keyword
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a>
-                                                        <i class="fa fa-user-o"></i>
-                                                        <span>4212</span>
-                                                        Author
-                                                    </a>
-                                                </li>
-                                            </ul>
-
                                             <iframe src="./galaxy2.html" onload="resizeIframe(this)"></iframe>
                                         </div>
 
                                         <div class="col-md-12">
-
-
-
                                             <p>The University of Cambridge (informally Cambridge University) is a collegiate
                                                 public research university in Cambridge, England. Founded in 1209 and granted
                                                 a royal charter by King Henry III in 1231, Cambridge is the second-oldest
@@ -472,7 +425,7 @@
             //             'Last 7 Days': [moment().subtract(6, 'days'), moment()],
             //             'Last 30 Days': [moment().subtract(29, 'days'), moment()],
             //             'This Month': [moment().startOf('month'), moment().endOf('month')],
-                     
+
 
             //         },
             //         "startDate": "01/01/2013",
@@ -496,6 +449,16 @@
 
             $('.fullwidthContainer').toggleClass("col-md-9");
             $('.fullwidthContainer').parent().toggleClass("col-md-12");
+        });
+
+
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() >= 200) {
+                $('.nav-sticky').addClass('nav-fixed-header');
+            } else {
+                $('.nav-sticky').removeClass('nav-fixed-header');
+            }
         });
     </script>
 </body>
