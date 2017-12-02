@@ -70,7 +70,7 @@ body {
   padding: 0px;
   li+li::before {
     content: " | ";
-    padding: 5px 15px;
+    padding: 0px 5px;
     color: $primary-text;
   }
   li {
@@ -79,12 +79,12 @@ body {
     text-align: center;
     a {
       >i {
-        font-size: 22px;
+        font-size: 16px;
         color: #555555;
       }
       >span {
-        color: #555555;
-        font-size: 16px;
+        color: #000;
+        font-size: 13px;
         font-weight: bold;
       }
       color: $primary-text;

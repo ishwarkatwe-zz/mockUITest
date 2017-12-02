@@ -56,7 +56,7 @@ body {
   padding: 0px; }
   .trend_box li + li::before {
     content: " | ";
-    padding: 5px 15px;
+    padding: 0px 5px;
     color: #212121; }
   .trend_box li {
     list-style: none;
@@ -66,11 +66,11 @@ body {
       color: #212121;
       cursor: pointer; }
       .trend_box li a > i {
-        font-size: 22px;
+        font-size: 16px;
         color: #555555; }
       .trend_box li a > span {
-        color: #555555;
-        font-size: 16px;
+        color: #000;
+        font-size: 13px;
         font-weight: bold; }
 
 /*
@@ -777,6 +777,23 @@ section.authors {
   content: '';
   display: block;
   clear: both; }
+
+.nav-fixed-header {
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  width: 100%;
+  background: #FFF;
+  z-index: 111111;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 3px 1px 10px 0 rgba(50, 50, 50, 0.2);
+  margin: 0px; }
+  .nav-fixed-header img {
+    width: 35px !important;
+    margin: 4px 10px !important; }
+  .nav-fixed-header .title h3 {
+    font-size: 18px !important;
+    margin: 15px 10px !important; }
 
 .landing-page {
   margin: 15px;
