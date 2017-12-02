@@ -820,11 +820,51 @@ section.authors {
       background-color: #e9e9e9; }
       .data-table thead tr th {
         cursor: pointer; }
-        .data-table thead tr th i {
+        .data-table thead tr th > i {
           float: right; }
   .data-table tbody input[type=checkbox] {
     margin: 0px;
     float: right; }
+
+.popOver {
+  position: relative; }
+  .popOver > button {
+    width: 120px; }
+  .popOver:hover .popOverlay {
+    display: block; }
+  .popOver .popOverlay {
+    position: relative;
+    display: none;
+    position: absolute;
+    background: #fff;
+    padding: 10px;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    box-shadow: 1px 2px 5px #bbb; }
+    .popOver .popOverlay ol {
+      padding-left: 15px;
+      margin: 0px; }
+      .popOver .popOverlay ol li {
+        padding: 5px 10px;
+        font-size: 12px;
+        font-weight: normal; }
+        .popOver .popOverlay ol li:hover {
+          background: #eee; }
+        .popOver .popOverlay ol li i {
+          color: #5799c7; }
+    .popOver .popOverlay :after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -10px;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid #ffffff; }
 
 .top-header .navbar-inverse {
   background: #313131;
