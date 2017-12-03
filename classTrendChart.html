@@ -3,7 +3,7 @@
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <!-- Include Date Range Picker -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 
@@ -133,7 +133,7 @@
         </div>
         <div class="col-md-1">
             <button class="btn btn-default" type="button">Visualize
-                <span class="badge">0</span>
+                <span class="badge">5</span>  <i class="fa fa-times" style="padding: 3px 0px;"></i>
             </button>
         </div>
     </div>
@@ -142,8 +142,7 @@
         <table class="table table-bordered table-condensed table-hover data-table">
             <thead>
                 <tr>
-                    <th></th>
-                    <th>Sl No.</th>
+                    <th style="width: 50px" >Sl No.</th>
                     <th>Classification Codes
                         <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i>
                     </th>
@@ -162,9 +161,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <input type="checkbox" />
-                    </td>
-                    <td>1</td>
+                        <input checked type="checkbox" /> 1</td>
                     <td>Physics</td>
                     <td>
                         <a href="viewInst.html">345</a>
@@ -180,9 +177,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="checkbox" />
-                    </td>
-                    <td>2</td>
+                        <input checked type="checkbox" /> 2</td>
                     <td>Electrical Engineering and electronics</td>
                     <td>
                         <a href="viewInst.html">217</a>
@@ -197,9 +192,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="checkbox" />
-                    </td>
-                    <td>3</td>
+                        <input checked type="checkbox" /> 3</td>
                     <td>Computing and Control</td>
                     <td>
                         <a href="viewInst.html">121</a>
@@ -214,9 +207,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="checkbox" />
-                    </td>
-                    <td>4</td>
+                        <input checked type="checkbox" /> 4</td>
                     <td>Information Technology for Buisness</td>
                     <td>
                         <a href="viewInst.html">123</a>
@@ -231,9 +222,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="checkbox" />
-                    </td>
-                    <td>5</td>
+                        <input checked type="checkbox" /> 5</td>
                     <td>Mechanical and Production Engineering</td>
                     <td>
                         <a href="viewInst.html">239</a>
@@ -424,6 +413,11 @@
         for (var j = 0; j < data.data.length; j++) {
             var g = svg.append("g").attr("class", "journal");
 
+            var gtext = g.selectAll("g")
+                .data(data.data[j]['articles'])
+                .enter()
+                .append("g");
+
             var circles = g.selectAll("circle")
                 .data(data.data[j]['articles'])
                 .enter()
@@ -438,7 +432,7 @@
                 .domain([0, d3.max(data.data[j]['articles'], function (d) {
                     return d[1];
                 })])
-                .range([2, 13]);
+                .range([2, 13])
 
             circles
                 .attr("cx", function (d, i) {
@@ -451,6 +445,27 @@
                 .style("fill", function (d) {
                     return c(j);
                 });
+
+                gtext.append('text')
+                .attr('font-family', 'FontAwesome')
+                .attr('font-size', function (d) {
+                    return '3 em'
+                })
+                .attr("dy", j * 30 + 25)
+                .attr("dx", function (d, i) {
+                    return xScale(d[0]) - 5;
+                })
+                .style("fill", function (d) {
+                     return 'red'
+                    
+                })
+                .text(function (d) {
+                    if(!d[1]){
+                        return '\uf00d'
+                    }
+                  
+                    
+                });   
 
             text
                 .attr("y", j * 30 + 25)

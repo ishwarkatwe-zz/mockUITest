@@ -180,7 +180,7 @@ var funct = function (d) { if(d)  return "("+ d +")"; else return '';}
                             return d.name + funct(d.count) +")";
                     });
 
-           /* nodeEnter.append('text')
+           nodeEnter.append('text')
                 .attr('font-family', 'FontAwesome')
                 .attr('font-size', function (d) {
                     return '1 em'
@@ -203,7 +203,7 @@ var funct = function (d) { if(d)  return "("+ d +")"; else return '';}
                         return '\uf160'
                     }
                 });
-*/
+
             // Update the position of both old and new nodes
             node.attr("transform", function (d) {
                 return "translate(" + d.y + "," + d.x + ")";
