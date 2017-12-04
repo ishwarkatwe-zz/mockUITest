@@ -15,14 +15,8 @@
 
     <!-- Custom Style -->
     <link href="./assets/css/style.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-
-    <!-- Include Date Range Picker -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -257,52 +251,61 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="row" style="border-left: 1px solid #eae9e9;">
+                                    <div class="pull-right">
+                                        <i class="fa fa-calendar glyphicon glyphicon-calendar"></i> Date Range:
+                                        <input type="text" class="form-control input-sm" style="width: 170px;
+                                                display: inline-block;
+                                                margin: 0px 10px;" name="daterange" id="daterange" />
+                                    </div>
+                                    <br>
+                                    <hr>
+
                                     <div class="col-md-12">
 
-                                        <span class="pull-right">
-                                            <label class="radio-inline">
-                                                <input type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1" checked> Recent
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="option2"> All
-                                            </label>
-                                        </span>
+                                        <!-- <span class="pull-right">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1" checked> Recent
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="option2"> All
+                                                    </label>
+                                                </span> -->
 
                                         <h4 style="margin: 5px;
-                                                                    font-size: 15px;
-                                                                    color: #5799c7;
-                                                                    font-weight: bold;">Keywords</h4>
+                                                                            font-size: 15px;
+                                                                            color: #5799c7;
+                                                                            font-weight: bold;">Keywords</h4>
                                         <iframe src="./dash3.html" onload="resizeIframe(this)" style="height: 210px;"></iframe>
                                     </div>
                                     <div class="col-md-12">
-                                        <span class="pull-right">
-                                            <label class="radio-inline">
-                                                <input type="radio" name="inlineRadioOptions2" id="inlineRadio1" value="option1" checked> Recent
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="option2"> All
-                                            </label>
-                                        </span>
+                                        <!-- <span class="pull-right">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="inlineRadioOptions2" id="inlineRadio1" value="option1" checked> Recent
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="option2"> All
+                                                    </label>
+                                                </span> -->
                                         <h4 style="margin: 5px;
-                                                        font-size: 15px;
-                                                        color: #5799c7;
-                                                        font-weight: bold;">Top Level Subject Areas</h4>
+                                                                font-size: 15px;
+                                                                color: #5799c7;
+                                                                font-weight: bold;">Top Level Subject Areas</h4>
                                         <iframe src="./dash1.html" onload="resizeIframe(this)" style="height: 210px !important;"></iframe>
 
                                     </div>
                                     <div class="col-md-12">
-                                        <span class="pull-right">
-                                            <label class="radio-inline">
-                                                <input type="radio" name="inlineRadioOptions3" id="inlineRadio1" value="option1" checked> Recent
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="inlineRadioOptions3" id="inlineRadio2" value="option2"> All
-                                            </label>
-                                        </span>
+                                        <!-- <span class="pull-right">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="inlineRadioOptions3" id="inlineRadio1" value="option1" checked> Recent
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="inlineRadioOptions3" id="inlineRadio2" value="option2"> All
+                                                    </label>
+                                                </span> -->
                                         <h4 style="margin: 5px;
-                                                            font-size: 15px;
-                                                            color: #5799c7;
-                                                            font-weight: bold;">Articles Per Year</h4>
+                                                                    font-size: 15px;
+                                                                    color: #5799c7;
+                                                                    font-weight: bold;">Articles Per Year</h4>
                                         <iframe src="./barChart.html" onload="resizeIframe(this)" style="height: 210px;"></iframe>
 
                                     </div>
@@ -384,6 +387,41 @@
     <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+
+            $(function () {
+                $('input[name="daterange"]').daterangepicker({
+                    "showDropdowns": true,
+                    "dateLimit": {
+                        "days": 7
+                    },
+                    "ranges": {
+                        'This Month': [moment().startOf('month'), moment().endOf('month')],
+                        'Six Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(
+                            1, 'month').endOf('month')],
+                        'One Year': [moment().subtract(1, 'month').startOf('month'), moment().subtract(
+                            1, 'month').endOf('month')],
+                        'Five Years': [moment().subtract(1, 'month').startOf('month'), moment()
+                            .subtract(1, 'month').endOf('month')
+                        ]
+                    },
+                    "startDate": "01/11/2017",
+                    "endDate": "01/12/2017",
+                    "minDate": "01/01/1969",
+                    "maxDate": "05/31/2017",
+                    "opens": "left"
+                });
+            });
+
+        });
+    </script>
+
     <script>
         function resizeIframe(obj) {
             obj.style.height = (obj.contentWindow.document.body.scrollHeight + 50) + 'px';
@@ -411,30 +449,6 @@
             } else {
                 $('#' + ele + '_aside').show();
             }
-
-
-            // $(function () {
-            //     $('input[name="daterange"]').daterangepicker({
-            //         "showDropdowns": true,
-            //         "dateLimit": {
-            //             "days": 7
-            //         },
-            //         "ranges": {
-            //             'Today': [moment(), moment()],
-            //             'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-            //             'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-            //             'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-            //             'This Month': [moment().startOf('month'), moment().endOf('month')],
-
-
-            //         },
-            //         "startDate": "01/01/2013",
-            //         "endDate": "05/31/2017",
-            //         "minDate": "01/01/1969",
-            //         "maxDate": "05/31/2017",
-            //         "opens": "left"
-            //     });
-            // });
 
         }
 
