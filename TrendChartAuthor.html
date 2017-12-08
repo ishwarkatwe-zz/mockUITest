@@ -10,14 +10,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 
-    <!-- Include Date Range Picker -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-    
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
 <script type="text/javascript">
-    $(function() {
-     
-        $(function() {
+    $(function () {
+
+        $(function () {
             $('input[name="daterange"]').daterangepicker({
                 "showDropdowns": true,
                 "dateLimit": {
@@ -25,11 +25,14 @@
                 },
                 "ranges": {
                     'This Month': [moment().startOf('month'), moment().endOf('month')],
-                     'Six Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')],
-                    'One Year': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')],
-                    'Five Years': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                    'Six Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(
+                        1, 'month').endOf('month')],
+                    'One Year': [moment().subtract(1, 'month').startOf('month'), moment().subtract(
+                        1, 'month').endOf('month')],
+                    'Five Years': [moment().subtract(1, 'month').startOf('month'), moment().subtract(
+                        1, 'month').endOf('month')]
                 },
-         
+
                 "startDate": "01/11/2017",
                 "endDate": "01/12/2017",
                 "minDate": "01/01/1969",
@@ -39,7 +42,7 @@
         });
 
     });
-    </script>
+</script>
 
 <style>
     #trend-graph {
@@ -78,273 +81,298 @@
 </style>
 
 <body>
-<div class="pull-right">
-    <i class="fa fa-calendar glyphicon glyphicon-calendar"></i>  Date Range: <input type="text" name="daterange"  />
-</div>
+    <div class="pull-right">
+        <i class="fa fa-calendar glyphicon glyphicon-calendar"></i> Date Range:
+        <input type="text" name="daterange" />
+    </div>
 
-<h4 style="padding: 0px 10px;"><i class="fa fa-handshake-o" style="color : #337ab7;"></i> Author</h4>
-<br>
-<nav>
-    <ol class="breadcrumb">
-        <li>
-            <a href="index.html">Organization</a>
-        </li>
-        <li>
-            <a href="viewInst.html">University of Cambridge</a>
-        </li>
-        <li class="active">Author</li>
-    </ol>
-</nav>
-<hr>
+    <h4 style="padding: 0px 10px;">
+        <i class="fa fa-handshake-o" style="color : #337ab7;"></i> Author</h4>
+    <br>
+    <nav>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Organization</a>
+            </li>
+            <li>
+                <a href="viewInst.html">University of Cambridge</a>
+            </li>
+            <li class="active">Author</li>
+        </ol>
+    </nav>
+    <hr>
     <div style="text-align: center">
         <div id="trend-graph"></div>
     </div>
-<div style="position: relative;">
-    <i class="fa fa-sort" style="
+    <div style="position: relative;">
+        <i class="fa fa-sort" style="
         font-size: 50px;
         position: absolute;
         right: 50px;
         bottom: 0px;
         color:#666
     " aria-hidden="true"></i>
-</div>
-<div class="row">
-    <div class="col-md-3">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                    <button class="btn btn-default" type="button">
+                        <i class="fa fa-search"></i>
+                    </button>
                 </span>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <button class="btn btn-default" type="button">Visualize
+                <span class="badge">10</span>
+                <i class="fa fa-times" style="padding: 3px 0px;"></i>
+            </button>
         </div>
     </div>
-    <div class="col-md-1">
-        <button class="btn btn-default" type="button">Visualize
-            <span class="badge">10</span>  <i class="fa fa-times" style="padding: 3px 0px;"></i>
-        </button>
-    </div>
-</div>
-<br>
+    <br>
     <div class="table-responsive">
         <table class="table table-bordered table-condensed table-hover data-table">
             <thead>
-            <tr>
-                <th style="width: 50px" >SL No.</th>
-                <th>Author <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i></th>
-                <th>Articles<i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i></th>
-                <th>Collaborators/Co-authors <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i></th>
-                <th>Subject Areas <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i></th>
-                <th>Affiliations <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i></th>
-            </tr>
+                <tr>
+                    <th style="width: 50px">SL No.</th>
+                    <th>Author
+                        <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i>
+                    </th>
+                    <th>Articles
+                        <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i>
+                    </th>
+                    <th>Collaborators/Co-authors
+                        <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i>
+                    </th>
+                    <th>Subject Areas
+                        <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i>
+                    </th>
+                    <th>Affiliations
+                        <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i>
+                    </th>
+                </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>
-                    <input checked type="checkbox" /> 1</td>
-                <td>
-                    <a href="viewInst.html">Fuhrmann, Marcelo W</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">88</a>
-                </td>
-                <td>
-                    <span class="badge" style="color:#fff">15</span>         
-                    <a href="viewInst.html">89</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">54</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">4</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input checked type="checkbox" /> 2</td>
-                <td>
-                    <a href="viewInst.html">Fang Ding</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">12</a>
+                <tr>
+                    <td>
+                        <input checked type="checkbox" /> 1</td>
+                    <td>
+                        <a href="viewInst.html">Fuhrmann, Marcelo W</a>
+                    </td>
+                    <td>
+                        <span class="badge" style="color:#fff">15</span>
+                        <a href="viewInst.html">88</a>
+                    </td>
+                    <td>
 
-                </td>
-                <td>
-                      <span class="badge" style="color:#fff">2</span>
-                      <a href="viewInst.html">28</a>
-                      
-                </td>
-                <td>
-                    <a href="viewInst.html">54</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">4</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input checked type="checkbox" /> 3</td>
-                <td>
-                    <a href="viewInst.html">Uto, T</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">44</a>
-                </td>
-                <td>
-                    <span class="badge" style="color:#fff">12</span>
-                    <a href="viewInst.html">48</a>                        
-                </td>
-                <td>
-                    <a href="viewInst.html">44</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">4</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input checked type="checkbox" /> 4</td>
-                <td>
-                    <a href="viewInst.html">Herr, Christian</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">22</a>
-                </td>
-                <td>
-                    <span class="badge" style="color:#fff">15</span>
-                    <a href="viewInst.html">33</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">24</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">4</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input checked type="checkbox" /> 5</td>
-                <td>
-                    <a href="viewInst.html">Sander, T</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">10</a>
-                </td>
-                <td>
-                    <span class="badge" style="color:#fff">5</span>
-                    <a href="viewInst.html">23</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">44</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">2</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input checked type="checkbox" /> 6</td>
-                <td>
-                    <a href="viewInst.html">Zangrando, L</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">10</a>
-                </td>
-                <td>
-                    <span class="badge" style="color:#fff">4</span>
-                    <a href="viewInst.html">23</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">24</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">4</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input checked type="checkbox" /> 7</td>
-                <td>
-                    <a href="viewInst.html">Barnhoorn, Auke</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">19</a>
-                </td>
-                <td>
-                    <span class="badge" style="color:#fff">5</span>
-                    <a href="viewInst.html">23</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">23</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">3</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input checked type="checkbox" /> 8</td>
-                <td>
-                    <a href="viewInst.html">Mesquita, Renato C</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">19</a>
-                </td>
-                <td>
-                    <span class="badge" style="color:#fff">5</span>
-                    
-                    <a href="viewInst.html">33</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">43</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">3</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input checked type="checkbox" /> 9</td>
-                <td>
-                    <a href="viewInst.html">Haidine, Abdelfattah</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">19</a>
-                </td>
-                <td>
-                    <span class="badge" style="color:#fff">3</span>
-                    <a href="viewInst.html">13</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">43</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">4</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input checked type="checkbox" /> 10</td>
-                <td>
-                    <a href="viewInst.html">Rajput, Dheeraj Singh</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">20</a>
-                </td>
-                <td>
-                    <span class="badge" style="color:#fff">2</span>
-                    <a href="viewInst.html">23</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">33</a>
-                </td>
-                <td>
-                    <a href="viewInst.html">3</a>
-                </td>
-            </tr>
+                        <a href="viewInst.html">89</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">54</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">4</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input checked type="checkbox" /> 2</td>
+                    <td>
+                        <a href="viewInst.html">Fang Ding</a>
+                    </td>
+                    <td>
+                        <span class="badge" style="color:#fff">2</span>
+                        <a href="viewInst.html">12</a>
+
+                    </td>
+                    <td>
+
+                        <a href="viewInst.html">28</a>
+
+                    </td>
+                    <td>
+                        <a href="viewInst.html">54</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">4</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input checked type="checkbox" /> 3</td>
+                    <td>
+                        <a href="viewInst.html">Uto, T</a>
+                    </td>
+                    <td>
+                        <span class="badge" style="color:#fff">12</span>
+                        <a href="viewInst.html">44</a>
+                    </td>
+                    <td>
+
+                        <a href="viewInst.html">48</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">44</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">4</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input checked type="checkbox" /> 4</td>
+                    <td>
+                        <a href="viewInst.html">Herr, Christian</a>
+                    </td>
+                    <td>
+                        <span class="badge" style="color:#fff">15</span>
+                        <a href="viewInst.html">22</a>
+                    </td>
+                    <td>
+
+                        <a href="viewInst.html">33</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">24</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">4</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input checked type="checkbox" /> 5</td>
+                    <td>
+                        <a href="viewInst.html">Sander, T</a>
+                    </td>
+                    <td>
+                        <span class="badge" style="color:#fff">5</span>
+                        <a href="viewInst.html">10</a>
+                    </td>
+                    <td>
+
+                        <a href="viewInst.html">23</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">44</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">2</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input checked type="checkbox" /> 6</td>
+                    <td>
+                        <a href="viewInst.html">Zangrando, L</a>
+                    </td>
+                    <td>
+                        <span class="badge" style="color:#fff">4</span>
+                        <a href="viewInst.html">10</a>
+                    </td>
+                    <td>
+
+                        <a href="viewInst.html">23</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">24</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">4</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input checked type="checkbox" /> 7</td>
+                    <td>
+                        <a href="viewInst.html">Barnhoorn, Auke</a>
+                    </td>
+                    <td>
+                        <span class="badge" style="color:#fff">5</span>
+                        <a href="viewInst.html">19</a>
+                    </td>
+                    <td>
+
+                        <a href="viewInst.html">23</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">23</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">3</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input checked type="checkbox" /> 8</td>
+                    <td>
+                        <a href="viewInst.html">Mesquita, Renato C</a>
+                    </td>
+                    <td>
+
+                        <span class="badge" style="color:#fff">5</span>
+                        <a href="viewInst.html">19</a>
+                    </td>
+                    <td>
+
+                        <a href="viewInst.html">33</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">43</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">3</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input checked type="checkbox" /> 9</td>
+                    <td>
+                        <a href="viewInst.html">Haidine, Abdelfattah</a>
+                    </td>
+                    <td>
+                        <span class="badge" style="color:#fff">3</span>
+                        <a href="viewInst.html">19</a>
+                    </td>
+                    <td>
+
+                        <a href="viewInst.html">13</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">43</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">4</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input checked type="checkbox" /> 10</td>
+                    <td>
+                        <a href="viewInst.html">Rajput, Dheeraj Singh</a>
+                    </td>
+                    <td>
+
+                        <span class="badge" style="color:#fff">2</span>
+                        <a href="viewInst.html">20</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">23</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">33</a>
+                    </td>
+                    <td>
+                        <a href="viewInst.html">3</a>
+                    </td>
+                </tr>
             </tbody>
         </table>
 
 
-  <nav>
+        <nav>
 
             <ul class="pagination pagination-md pull-right" style="margin:5px 0px;">
                 <li>
@@ -600,7 +628,7 @@
             .attr("transform", "translate(0," + 0 + ")")
             .call(xAxis);
 
-            for (var j = 0; j < data.data.length; j++) {
+        for (var j = 0; j < data.data.length; j++) {
             var g = svg.append("g").attr("class", "journal");
 
             var gtext = g.selectAll("g")
@@ -636,7 +664,7 @@
                     return c(j);
                 });
 
-                gtext.append('text')
+            gtext.append('text')
                 .attr('font-family', 'FontAwesome')
                 .attr('font-size', function (d) {
                     return '3 em'
@@ -646,16 +674,16 @@
                     return xScale(d[0]) - 5;
                 })
                 .style("fill", function (d) {
-                     return 'red'
-                    
+                    return 'red'
+
                 })
                 .text(function (d) {
-                    if(!d[1]){
+                    if (!d[1]) {
                         return '\uf00d'
                     }
-                  
-                    
-                });   
+
+
+                });
 
             text
                 .attr("y", j * 30 + 25)
