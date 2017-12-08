@@ -43,6 +43,7 @@ function main(file) {
 
     d3.text(file,
         function (error, txtdata) {
+            
             rows = d3.csv.parseRows(txtdata,
                 function (d, i) {
                     if (i == 0) {
@@ -53,6 +54,8 @@ function main(file) {
                         return d;
                     }
                 });
+
+            console.log(rows);
 
             rows.forEach(function (r, i, a) {
                 var rnames = {};
@@ -66,6 +69,8 @@ function main(file) {
 
 
             root = unflatten(rows, "University of Cambridge");
+            
+            console.log(root);
             var lines = d3.svg.line(); // unused !
             var nodes = galaxy.nodes(root);
             var links = galaxy.links(nodes);
