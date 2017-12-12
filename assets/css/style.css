@@ -24,7 +24,7 @@ body {
     left: 0px; }
 
 .typeahead {
-  width: 100% !important;
+  width: 78% !important;
   z-index: 1051 !important; }
   .typeahead > li > a {
     white-space: normal !important; }
@@ -422,15 +422,9 @@ section.authors {
     min-height: 330px;
     min-height: 50vh; }
     .banner .banner__search .banner__search__form {
-      position: absolute;
       width: 60%;
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      -moz-transform: translate(-50%, -50%);
-      -o-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%); }
+      margin: auto;
+      padding-top: 8%; }
       .banner .banner__search .banner__search__form > h2 {
         color: #FFFFFF;
         text-align: center;
@@ -464,7 +458,8 @@ section.authors {
         .banner .banner__search .banner__search__form {
           width: 100%; } }
   .banner .banner__card {
-    margin: 15px 0px; }
+    margin: 15px 0px;
+    z-index: 0; }
     .banner .banner__card.inactive a {
       cursor: not-allowed !important; }
       .banner .banner__card.inactive a i, .banner .banner__card.inactive a span, .banner .banner__card.inactive a div, .banner .banner__card.inactive a p {
