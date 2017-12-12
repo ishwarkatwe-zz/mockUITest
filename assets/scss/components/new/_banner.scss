@@ -1,0 +1,19 @@
+.banner {
+  .banner__image {
+    height: 600px;
+    height: 80vh;
+    position: relative;
+    background: linear-gradient(to bottom, $white, rgba(77, 146, 203, 0.21));
+    background: url("../../../assets/img/iet-bg.jpg");
+    background-position: center;
+    background-size: cover;
+
+    .banner__quote {
+
+    }
+
+    .banner__search__form {
+
+    }
+  }
+}

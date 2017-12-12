@@ -6,7 +6,7 @@
 body {
   font-family: 'Roboto', sans-serif;
   color: #555e6f;
-  background: #eee;
+  background: #f7f7f7;
   padding: 0;
   margin: 0; }
 
@@ -882,6 +882,37 @@ section.authors {
       border-right: 10px solid transparent;
       border-bottom: 10px solid #ffffff; }
 
+.landing-search {
+  background: #fff; }
+  .landing-search .landing-content {
+    height: 80vh;
+    padding: 25% 0px; }
+    .landing-search .landing-content > h1 {
+      padding: 15px 0px;
+      text-align: center;
+      color: #313131; }
+    .landing-search .landing-content .input-group {
+      margin: 20px 0px; }
+      .landing-search .landing-content .input-group > input {
+        border-right: none;
+        font-family: sans-serif;
+        font-weight: normal; }
+      .landing-search .landing-content .input-group > span {
+        background: #fff; }
+    .landing-search .landing-content .card {
+      margin: 20px 0px;
+      text-align: center;
+      height: 115px;
+      width: 115px;
+      padding-top: 25px;
+      border-radius: 50%; }
+      .landing-search .landing-content .card:hover {
+        background: #ccc;
+        cursor: pointer; }
+      .landing-search .landing-content .card > i {
+        font-size: 32px;
+        margin: 5px 0px; }
+
 .top-header .navbar-inverse {
   background: #313131;
   border: none;
@@ -921,7 +952,7 @@ section.authors {
       font-size: 20px;
       color: #FFFFFF; }
   .top-header .navbar-inverse .navbar-nav > li > a {
-    color: #b6babf;
+    color: #ffffff;
     font-weight: bold; }
     .top-header .navbar-inverse .navbar-nav > li > a .badge {
       background: red; }
@@ -966,7 +997,7 @@ section.authors {
   border-top: 1px solid #DDDDDD; }
   .bottom-footer ul.nav-footer {
     padding: 0px;
-    margin: 5px 0px; }
+    margin: 10px 0px; }
     .bottom-footer ul.nav-footer li {
       list-style: none;
       display: inline-block; }
@@ -1007,3 +1038,12 @@ section.authors {
 
 .main-content {
   min-height: calc(100vh - 180px); }
+
+.banner .banner__image {
+  height: 600px;
+  height: 80vh;
+  position: relative;
+  background: linear-gradient(to bottom, #FFFFFF, rgba(77, 146, 203, 0.21));
+  background: url("../../../assets/img/iet-bg.jpg");
+  background-position: center;
+  background-size: cover; }
