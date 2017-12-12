@@ -21,7 +21,7 @@ $border-color: rgba(0, 0, 0, 0.08);
     z-index: 111;
     &.active {
       width: 50px;
-      box-shadow: 0px 0px 5px 0px #b0b0b0;
+      //box-shadow: 0px 0px 5px 0px #b0b0b0;
     }
     float: left;
     border-right: 1px solid $border-color;

@@ -62,6 +62,17 @@
       }
     }
 
+    .navbar-form {
+      &.navbar-left{
+       padding-left: 50px;
+
+        .input-group{
+          >input{
+            width: 200px !important;
+          }
+        }
+      }
+    }
     .navbar-nav {
       > li {
         > a {

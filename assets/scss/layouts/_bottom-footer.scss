@@ -1,71 +1,41 @@
-.bottom-footer {
-  background: $nav-bar-bg;
-  padding: 10px 0px;
-  margin-top: 20px;
-  border-top: 1px solid $gray;
+.footer {
+  height: 10vh;
+  @include respond-to(xs){
+    height: auto;
+  }
 
-  ul.nav-footer {
-    padding: 0px;
-    margin: 10px 0px;
-    li {
-      list-style: none;
+  padding: 10px;
+  background: $navbar-bg;
+  .footer__navbar {
+
+    .footer__copyright {
+      color: $white;
+      padding: 15px 0px;
+      margin: 0px;
       display: inline-block;
-      a {
-        display: block;
-        color: $white;
-        &:first-child {
-          padding-right: 20px;
+    }
+
+    ul {
+      float: right;
+      margin: 0px;
+      padding: 5px 0px;
+      li {
+        list-style: none;
+        display: inline-block;
+        a{
+          color: $white;
+          cursor: pointer;
         }
       }
-
-    }
-    li + li {
-      a {
-        padding: 0px 20px;
+      li + li {
+        padding: 10px 15px;
       }
-    }
-  }
 
-
-  .nav-footer-social{
-    float: right;
-    margin: 0px;
-    li{
-      list-style: none;
-      display: inline-block;
-      a{
-        &:first-child{
-          margin-right: 5px;
-        }
-
-        padding: 10px;
-        &:hover{
-          background: $white;
-          color: $nav-bar-bg;
-        }
-        border: 2px solid $white;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        display: block;
-        text-align: center;
-        cursor: pointer;
-        i{
-          font-size: 18px;
-        }
-      }
-    }
-    li + li {
-      a{
-        margin: 0px 5px;
+      li:first-child {
+        padding-right: 15px;
       }
     }
   }
 
-  > div {
-    a {
-      color: $gray;
-      margin: 10px 0px;
-    }
-  }
+
 }
