@@ -997,9 +997,9 @@ section.authors {
         font-size: 20px;
         color: #FFFFFF; }
     .top-header .navbar-inverse .navbar-form.navbar-left {
-      padding-left: 50px; }
+      padding-left: 130px; }
       .top-header .navbar-inverse .navbar-form.navbar-left .input-group > input {
-        width: 200px !important; }
+        width: 200px; }
     .top-header .navbar-inverse .navbar-nav > li > a {
       color: #b4bcc8; }
       .top-header .navbar-inverse .navbar-nav > li > a .badge {

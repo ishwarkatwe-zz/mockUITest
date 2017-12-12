@@ -16,8 +16,7 @@
     <!-- Custom Style -->
     <link href="./assets/css/style.css" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css"
-          href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css"/>
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -83,11 +82,7 @@
 
                 <form class="navbar-form navbar-left">
                     <div class="input-group">
-
-                        <input type="text" class="form-control"
-                               style="border-left: none;border-right: none;width: 400px"
-                               placeholder="Search for...">
-                         <span class="input-group-btn">
+                        <span class="input-group-btn">
                             <select class="form-control">
                                 <option value="1">Organisation</option>
                                 <option value="2">Author</option>
@@ -95,6 +90,9 @@
                                 <option value="4">Subject Area</option>
                             </select>
                           </span>
+                        <input type="text" class="form-control"
+                               style="border-left: none;border-right: none;width: 400px"
+                               placeholder="Search for...">
                         <span class="input-group-addon" style="border-radius: 0; background: #fff;">
                             <i class="fa fa-search"></i>
                         </span>
@@ -126,7 +124,7 @@
 
     <nav class="breadcrumb__bar">
         <ol class="breadcrumb">
-            <li><a href="organisation.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="organisation.html">Organisation</a></li>
             <li class="active"><a href="javascript:void(0)" onclick="goBack()">University of Cambridge</a></li>
             <li class="active" id="path"></li>
@@ -288,11 +286,17 @@
                         </div>
                         <div class="col-md-4">
                             <div class="row" style="border-left: 1px solid #eae9e9;">
-                                <div class="pull-right">
-                                    <i class="fa fa-calendar glyphicon glyphicon-calendar"></i> Date Range:
-                                    <input type="text" class="form-control input-sm" style="width: 170px;
-                                                display: inline-block;
-                                                margin: 0px 10px;" name="daterange" id="daterange"/>
+                                <div class="col-md-5 pull-right">
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <select class="form-control">
+                                                <option value="1">This Month</option>
+                                                <option value="2">Six Month</option>
+                                                <option value="3">One Year</option>
+                                                <option value="4">Five Years</option>
+                                            </select>
+                                          </span>
+                                    </div>
                                 </div>
                                 <br>
                                 <hr>
@@ -357,6 +361,7 @@
             </div>
 
             <br>
+
             <div class="profile-info">
                 <section class="tabView">
                     <iframe id="tabView" src="./classTrendChart.html" onload="resizeIframe(this)"></iframe>
@@ -413,44 +418,6 @@
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-
-<!-- Include Date Range Picker -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-
-<script type="text/javascript">
-    $(function () {
-
-        $(function () {
-            $('input[name="daterange"]').daterangepicker({
-                "showDropdowns": true,
-                "dateLimit": {
-                    "days": 7
-                },
-                "ranges": {
-                    'This Month': [moment().startOf('month'), moment().endOf('month')],
-                    'Six Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(
-                            1, 'month').endOf('month')],
-                    'One Year': [moment().subtract(1, 'month').startOf('month'), moment().subtract(
-                            1, 'month').endOf('month')],
-                    'Five Years': [moment().subtract(1, 'month').startOf('month'), moment()
-                            .subtract(1, 'month').endOf('month')
-                    ]
-                },
-                "startDate": "01/11/2017",
-                "endDate": "01/12/2017",
-                "minDate": "01/01/1969",
-                "maxDate": "05/31/2017",
-                "opens": "left"
-            });
-        });
-
-    });
-</script>
 
 <script>
     function resizeIframe(obj) {

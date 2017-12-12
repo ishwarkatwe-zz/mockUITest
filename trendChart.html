@@ -3463,38 +3463,38 @@
                 })])
                 .range([2, 13])
 
-            circles
-                .attr("cx", function (d, i) {
-                    return xScale(d[0]);
-                })
-                .attr("cy", j * 30 + 20)
-                .attr("r", function (d) {
-                    return rScale(d[1]);
-                })
-                .style("fill", function (d) {
-                    return c(j);
-                });
+                circles
+                        .attr("cx", function (d, i) {
+                            return xScale(d[0]);
+                        })
+                        .attr("cy", j * 30 + 20)
+                        .attr("r", function (d) {
+                            if (!d[1]){
+                                return 7;
+                            }else
+                            {
+                                return rScale(d[1]);
+                            }
 
-                gtext.append('text')
-                .attr('font-family', 'FontAwesome')
-                .attr('font-size', function (d) {
-                    return '3 em'
-                })
-                .attr("dy", j * 30 + 25)
-                .attr("dx", function (d, i) {
-                    return xScale(d[0]) - 5;
-                })
-                .style("fill", function (d) {
-                     return 'red'
-                    
-                })
-                .text(function (d) {
-                    if(!d[1]){
-                        return '\uf00d'
-                    }
-                  
-                    
-                });   
+                        })
+                        .style("fill", function (d) {
+
+                            if (!d[1]){
+                                return 'white';
+                            }else
+                            {
+                                return c(j);
+                            }
+                        })
+                        .style("stroke", function (d) {
+                            if(!d[1])
+                            {
+                                return 'red';
+                            }
+                        })
+                        .style("stroke-width", function (d) {
+                            return 1.5;
+                        })
 
             text
                 .attr("y", j * 30 + 25)

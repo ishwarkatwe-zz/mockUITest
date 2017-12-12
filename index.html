@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Inspec Analytics</title>
 
+
     <!-- Bootstrap -->
     <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -21,7 +22,11 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-</head>
+
+
+
+
+        </head>
 <body>
 
 <section class="banner">
@@ -44,9 +49,13 @@
                        </select>
                    </span>
 
-                    <input type="text" id="keyword" autocomplete="off" class="form-control input-lg"
+                    <input type="text" id="keyword"  class="form-control input-lg"
                            placeholder="Key in a search term...">
-                    <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-search"></i></span>
+
+
+                    <span class="input-group-addon" id="sizing-addon1">
+                        <a href="organisation.html">
+                        <i class="fa fa-search"></i></a></span>
                 </div>
             </form>
         </section>
@@ -54,7 +63,7 @@
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-6">
                 <div class="banner__card">
-                    <a href="#">
+                    <a href="organisation.html">
                         <i class="fa fa-building-o"></i> <span>12,105</span>
                         <div>Organisation</div>
                         <p>
@@ -118,9 +127,41 @@
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+<script>
+    var searchTerms = [
+        'University of Cambridge',
+        'AGH University of Science and Technology',
+        'Peking University',
+        'Czech Technical University in Prague',
+        'Kyoto University',
+        'South China University of Technology',
+        'Imperial College London',
+        'Northeastern University',
+        'Institute of Physics',
+        'Universiti Sains Malaysia',
+        'University of Southampton',
+        'University of Johannesburg',
+        'Wuhan University',
+        'University of Electronic Science and Technology of China',
+        'Purdue University',
+        'University of California, Berkeley'
+    ];
+
+
+    $('#keyword').typeahead({
+        source: searchTerms,
+        afterSelect: function (item) {
+            window.location = 'viewInst.html';
+        }
+    });
+
+</script>
 
 </body>
 </html>
