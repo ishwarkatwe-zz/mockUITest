@@ -59,46 +59,84 @@
 
 <body>
 
-    <header class="top-header">
-        <nav class="navbar navbar-inverse navbar-fixed-top margin-bottom-none">
-            <!-- <p class="navbar-text navbar-collapse-btn navbar-collapse-btn--left">
-                <i class="fa fa-bars"></i>
-            </p> -->
-            <div class="container-fluid" style="padding: 0px 52px;">
-                <!-- Brand and toggle get grouped for better mobile display -->
 
-
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+<header class="top-header">
+    <nav class="navbar navbar-inverse margin-bottom-none">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header" style="padding-left: 15px">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1"
                         aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/">Inspec Analytics</a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="active">
-                            <a href="index.html">Home</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/" style="padding: 0px">
+                    <img src="./assets/img/logo.png" style="height: 50px">
+                </a>
             </div>
-            <!-- /.container-fluid -->
-        </nav>
-    </header>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <form class="navbar-form navbar-left">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <select class="form-control">
+                                <option value="1">Organisation</option>
+                                <option value="2">Author</option>
+                                <option value="3">Keyword</option>
+                                <option value="4">Subject Area</option>
+                            </select>
+                          </span>
+                        <input type="text" class="form-control"
+                               style="border-left: none;border-right: none;width: 400px"
+                               placeholder="Search for...">
+                        <span class="input-group-addon" style="border-radius: 0; background: #fff;">
+                            <i class="fa fa-search"></i>
+                        </span>
+                    </div>
+                </form>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="index.html">Organisation</a>
+                    </li>
+                    <li>
+                        <a href="index.html">Author</a>
+                    </li>
+                    <li>
+                        <a href="index.html">Subject Area</a>
+                    </li>
+                    <li>
+                        <a href="index.html">Keyword</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <nav class="breadcrumb__bar">
+        <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Organisation</a></li>
+            <li class="active">University of Cambridge</li>
+        </ol>
+    </nav>
+</header>
     <main>
 
         <section class="page-layout">
             <aside class="nav-aside-left active">
                 <ul>
-
-                    <li style="margin-top: 50px">
+                    <li style="margin-top: 10px">
                         <a href="javaScript:chooseOption('tabView', 'classTrendChart.html');">
                             <i class="fa fa-sitemap"></i>
                             <span>Subject Areas</span>
@@ -141,22 +179,8 @@
                 </ul>
             </aside>
             <main class="page-container aside-true">
-                <!-- <nav>
-                    <ol class="breadcrumb">
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li>
-                            <a href="viewInst.html">Institutation</a>
-                        </li>
-                        <li class="active">University of Cambridge</li>
-                    </ol>
-                </nav> -->
-
-
-
                 <div class="profile-info">
-                    <div class="row nav-sticky">
+                    <div class="row nav-sticky hidden">
                         <div class="col-md-5">
                             <img style="padding: 0px;
                                         float: left;
@@ -209,12 +233,19 @@
                         </div>
                     </div>
 
-                    <hr style="margin: 10px 0px;" />
-
                     <section class="author-view">
                         <div class="row">
                             <div class="col-md-8">
                                 <div class="information">
+
+                                    <img style="padding: 0px;
+                                        float: left;
+                                        width: 40px;
+                                        margin: 0px 10px;" src="assets/img/Cam.png" class="img-responsive">
+
+                                    <a class="title" href="#">
+                                        <h3 style="margin: 10px 5px;padding: 7px 0px;">University of Cambridge</h3>
+                                    </a>
 
                                     <div class="row">
                                         <div class="col-md-12">
