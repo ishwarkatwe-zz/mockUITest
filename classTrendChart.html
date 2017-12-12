@@ -1,43 +1,6 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<!-- Include Date Range Picker -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-
-<script type="text/javascript">
-    $(function () {
-
-        $(function () {
-            $('input[name="daterange"]').daterangepicker({
-                "showDropdowns": true,
-                "dateLimit": {
-                    "days": 7
-                },
-                "ranges": {
-                    'This Month': [moment().startOf('month'), moment().endOf('month')],
-                 
-                    'Six Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(
-                        1, 'month').endOf('month')],
-                    'One Year': [moment().subtract(1, 'month').startOf('month'), moment().subtract(
-                        1, 'month').endOf('month')],
-                    'Five Years': [moment().subtract(1, 'month').startOf('month'), moment().subtract(
-                        1, 'month').endOf('month')]
-                },
-                "startDate": "01/11/2017",
-                "endDate": "01/12/2017",
-                "minDate": "01/01/1969",
-                "maxDate": "05/31/2017",
-                "opens": "left"
-            });
-        });
-
-    });
-</script>
 <!-- Bootstrap -->
 <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -83,30 +46,12 @@
 <body>
 
 
-    <div class="pull-right">
-
-        <i class="fa fa-calendar glyphicon glyphicon-calendar"></i> Date Range:
-        <input type="text" name="daterange" />
-
-    </div>
 
     <h4 style="padding: 0px 10px;">
-        <i class="fa fa-sitemap" style="color : #337ab7;"></i> Subject Areas</h4>
+         Subject Areas</h4>
 
-    <br>
-    <nav>
-        <ol class="breadcrumb">
-            <li>
-                <a href="index.html">Organization</a>
-            </li>
-            <li>
-                <a href="viewInst.html">University of Cambridge</a>
-            </li>
-
-            <li class="active">Subject Area</li>
-        </ol>
-    </nav>
     <hr>
+
     <div style="text-align: center">
         <div id="trend-graph"></div>
     </div>
@@ -122,7 +67,29 @@
     <br>
 
     <div class="row">
-        <div class="col-md-3">
+
+        <div class="col-md-2 pull-right">
+            <button class="btn btn-default" type="button">Visualize
+                <span class="badge">5</span>  <i class="fa fa-times" style="padding: 3px 0px;"></i>
+            </button>
+        </div>
+
+
+
+        <div class="col-md-2 pull-right">
+            <div class="input-group">
+                        <span class="input-group-btn">
+                            <select class="form-control">
+                                <option value="1">This Month</option>
+                                <option value="2">Six Month</option>
+                                <option value="3">One Year</option>
+                                <option value="4">Five Years</option>
+                            </select>
+                          </span>
+                </div>
+        </div>
+
+        <div class="col-md-3 pull-right">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search for...">
                 <span class="input-group-btn">
@@ -132,11 +99,8 @@
                 </span>
             </div>
         </div>
-        <div class="col-md-1">
-            <button class="btn btn-default" type="button">Visualize
-                <span class="badge">5</span>  <i class="fa fa-times" style="padding: 3px 0px;"></i>
-            </button>
-        </div>
+
+
     </div>
     <br>
     <div class="table-responsive">
