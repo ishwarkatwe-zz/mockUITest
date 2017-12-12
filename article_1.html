@@ -96,6 +96,52 @@
             fill: #5e8dc9;
         }
 
+
+        .datagrid-panel .data-table {
+            font-size: 12px; }
+        .datagrid-panel .data-table  {
+            width: 454px !important; }
+        .datagrid-panel .data-table thead {
+            border: 1px solid #e5e5e5; }
+        .datagrid-panel .data-table thead tr {
+            background-color: #e9e9e9; }
+        .datagrid-panel .data-table thead tr th {
+            cursor: pointer; }
+        .datagrid-panel .data-table thead tr th i {
+            float: right; }
+        .datagrid-panel .data-table tbody input[type=checkbox] {
+            margin: 0px; }
+        .form-inline {
+            float: right; }
+        .datagrid-panel .form-inline {
+            padding: 0px 5px; }
+        .form-group {
+            padding: 0px 5px; }
+        .datagrid-panel .form-inline .form-group > label {
+            font-weight: normal;
+            padding: 0px 2px; }
+        .datagrid-panel .form-inline > button {
+            width: 35px;
+            font-size: 18px;
+            text-align: center;
+            padding: 0px;
+            font-weight: bold; }
+
+        .data-table {
+            font-size: 12px;
+        }
+        .data-table thead {
+            border: 1px solid #e5e5e5; }
+        .data-table thead tr {
+            background-color: #e9e9e9; }
+        .data-table thead tr th {
+            cursor: pointer; }
+        .data-table thead tr th > i {
+            float: right; }
+        .data-table tbody input[type=checkbox] {
+            margin: 0px;
+            float: right; }
+
     </style>
 
     <!-- Body tag is where we will append our SVG and SVG objects-->
@@ -112,55 +158,54 @@
 
         </div>
     </div>
-    <div class="row">
 
-        <div class="col-md-2 pull-right">
-            <button class="btn btn-default" type="button">Visualize
-                <span class="badge">5</span>  <i class="fa fa-times" style="padding: 3px 0px;"></i>
-            </button>
-        </div>
-
-
-
-        <div class="col-md-2 pull-right">
-            <div class="input-group">
-                        <span class="input-group-btn">
-                            <select class="form-control">
-                                <option value="1">This Month</option>
-                                <option value="2">Six Month</option>
-                                <option value="3">One Year</option>
-                                <option value="4">Five Years</option>
-                            </select>
-                          </span>
-            </div>
-        </div>
-
-        <div class="col-md-3 pull-right">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </span>
-            </div>
-        </div>
-
-
-    </div>
     <br>
 
 
     <div class="table-responsive">
-        <table id="data-table" class="table table-striped table-bordered dataTable" cellspacing="0" width="100%" role="grid" aria-describedby="data-table_info"
-            style="width: 100%;">
+        <table class="table table-bordered table-condensed table-hover data-table">
             <thead>
+
+            <tr>
+
+                <th colspan="6">
+
+
+
+                    <div class="col-md-2 pull-right">
+                        <div class="input-group">
+                                <span class="input-group-btn">
+                                    <select class="form-control">
+                                        <option value="1">This Month</option>
+                                        <option value="2">Six Month</option>
+                                        <option value="3">One Year</option>
+                                        <option value="4">Five Years</option>
+                                    </select>
+                                  </span>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-2 pull-right">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                        </div>
+                    </div>
+
+
+                </th>
+            </tr>
 
                 <tr role="row">
                     <th style="width: 50px">Sl No.</th>
                     <th style="width: 550px">Title  <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i></i>
                     </th>
-                    <th style="width: 120px">Authors <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></th>
+                    <th style="width: 120px">Authors <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i></th>
                     <th style="width: 125px">Subject Area <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i></th>
                     <th style="width: 220px">Organizations <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i></th>
                     <th  style="width: 170px">
@@ -266,38 +311,48 @@
                     <td>06-09-2010</td>
                 </tr>
             </tbody>
+
+            <thead>
+            <tr>
+                <th colspan="8">
+                    <nav>
+
+                        <form class="form-inline">
+
+                            <div class="form-group">
+                                <label>Show rows</label>
+                                <select class="form-control input-sm">
+                                    <option>10</option>
+                                    <option>20</option>
+                                    <option>50</option>
+                                    <option>100</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Go to</label>
+                                <input type="text" class="form-control input-sm" id="goto" placeholder="Page No.">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <b>1 - 10</b> of
+                                    <b>1201</b>
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-default btn-sm">
+                                <i class="fa fa-angle-left"></i>
+                            </button>
+                            <button type="submit" class="btn btn-default btn-sm">
+                                <i class="fa fa-angle-right"></i>
+                            </button>
+                        </form>
+
+
+                    </nav>
+                </th>
+            </tr>
+            </thead>
         </table>
 
-        <nav>
-
-            <ul class="pagination pagination-md pull-right" style="margin:5px 0px;">
-                <li>
-                    <a href="#" aria-label="Previous">
-                        <span aria-hidden="true">«</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">1</a>
-                </li>
-                <li>
-                    <a href="#">2</a>
-                </li>
-                <li>
-                    <a href="#">3</a>
-                </li>
-                <li>
-                    <a href="#">4</a>
-                </li>
-                <li>
-                    <a href="#">5</a>
-                </li>
-                <li>
-                    <a href="#" aria-label="Next">
-                        <span aria-hidden="true">»</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
     </div>
 
 
