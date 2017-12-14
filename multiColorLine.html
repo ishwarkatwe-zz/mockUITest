@@ -130,6 +130,38 @@
                 return "translate(0," + i * 20 + ")";
             });
 
+          var newk=  g.append("g")
+            .attr("font-family", "sans-serif")
+            .attr("id", "legenddiv")
+            .attr("font-size", 10)
+            .attr("text-anchor", "end")
+            .attr("transform", "translate(0," + 80 + ")");
+
+            newk.append("rect")
+            .attr("x", width - 19)
+            .attr("width", 19)
+            .attr("height", 19)
+            .attr("fill", "black");
+
+            newk.append("text")
+            .attr("x", width - 24)
+            .attr("y", 9.5)
+            .attr("dy", "0.32em")
+            .text("articles");
+
+            newk.append("foreignObject")
+            .attr("x", width - 8)
+            .attr("y",-7)
+        .append("xhtml:body")
+        .html("<form><input type=checkbox id=check /></form>")
+
+        
+        legend.append("foreignObject")
+            .attr("x", width - 8)
+            .attr("y",-7)
+        .append("xhtml:body")
+        .html("<form><input type=checkbox checked id=check /></form>")
+
         legend.append("rect")
             .attr("x", width - 19)
             .attr("width", 19)
