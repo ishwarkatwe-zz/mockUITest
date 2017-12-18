@@ -16,6 +16,12 @@
     <style type="text/css">
         /*css to go here*/
 
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+
 
         .g-hed {
             text-align: left;
@@ -153,11 +159,14 @@
     <h4 style="padding: 0px 10px;"> Article</h4>
     <hr>
 
-    <div style="text-align:center">
-        <div id="line-graph">
+    <!--<div style="text-align:center">-->
+        <!--<div id="line-graph">-->
 
-        </div>
-    </div>
+        <!--</div>-->
+    <!--</div>-->
+
+    <iframe src="./lines.html" onload="resizeIframe(this)"
+            style="height: 210px;"></iframe>
 
     <br>
 
@@ -206,8 +215,8 @@
                     <th style="width: 550px">Title  <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i></i>
                     </th>
                     <th style="width: 120px">Authors <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i></th>
-                    <th style="width: 125px">Subject Area <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i></th>
-                    <th style="width: 220px">Organizations <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i></th>
+                    <th style="width: 160px">Subject classifications <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i></th>
+                    <th style="width: 220px">Organisations <i class="fa fa-question-circle-o" style="color: #64636a;" aria-hidden="true"></i></th>
                     <th  style="width: 170px">
                             <i class="fa fa-arrow-down" style="color: #64636a;float:left;padding: 0px 4px;" aria-hidden="true"></i>
                             <i class="fa fa-question-circle-o" style="color: #64636a; float:right" aria-hidden="true"></i>
@@ -589,6 +598,12 @@
                 return 8
                 console.log("return 5")
             }
+        }
+
+
+
+        function resizeIframe(obj) {
+            obj.style.height = (obj.contentWindow.document.body.scrollHeight + 50) + 'px';
         }
     </script>
 

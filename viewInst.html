@@ -85,13 +85,13 @@
                         <span class="input-group-btn">
                             <select class="form-control">
                                 <option value="1">Organisation</option>
-                                <option value="2">Author</option>
-                                <option value="3">Keyword</option>
-                                <option value="4">Subject Area</option>
+                                <option value="2">Authors</option>
+                                <option value="3">Thesaurus keywords</option>
+                                <option value="4">Subject classifications</option>
                             </select>
                           </span>
                         <input type="text" class="form-control"
-                               style="border-left: none;border-right: none;width: 400px"
+                               style="border-left: none;border-right: none;width: 250px"
                                placeholder="Search for..." value="University">
                         <span class="input-group-addon" style="border-radius: 0; background: #fff;">
                             <i class="fa fa-search"></i>
@@ -107,13 +107,13 @@
                         <a href="organisation.html">Organisation</a>
                     </li>
                     <li class="disabled">
-                        <a href="javascript:void(0)">Author</a>
+                        <a href="javascript:void(0)">Authors</a>
                     </li>
                     <li class="disabled">
-                        <a href="javascript:void(0)">Subject Area</a>
+                        <a href="javascript:void(0)">Subject classifications</a>
                     </li>
                     <li class="disabled">
-                        <a href="javascript:void(0)">Keyword</a>
+                        <a href="javascript:void(0)">Thesaurus keywords</a>
                     </li>
                 </ul>
             </div>
@@ -139,33 +139,33 @@
                 <li style="margin-top: 10px">
                     <a href="javaScript:chooseOption('tabView', 'classTrendChart.html');">
                         <i class="fa fa-sitemap"></i>
-                        <span>Subject Areas</span>
+                        <span>Subject classifications</span>
                     </a>
                 </li>
                 <li>
                     <a href="javaScript:chooseOption('tabView', 'trendChart.html');">
                         <i class="fa fa-star-half-o"></i>
-                        <span>Keyword</span>
+                        <span>Thesaurus keywords</span>
                     </a>
                 </li>
                 <li>
                     <a href="javaScript:chooseOption('tabView', 'article_1.html');">
                         <i class="fa fa-book"></i>
-                        <span>Article</span>
+                        <span>Articles</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="javaScript:chooseOption('tabView', 'instTrendChart.html');">
                         <i class="fa fa-handshake-o"></i>
-                        <span>Collaboration</span>
+                        <span>Collaborating organisations</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="javaScript:chooseOption('tabView', 'TrendChartAuthor.html');">
                         <i class="fa fa-user-o"></i>
-                        <span>Author</span>
+                        <span>Authors</span>
                     </a>
                 </li>
 
@@ -221,35 +221,35 @@
                                                     <a>
                                                         <i class="fa fa-book"></i>
                                                         <span>1212</span>
-                                                        Article
+                                                        Articles
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a>
                                                         <i class="fa fa-sitemap"></i>
                                                         <span>21211</span>
-                                                        Subject Area
+                                                        Subject classifications
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a>
                                                         <i class="fa fa-handshake-o"></i>
                                                         <span>4211</span>
-                                                        Collaboration
+                                                        Collaborating organisations
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a>
                                                         <i class="fa fa-star-half-o"></i>
                                                         <span>21221</span>
-                                                        Keyword
+                                                        Thesaurus keywords
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a>
                                                         <i class="fa fa-user-o"></i>
                                                         <span>4212</span>
-                                                        Author
+                                                        Authors
                                                     </a>
                                                 </li>
                                             </ul>
@@ -315,7 +315,7 @@
                                     <h4 style="margin: 5px;
                                                                             font-size: 15px;
                                                                             color: #5799c7;
-                                                                            font-weight: bold;">Keywords</h4>
+                                                                            font-weight: bold;">Top Thesaurus keywords</h4>
                                     <iframe src="./dash3.html" onload="resizeIframe(this)"
                                             style="height: 210px;"></iframe>
                                 </div>
@@ -331,7 +331,7 @@
                                     <h4 style="margin: 5px;
                                                                 font-size: 15px;
                                                                 color: #5799c7;
-                                                                font-weight: bold;">Top Level Subject Areas</h4>
+                                                                font-weight: bold;">Top Level Subject classifications</h4>
                                     <iframe src="./dash1.html" onload="resizeIframe(this)"
                                             style="height: 210px !important;"></iframe>
 
@@ -368,26 +368,26 @@
                 </section>
 
                 <select onchange="chooseOption('tabView', this.value)" class="hidden">
-                    <optgroup label="Subject Area">
+                    <optgroup label="Subject classifications">
                         <option value="./classTrendChart.html">Trend Chart</option>
                         <option value="./treeMap.html">Tree Map</option>
                     </optgroup>
-                    <optgroup label="Keyword">
+                    <optgroup label="Thesaurus keywords">
 
                         <option value="./trendChart.html">Trend Chart</option>
                         <option value="./tagCloud.html">Tag Cloud</option>
                         <option value="./ctTree.html">Tree Map</option>
                     </optgroup>
-                    <optgroup label="Article">
+                    <optgroup label="Articles">
                         <option value="article_1.html">Line Chart</option>
                     </optgroup>
-                    <optgroup label="Collaboration">
+                    <optgroup label="Collaborating organisations">
 
                         <option value="./instTrendChart.html">Trend Chart</option>
                         <option value="./horizonBar.html">Bar Chart</option>
                     </optgroup>
 
-                    <optgroup label="Author">
+                    <optgroup label="Authors">
                         <option value="./TrendChartAuthor.html">Trend Chart</option>
                         <option value="./authorHorizon.html">Bar Chart</option>
                         <option value="./authorTagCloud.html">Tag Cloud</option>
@@ -435,15 +435,15 @@
 
         var path = '';
         if (src == 'classTrendChart.html') {
-            path = 'Subject Areas';
+            path = 'Subject classifications';
         } else if (src == 'trendChart.html') {
-            path = 'Keywords';
+            path = 'Thesaurus keywords';
         } else if (src == 'article_1.html') {
-            path = 'Article';
+            path = 'Articles';
         } else if (src == 'instTrendChart.html') {
-            path = 'Collaboration';
+            path = 'Collaborating organisations';
         } else if (src == 'TrendChartAuthor.html') {
-            path = 'Author';
+            path = 'Authors';
         }
 
         $('#path').html(path);

@@ -1,39 +1,39 @@
 Major Function,Sub-Function,Level 3,FY11 Dollars (Billions)
-Subject Area,Physics,A0000 General,1067
-Subject Area,Physics,A1000 The physics of elementary particles and fields,9000
-Subject Area,Physics,A2000 Nuclear physics,1221
-Subject Area,Physics,A3000 Atomic and molecular physics,2323
-Subject Area,Physics,A4000 Fundamental areas of phenomenology,8934
-Subject Area,Physics,"A5000 Fluids, plasmas and electric discharges",4431
-Subject Area,Physics,"A6000 Condensed matter: structure, thermal and mechanical properties",2323
-Subject Area,Physics,"A7000 Condensed matter: electronic structure, electrical, magnetic, and optical properties",3423
-Subject Area,Physics,A8000 Cross-disciplinary physics and related areas of science and technology,10355
-Subject Area,Physics,"A9000 Geophysics, astronomy and astrophysics",3021
-Subject Area,Electrical Engineering and electronics ,"B0000 General topics, engineering mathematics and materials science",1603
-Subject Area,Electrical Engineering and electronics ,B1000 Circuit theory and circuits,2938
-Subject Area,Electrical Engineering and electronics ,"B2000 Components, electron devices and materials",1038
-Subject Area,Electrical Engineering and electronics ,B3000 Magnetic and superconducting materials and devices,2918
-Subject Area,Electrical Engineering and electronics ,"B4000 Optical materials and applications, electro-optics and optoelectronics",2038
-Subject Area,Electrical Engineering and electronics ,B5000 Electromagnetic fields,4232
-Subject Area,Electrical Engineering and electronics ,B6000 Communications,2038
-Subject Area,Electrical Engineering and electronics ,B7000 Instrumentation and special applications,4928
-Subject Area,Computers and Control ,C0000 General and management topics,2283
-Subject Area,Computers and Control ,C1000 Systems and control theory,2123
-Subject Area,Computers and Control ,C3000 Control technology,1003
-Subject Area,Computers and Control ,C4000 Numerical analysis and theoretical computer topics,2103
-Subject Area,Computers and Control ,C5000 Computer hardware,3003
-Subject Area,Computers and Control ,C6000 Computer software,2113
-Subject Area,Computers and Control ,C7000 Computer applications,2203
-Subject Area,Information Technology for Buisness ,D1000 General & Management aspects of Information Technology,1071
-Subject Area,Information Technology for Buisness ,D2000 Applications of Information Technology,2071
-Subject Area,Information Technology for Buisness ,D3000 General Information Technology systems and equipment,1201
-Subject Area,Information Technology for Buisness ,D4000 Office automation - communications,871
-Subject Area,Information Technology for Buisness ,D5000 Office automation - computing,271
-Subject Area,Mechanical and Production Engineering,E0000 General topics in manufacturing and production engineering,10695
-Subject Area,Mechanical and Production Engineering,E1000 Manufacturing and production,10000
-Subject Area,Mechanical and Production Engineering,E2000 Engineering mechanics,8500
-Subject Area,Mechanical and Production Engineering,E3000 Industrial sectors,11017
-Article,,,12032
-Keyword,,,15041
-Orgnisation,,,2000
-Author,,,25000
+Subject classifications,Physics,A0000 General,1067
+Subject classifications,Physics,A1000 The physics of elementary particles and fields,9000
+Subject classifications,Physics,A2000 Nuclear physics,1221
+Subject classifications,Physics,A3000 Atomic and molecular physics,2323
+Subject classifications,Physics,A4000 Fundamental areas of phenomenology,8934
+Subject classifications,Physics,"A5000 Fluids, plasmas and electric discharges",4431
+Subject classifications,Physics,"A6000 Condensed matter: structure, thermal and mechanical properties",2323
+Subject classifications,Physics,"A7000 Condensed matter: electronic structure, electrical, magnetic, and optical properties",3423
+Subject classifications,Physics,A8000 Cross-disciplinary physics and related areas of science and technology,10355
+Subject classifications,Physics,"A9000 Geophysics, astronomy and astrophysics",3021
+Subject classifications,Electrical Engineering and electronics ,"B0000 General topics, engineering mathematics and materials science",1603
+Subject classifications,Electrical Engineering and electronics ,B1000 Circuit theory and circuits,2938
+Subject classifications,Electrical Engineering and electronics ,"B2000 Components, electron devices and materials",1038
+Subject classifications,Electrical Engineering and electronics ,B3000 Magnetic and superconducting materials and devices,2918
+Subject classifications,Electrical Engineering and electronics ,"B4000 Optical materials and applications, electro-optics and optoelectronics",2038
+Subject classifications,Electrical Engineering and electronics ,B5000 Electromagnetic fields,4232
+Subject classifications,Electrical Engineering and electronics ,B6000 Communications,2038
+Subject classifications,Electrical Engineering and electronics ,B7000 Instrumentation and special applications,4928
+Subject classifications,Computers and Control ,C0000 General and management topics,2283
+Subject classifications,Computers and Control ,C1000 Systems and control theory,2123
+Subject classifications,Computers and Control ,C3000 Control technology,1003
+Subject classifications,Computers and Control ,C4000 Numerical analysis and theoretical computer topics,2103
+Subject classifications,Computers and Control ,C5000 Computer hardware,3003
+Subject classifications,Computers and Control ,C6000 Computer software,2113
+Subject classifications,Computers and Control ,C7000 Computer applications,2203
+Subject classifications,Information Technology for Buisness ,D1000 General & Management aspects of Information Technology,1071
+Subject classifications,Information Technology for Buisness ,D2000 Applications of Information Technology,2071
+Subject classifications,Information Technology for Buisness ,D3000 General Information Technology systems and equipment,1201
+Subject classifications,Information Technology for Buisness ,D4000 Office automation - communications,871
+Subject classifications,Information Technology for Buisness ,D5000 Office automation - computing,271
+Subject classifications,Mechanical and Production Engineering,E0000 General topics in manufacturing and production engineering,10695
+Subject classifications,Mechanical and Production Engineering,E1000 Manufacturing and production,10000
+Subject classifications,Mechanical and Production Engineering,E2000 Engineering mechanics,8500
+Subject classifications,Mechanical and Production Engineering,E3000 Industrial sectors,11017
+Articles,,,12032
+Thesaurus keywords,,,15041
+Collaborating organisations,,,2000
+Authors,,,25000

@@ -52,21 +52,26 @@ body {
 
 .trend_box {
   margin: 15px 0px;
-  padding: 0px; }
-  .trend_box li + li::before {
-    content: " | ";
-    padding: 0px 10px;
-    color: #212121; }
+  padding: 0px;
+  text-align: left; }
+  .trend_box:after {
+    content: '';
+    display: block;
+    clear: both; }
   .trend_box li {
     list-style: none;
     display: inline-block;
-    text-align: center; }
+    width: 50%;
+    float: left;
+    padding: 5px 0px; }
     .trend_box li a {
       color: #212121;
       cursor: pointer; }
       .trend_box li a > i {
         font-size: 16px;
-        color: #555555; }
+        color: #555555;
+        width: 30px;
+        text-align: center; }
       .trend_box li a > span {
         color: #000;
         font-size: 13px;
@@ -991,7 +996,7 @@ section.authors {
         font-size: 20px;
         color: #FFFFFF; }
     .top-header .navbar-inverse .navbar-form.navbar-left {
-      padding-left: 130px; }
+      padding-left: 80px; }
       .top-header .navbar-inverse .navbar-form.navbar-left .input-group > input {
         width: 200px; }
     .top-header .navbar-inverse .navbar-nav > li > a {

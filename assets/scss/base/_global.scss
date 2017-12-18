@@ -68,19 +68,31 @@ body {
   // text-align: center;
   margin: 15px 0px;
   padding: 0px;
-  li+li::before {
-    content: " | ";
-    padding: 0px 10px;
-    color: $primary-text;
+  text-align: left;
+  //li+li::before {
+  //  content: " | ";
+  //  padding: 0px 10px;
+  //  color: $primary-text;
+  //}
+
+  &:after{
+    content: '';
+    display: block;
+    clear: both;
   }
   li {
     list-style: none;
     display: inline-block;
-    text-align: center;
+    //text-align: center;
+    width: 50%;
+    float: left;
+    padding: 5px 0px;
     a {
       >i {
         font-size: 16px;
         color: #555555;
+        width: 30px;
+        text-align: center;
       }
       >span {
         color: #000;

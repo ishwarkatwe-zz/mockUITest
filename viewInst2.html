@@ -16,7 +16,6 @@
     <!-- Custom Style -->
     <link href="./assets/css/style.css" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -33,10 +32,9 @@
             height: 100%;
         }
 
-
-        .nav-tabs>li.active>a,
-        .nav-tabs>li.active>a:focus,
-        .nav-tabs>li.active>a:hover {
+        .nav-tabs > li.active > a,
+        .nav-tabs > li.active > a:focus,
+        .nav-tabs > li.active > a:hover {
             color: #555;
             cursor: default;
             background-color: #fff;
@@ -45,13 +43,13 @@
             border-radius: 0px;
         }
 
-        .nav-tabs>li.active>a,
-        .nav-tabs>li.active>a:focus,
-        .nav-tabs>li.active>a:hover {
+        .nav-tabs > li.active > a,
+        .nav-tabs > li.active > a:focus,
+        .nav-tabs > li.active > a:hover {
             border-top: 2px solid #2e6b9d;
         }
 
-        .nav-tabs>li>a:hover {
+        .nav-tabs > li > a:hover {
             border-color: #eee #eee #ddd;
             border-radius: 0px;
         }
@@ -60,423 +58,427 @@
 
 <body>
 
-    <header class="top-header">
-        <nav class="navbar navbar-inverse navbar-fixed-top margin-bottom-none">
-            <!-- <p class="navbar-text navbar-collapse-btn navbar-collapse-btn--left">
-                <i class="fa fa-bars"></i>
-            </p> -->
-            <div class="container-fluid" style="padding: 0px 52px;">
-                <!-- Brand and toggle get grouped for better mobile display -->
 
-
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+<header class="top-header">
+    <nav class="navbar navbar-inverse margin-bottom-none">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header" style="padding-left: 15px">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1"
                         aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/">Inspec Analytics</a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="active">
-                            <a href="organisation.html">Home</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/" style="padding: 0px">
+                    <img src="./assets/img/logo.png" style="height: 50px">
+                </a>
             </div>
-            <!-- /.container-fluid -->
-        </nav>
-    </header>
-    <main>
 
-        <section class="page-layout">
-            <aside class="nav-aside-left active">
-                <ul>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-                    <li style="margin-top: 50px">
-                        <a href="javaScript:chooseOption('tabView', 'classTrendChart.html');">
-                            <i class="fa fa-sitemap"></i>
-                            <span>Subject Areas</span>
-                        </a>
-                    </li>
+                <form class="navbar-form navbar-left">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <select class="form-control">
+                                <option value="1">Organisation</option>
+                                <option value="2">Authors</option>
+                                <option value="3">Thesaurus keywords</option>
+                                <option value="4">Subject classifications</option>
+                            </select>
+                          </span>
+                        <input type="text" class="form-control"
+                               style="border-left: none;border-right: none;width: 250px"
+                               placeholder="Search for..." value="University">
+                        <span class="input-group-addon" style="border-radius: 0; background: #fff;">
+                            <i class="fa fa-search"></i>
+                        </span>
+                    </div>
+                </form>
+
+                <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="javaScript:chooseOption('tabView', 'trendChart.html');">
-                            <i class="fa fa-star-half-o"></i>
-                            <span>Keyword</span>
-                        </a>
+                        <a href="index.html">Home</a>
                     </li>
-                    <li>
-                        <a href="javaScript:chooseOption('tabView', 'article_1.html');">
-                            <i class="fa fa-book"></i>
-                            <span>Article</span>
-                        </a>
+                    <li class="active">
+                        <a href="organisation.html">Organisation</a>
                     </li>
-
-                    <li>
-                        <a href="javaScript:chooseOption('tabView', 'instTrendChart.html');">
-                            <i class="fa fa-handshake-o"></i>
-                            <span>Collaboration</span>
-                        </a>
+                    <li class="disabled">
+                        <a href="javascript:void(0)">Authors</a>
                     </li>
-
-                    <li>
-                        <a href="javaScript:chooseOption('tabView', 'TrendChartAuthor.html');">
-                            <i class="fa fa-user-o"></i>
-                            <span>Author</span>
-                        </a>
+                    <li class="disabled">
+                        <a href="javascript:void(0)">Subject classifications</a>
                     </li>
-
-                    <li style="margin-top: 250px;">
-                        <a href="#">
-                            <i class="fa fa-arrow-up" style="color:#4d92cb"></i>
-                            <span>Go to Top</span>
-                        </a>
+                    <li class="disabled">
+                        <a href="javascript:void(0)">Thesaurus keywords</a>
                     </li>
-
                 </ul>
-            </aside>
-            <main class="page-container aside-true">
-                <!-- <nav>
-                    <ol class="breadcrumb">
-                        <li>
-                            <a href="organisation.html">Home</a>
-                        </li>
-                        <li>
-                            <a href="viewInst.html">Institutation</a>
-                        </li>
-                        <li class="active">University of Cambridge</li>
-                    </ol>
-                </nav> -->
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
 
+    <nav class="breadcrumb__bar">
+        <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="search_result.html">Organisation</a></li>
+            <li class="active"><a href="javascript:void(0)" onclick="goBack()">University of Cambridge</a></li>
+            <li class="active" id="path"></li>
+        </ol>
+    </nav>
+</header>
+<main>
 
+    <section class="page-layout">
+        <aside class="nav-aside-left active">
+            <ul>
+                <li style="margin-top: 10px">
+                    <a href="javaScript:chooseOption('tabView', 'classTrendChart.html');">
+                        <i class="fa fa-sitemap"></i>
+                        <span>Subject classifications</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javaScript:chooseOption('tabView', 'trendChart.html');">
+                        <i class="fa fa-star-half-o"></i>
+                        <span>Thesaurus keywords</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javaScript:chooseOption('tabView', 'article_1.html');">
+                        <i class="fa fa-book"></i>
+                        <span>Articles</span>
+                    </a>
+                </li>
 
-                <div class="profile-info">
-                    <div class="row nav-sticky">
-                        <div class="col-md-5">
-                            <img style="padding: 0px;
+                <li>
+                    <a href="javaScript:chooseOption('tabView', 'instTrendChart.html');">
+                        <i class="fa fa-handshake-o"></i>
+                        <span>Collaborating organisations</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javaScript:chooseOption('tabView', 'TrendChartAuthor.html');">
+                        <i class="fa fa-user-o"></i>
+                        <span>Authors</span>
+                    </a>
+                </li>
+
+                <li style="margin-top: 250px;">
+                    <a href="javascript:void(0)" onclick="goBack()">
+                        <i class="fa fa-arrow-up" style="color:#4d92cb"></i>
+                        <span>Go to Top</span>
+                    </a>
+                </li>
+
+            </ul>
+        </aside>
+        <main class="page-container aside-true">
+            <div class="profile-info">
+                <div class="row nav-sticky hidden">
+                    <div class="col-md-5">
+                        <img style="padding: 0px;
                                         float: left;
                                         width: 40px;
                                         margin: 0px 10px;" src="assets/img/Cam.png" class="img-responsive">
 
-                            <a class="title" href="#">
-                                <h3 style="margin: 10px 5px;">University of Cambridge</h3>
-                            </a>
-                        </div>
-                        <div class="col-md-7">
-                            <ul class="trend_box">
-                                <li>
-                                    <a>
-                                        <i class="fa fa-book"></i>
-                                        <span>1212</span>
-                                        Article
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                                        <i class="fa fa-sitemap"></i>
-                                        <span>21211</span>
-                                        Subject Area
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                                        <i class="fa fa-handshake-o"></i>
-                                        <span>4211</span>
-                                        Collaboration
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                                        <i class="fa fa-star-half-o"></i>
-                                        <span>21221</span>
-                                        Keyword
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                                        <i class="fa fa-user-o"></i>
-                                        <span>4212</span>
-                                        Author
-                                    </a>
-                                </li>
-                            </ul>
-
-                        </div>
+                        <a class="title" href="#">
+                            <h3 style="margin: 10px 5px;">University of Cambridge</h3>
+                        </a>
                     </div>
+                    <div class="col-md-7">
 
-                    <hr style="margin: 10px 0px;" />
 
-                    <section class="author-view">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="information">
+                    </div>
+                </div>
 
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <iframe src="./galaxy2.html" onload="resizeIframe(this)"></iframe>
+                <section class="author-view">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="information">
+
+                                <img style="padding: 0px;
+                                        float: left;
+                                        width: 40px;
+                                        margin: 0px 10px;" src="assets/img/Cam.png" class="img-responsive">
+
+                                <a class="title" href="#">
+                                    <h3 style="margin: 10px 5px;padding: 7px 0px;">University of Cambridge</h3>
+                                </a>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <iframe src="./galaxy2.html" onload="resizeIframe(this)"></iframe>
+
+                                        <div class="text-center">
+                                            <ul class="trend_box">
+                                                <li>
+                                                    <a>
+                                                        <i class="fa fa-book"></i>
+                                                        <span>1212</span>
+                                                        Articles
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a>
+                                                        <i class="fa fa-sitemap"></i>
+                                                        <span>21211</span>
+                                                        Subject classifications
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a>
+                                                        <i class="fa fa-handshake-o"></i>
+                                                        <span>4211</span>
+                                                        Collaborating organisations
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a>
+                                                        <i class="fa fa-star-half-o"></i>
+                                                        <span>21221</span>
+                                                        Thesaurus keywords
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a>
+                                                        <i class="fa fa-user-o"></i>
+                                                        <span>4212</span>
+                                                        Authors
+                                                    </a>
+                                                </li>
+                                            </ul>
                                         </div>
 
-                                        <div class="col-md-12">
-                                            <p>The University of Cambridge (informally Cambridge University) is a collegiate
-                                                public research university in Cambridge, England. Founded in 1209 and granted
-                                                a royal charter by King Henry III in 1231, Cambridge is the second-oldest
-                                                university in the English-speaking world and the world's fourth-oldest surviving
-                                                university. The university grew out of an association of scholars who left
-                                                the University of Oxford after a dispute with the townspeople. The two medieval
-                                                universities share many common features and are often referred to jointly
-                                                as "Oxbridge".</p>
 
-                                            <p>
-                                                <a href="mail:hymand@mskcc.org">
-                                                    <i class="fa fa-envelope"></i>
-                                                    information@cambridge.org</a>
-                                            </p>
-
-
-
-                                        </div>
                                     </div>
 
+                                    <div class="col-md-12">
+                                        <p>The University of Cambridge (informally Cambridge University) is a collegiate
+                                            public research university in Cambridge, England. Founded in 1209 and
+                                            granted
+                                            a royal charter by King Henry III in 1231, Cambridge is the second-oldest
+                                            university in the English-speaking world and the world's fourth-oldest
+                                            surviving
+                                            university. The university grew out of an association of scholars who left
+                                            the University of Oxford after a dispute with the townspeople. The two
+                                            medieval
+                                            universities share many common features and are often referred to jointly
+                                            as "Oxbridge".</p>
+
+                                        <p>
+                                            <a href="mail:hymand@mskcc.org">
+                                                <i class="fa fa-envelope"></i>
+                                                information@cambridge.org</a>
+                                        </p>
 
 
-
-
-
+                                    </div>
                                 </div>
+
+
                             </div>
-                            <div class="col-md-4">
-                                <div class="row" style="border-left: 1px solid #eae9e9;">
-                                    <div class="pull-right">
-                                        <i class="fa fa-calendar glyphicon glyphicon-calendar"></i> Date Range:
-                                        <input type="text" class="form-control input-sm" style="width: 170px;
-                                                        display: inline-block;
-                                                        margin: 0px 10px;" name="daterange" id="daterange" />
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row" style="border-left: 1px solid #eae9e9;">
+                                <div class="col-md-5 pull-right">
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <select class="form-control">
+                                                <option value="1">This Month</option>
+                                                <option value="2">Six Month</option>
+                                                <option value="3">One Year</option>
+                                                <option value="4">Five Years</option>
+                                            </select>
+                                          </span>
                                     </div>
-                                    <br>
-                                    <hr>
+                                </div>
+                                <br>
+                                <hr>
 
-                                    <div class="col-md-12">
+                                <div class="col-md-12">
 
-                                        <!-- <span class="pull-right">
-                                                            <label class="radio-inline">
-                                                                <input type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1" checked> Recent
-                                                            </label>
-                                                            <label class="radio-inline">
-                                                                <input type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="option2"> All
-                                                            </label>
-                                                        </span> -->
+                                    <!-- <span class="pull-right">
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1" checked> Recent
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="option2"> All
+                                                </label>
+                                            </span> -->
 
-                                        <h4 style="margin: 5px;
-                                                                                    font-size: 15px;
-                                                                                    color: #5799c7;
-                                                                                    font-weight: bold;">Keywords</h4>
-                                        <iframe src="./dash3.html" onload="resizeIframe(this)" style="height: 210px;"></iframe>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <!-- <span class="pull-right">
-                                                            <label class="radio-inline">
-                                                                <input type="radio" name="inlineRadioOptions2" id="inlineRadio1" value="option1" checked> Recent
-                                                            </label>
-                                                            <label class="radio-inline">
-                                                                <input type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="option2"> All
-                                                            </label>
-                                                        </span> -->
-                                        <h4 style="margin: 5px;
-                                                                        font-size: 15px;
-                                                                        color: #5799c7;
-                                                                        font-weight: bold;">Top Level Subject Areas</h4>
-                                        <iframe src="./dash1.html" onload="resizeIframe(this)" style="height: 210px !important;"></iframe>
-
-                                    </div>
-                                    <div class="col-md-12">
-                                        <!-- <span class="pull-right">
-                                                            <label class="radio-inline">
-                                                                <input type="radio" name="inlineRadioOptions3" id="inlineRadio1" value="option1" checked> Recent
-                                                            </label>
-                                                            <label class="radio-inline">
-                                                                <input type="radio" name="inlineRadioOptions3" id="inlineRadio2" value="option2"> All
-                                                            </label>
-                                                        </span> -->
-                                        <h4 style="margin: 5px;
+                                    <h4 style="margin: 5px;
                                                                             font-size: 15px;
                                                                             color: #5799c7;
-                                                                            font-weight: bold;">Articles Per Year</h4>
-                                        <iframe src="./barChart.html" onload="resizeIframe(this)" style="height: 210px;"></iframe>
-
-                                    </div>
+                                                                            font-weight: bold;">Top Thesaurus keywords</h4>
+                                    <iframe src="./dash3.html" onload="resizeIframe(this)"
+                                            style="height: 210px;"></iframe>
+                                </div>
+                                <div class="col-md-12">
+                                    <!-- <span class="pull-right">
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="inlineRadioOptions2" id="inlineRadio1" value="option1" checked> Recent
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="option2"> All
+                                                </label>
+                                            </span> -->
+                                    <h4 style="margin: 5px;
+                                                                font-size: 15px;
+                                                                color: #5799c7;
+                                                                font-weight: bold;">Top Level Subject classifications</h4>
+                                    <iframe src="./dash1.html" onload="resizeIframe(this)"
+                                            style="height: 210px !important;"></iframe>
 
                                 </div>
+                                <div class="col-md-12">
+                                    <!-- <span class="pull-right">
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="inlineRadioOptions3" id="inlineRadio1" value="option1" checked> Recent
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="inlineRadioOptions3" id="inlineRadio2" value="option2"> All
+                                                </label>
+                                            </span> -->
+                                    <h4 style="margin: 5px;
+                                                                    font-size: 15px;
+                                                                    color: #5799c7;
+                                                                    font-weight: bold;">Articles Per Year</h4>
+                                    <iframe src="./barChart.html" onload="resizeIframe(this)"
+                                            style="height: 210px;"></iframe>
+
+                                </div>
+
                             </div>
                         </div>
-                    </section>
-                </div>
-
-                <br>
-                <div class="profile-info">
-                    <section class="tabView">
-                        <iframe id="tabView" src="./article_1.html" onload="resizeIframe(this)"></iframe>
-                    </section>
-
-                    <select onchange="chooseOption('tabView', this.value)">
-                        <optgroup label="Subject Area">
-                            <option value="./classTrendChart.html">Trend Chart</option>
-                            <option value="./treeMap.html">Tree Map</option>
-                        </optgroup>
-                        <optgroup label="Keyword">
-
-                            <option value="./trendChart.html">Trend Chart</option>
-                            <option value="./tagCloud.html">Tag Cloud</option>
-                            <option value="./ctTree.html">Tree Map</option>
-                        </optgroup>
-                        <optgroup label="Article">
-                            <option value="article_1.html">Line Chart</option>
-                        </optgroup>
-                        <optgroup label="Collaboration">
-
-                            <option value="./instTrendChart.html">Trend Chart</option>
-                            <option value="./horizonBar.html">Bar Chart</option>
-                        </optgroup>
-
-                        <optgroup label="Author">
-                            <option value="./TrendChartAuthor.html">Trend Chart</option>
-                            <option value="./authorHorizon.html">Bar Chart</option>
-                            <option value="./authorTagCloud.html">Tag Cloud</option>
-                        </optgroup>
-
-                    </select>
-                </div>
-
-            </main>
-        </section>
-
-    </main>
-    <footer class="bottom-footer">
-        <div class="container-fluid text-right">
-            <ul class="nav-footer">
-                <li>
-                    <a href="#">Home</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Faq</a>
-                </li>
-                <li>
-                    <a href="#">Terms & Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact Us</a>
-                </li>
-            </ul>
-
-
-            <div>
-                <!-- <a href="http://www.molecularconnections.com" target="_blank">Powered By : &copy; Molecular Connections 2017</a> -->
+                    </div>
+                </section>
             </div>
+
+            <br>
+
+            <div class="profile-info">
+                <section class="tabView">
+                    <iframe id="tabView" src="./article_1.html" onload="resizeIframe(this)"></iframe>
+                </section>
+
+                <select onchange="chooseOption('tabView', this.value)" class="hidden">
+                    <optgroup label="Subject classifications">
+                        <option value="./classTrendChart.html">Trend Chart</option>
+                        <option value="./treeMap.html">Tree Map</option>
+                    </optgroup>
+                    <optgroup label="Thesaurus keywords">
+
+                        <option value="./trendChart.html">Trend Chart</option>
+                        <option value="./tagCloud.html">Tag Cloud</option>
+                        <option value="./ctTree.html">Tree Map</option>
+                    </optgroup>
+                    <optgroup label="Articles">
+                        <option value="article_1.html">Line Chart</option>
+                    </optgroup>
+                    <optgroup label="Collaborating organisations">
+
+                        <option value="./instTrendChart.html">Trend Chart</option>
+                        <option value="./horizonBar.html">Bar Chart</option>
+                    </optgroup>
+
+                    <optgroup label="Authors">
+                        <option value="./TrendChartAuthor.html">Trend Chart</option>
+                        <option value="./authorHorizon.html">Bar Chart</option>
+                        <option value="./authorTagCloud.html">Tag Cloud</option>
+                    </optgroup>
+
+                </select>
+            </div>
+
+        </main>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__navbar">
+            <p class="footer__copyright">&copy; 2017 <b>Inspec Analytics</b></p>
+            <ul>
+                <li><a href="#">Privacy Statement</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Forums</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script>
+    function resizeIframe(obj) {
+        obj.style.height = (obj.contentWindow.document.body.scrollHeight + 50) + 'px';
+    }
 
-    <!-- Include Date Range Picker -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    $('.navbar-collapse-btn').click(function () {
+        $('.nav-aside-left').toggleClass('active');
+        $('.page-container').toggleClass('aside-true');
+    });
 
-    <script type="text/javascript">
-        $(function () {
 
-            $(function () {
-                $('input[name="daterange"]').daterangepicker({
-                    "showDropdowns": true,
-                    "dateLimit": {
-                        "days": 7
-                    },
-                    "ranges": {
-                        'This Month': [moment().startOf('month'), moment().endOf('month')],
-                        'Six Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(
-                            1, 'month').endOf('month')],
-                        'One Year': [moment().subtract(1, 'month').startOf('month'), moment().subtract(
-                            1, 'month').endOf('month')],
-                        'Five Years': [moment().subtract(1, 'month').startOf('month'), moment()
-                            .subtract(1, 'month').endOf('month')
-                        ]
-                    },
-                    "startDate": "01/11/2017",
-                    "endDate": "01/12/2017",
-                    "minDate": "01/01/1969",
-                    "maxDate": "05/31/2017",
-                    "opens": "left"
-                });
-            });
+    function chooseOption(ele, src) {
+        $('#' + ele).attr('src', src);
 
-        });
-    </script>
-
-    <script>
-        function resizeIframe(obj) {
-            obj.style.height = (obj.contentWindow.document.body.scrollHeight + 50) + 'px';
+        var path = '';
+        if (src == 'classTrendChart.html') {
+            path = 'Subject classifications';
+        } else if (src == 'trendChart.html') {
+            path = 'Thesaurus keywords';
+        } else if (src == 'article_1.html') {
+            path = 'Articles';
+        } else if (src == 'instTrendChart.html') {
+            path = 'Collaborating organisations';
+        } else if (src == 'TrendChartAuthor.html') {
+            path = 'Authors';
         }
 
-        $('.navbar-collapse-btn').click(function () {
-            $('.nav-aside-left').toggleClass('active');
-            $('.page-container').toggleClass('aside-true');
-        });
+        $('#path').html(path);
 
+        $('html, body').animate({
+            scrollTop: $('#' + ele).offset().top - 100
+        }, 'slow');
 
-        function chooseOption(ele, src) {
-            $('#' + ele).attr('src', src);
-
-            console.log(src);
-
-            $('html, body').animate({
-                scrollTop: $('#' + ele).offset().top - 100
-            }, 'slow');
-
-            // document.getElementById(ele).scrollIntoView();
-
-            if (ele == 'tab2' && (src == './sun.html' || src == './customTree.html')) {
-                $('#' + ele + '_aside').hide();
-            } else {
-                $('#' + ele + '_aside').show();
-            }
-
+        if (ele == 'tab2' && (src == './sun.html' || src == './customTree.html')) {
+            $('#' + ele + '_aside').hide();
+        } else {
+            $('#' + ele + '_aside').show();
         }
 
+    }
 
 
+    function goBack() {
+        $('html, body').animate({
+            scrollTop: $('.author-view').offset().top - 100
+        }, 'slow');
+
+        $('#path').html('');
+    }
 
 
-        $(".fullwidth").click(function () {
-            $(this).parent().toggleClass("col-md-3");
-            $(this).parent().toggleClass("col-md-12");
+    $(".fullwidth").click(function () {
+        $(this).parent().toggleClass("col-md-3");
+        $(this).parent().toggleClass("col-md-12");
 
 
-            $('.fullwidthContainer').toggleClass("col-md-9");
-            $('.fullwidthContainer').parent().toggleClass("col-md-12");
-        });
-
-
-
-        $(window).scroll(function () {
-            if ($(window).scrollTop() >= 200) {
-                $('.nav-sticky').addClass('nav-fixed-header');
-            } else {
-                $('.nav-sticky').removeClass('nav-fixed-header');
-            }
-        });
-    </script>
+        $('.fullwidthContainer').toggleClass("col-md-9");
+        $('.fullwidthContainer').parent().toggleClass("col-md-12");
+    });
+</script>
 </body>
 
 </html>
